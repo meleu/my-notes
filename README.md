@@ -1,7 +1,7 @@
 # 📓 my-notes
 Personal notes about things I've been learning (mostly programming).
 
-by [meleu](https://github.com/meleu).
+[my-notes repo](https://github.com/meleu/my-notes/) by [meleu](https://github.com/meleu)
 
 ## 📝 Notes
 
