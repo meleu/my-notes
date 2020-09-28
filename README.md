@@ -1,9 +1,9 @@
-# my-notes
+# 📓 my-notes
 Personal notes about things I've been learning (mostly programming).
 
-by [meleu](https://github.com/meleu)
+by [meleu](https://github.com/meleu).
 
-## Current Notes
+## 📝 Notes
 
 - [apache-pt_BR](https://meleu.github.io/my-notes/apache-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/apache-pt_BR.md)
 - [dom-pt_BR](https://meleu.github.io/my-notes/dom-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/dom-pt_BR.md)
