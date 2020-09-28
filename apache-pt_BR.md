@@ -1,4 +1,6 @@
-## Apache Virtual Hosting
+# Apache Web Server
+
+## Virtual Hosting
 
 Usei isso num Ubuntu Server 18.04 com Apache 2.
 
