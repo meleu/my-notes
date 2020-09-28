@@ -31,7 +31,7 @@ Isso é um resumo do que eu aprendi lendo esse artigo: [https://thoughtbot.com/b
 - `transform`: move ou muda a aparência de um elemento.
 - `transition`: faz o elemento mudar suave e gradualmente.
 
-Estas duas propriedades são combinadas fazem com que o `transition` torne as mudanças causadas pelo transform ocorrerem de forma suave e agradável (caso contrário a mudança seria abrupta).
+Estas duas propriedades são combinadas fazem com que o `transition` torne as mudanças causadas pelo `transform` ocorrerem de forma suave e agradável (caso contrário a mudança seria abrupta).
 
 Aqui está um exemplo ridiculamente simples de HTML/CSS para ir brincando com as possibilidades:
 ```html
