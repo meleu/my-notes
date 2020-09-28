@@ -1,4 +1,5 @@
 # NginX
+[✏️](https://github.com/meleu/my-notes/edit/master/nginx-pt_BR.md)
 
 ## Introdução
 
