@@ -7,7 +7,7 @@ Todos os exemplos mencionados aqui podem ser testados no console do seu browser.
 
 ## Resumo
 
-1. Acessar os elementos com `document.querySelector()` (ou `querySelectorAll()`).
+1. Acessar os elementos com `document.querySelector()` ou `querySelectorAll()`.
 2. Manipular atributos com `.setAttribute()`/`.getAttribute()`, **exceto para estilização**.
 3. Manipular estilização:
     1. preferencialmente através de classes utilizando `.classList.add()`, `.classList.remove()` e `.classList.toggle()`.
