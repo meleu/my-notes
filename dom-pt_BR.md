@@ -1,3 +1,6 @@
+# Document Object Model
+[✏️](https://github.com/meleu/my-notes/edit/master/dom-pt_BR.md)
+
 O mais básico do básico de DOM manipulation.
 
 Todos os exemplos mencionados aqui podem ser testados no console do seu browser. Basta abrir o "Developer Tools" (geralmente a tecla `F12` abre o DevTools).
