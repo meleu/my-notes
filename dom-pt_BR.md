@@ -5,6 +5,16 @@ O mais básico do básico de DOM manipulation.
 
 Todos os exemplos mencionados aqui podem ser testados no console do seu browser. Basta abrir o "Developer Tools" (geralmente a tecla `F12` abre o DevTools).
 
+## Resumo
+
+1. Acessar os elementos com `document.querySelector()` (ou `querySelectorAll()`).
+2. Manipular atributos com `.setAttribute()`/`.getAttribute()`, **exceto para estilização**.
+3. Manipular estilização:
+    1. preferencialmente através de classes utilizando `.classList.add()`, `.classList.remove()` e `.classList.toggle()`.
+    2. em último caso utilizar `.style.propertyName = newValue` (`propertyName` equivale a `property-name` no CSS).
+4. Lidar com eventos: `addEventListener()`.
+
+
 ## acessando elementos
 
 ```js
@@ -145,13 +155,3 @@ function handleClickParagrafo(event) {
 
 paragrafo.addEventListener('click', handleClickParagrafo);
 ```
-
-
-## Resumo
-
-1. Acessar os elementos com `document.querySelector()` (ou `querySelectorAll()`).
-2. Manipular atributos com `.setAttribute()`/`.getAttribute()`, **exceto para estilização**.
-3. Manipular estilização:
-    1. preferencialmente através de classes utilizando `.classList.add()`, `.classList.remove()` e `.classList.toggle()`.
-    2. em último caso utilizar `.style.propertyName = newValue` (`propertyName` equivale a `property-name` no CSS).
-4. Lidar com eventos: `addEventListener()`.
