@@ -9,10 +9,18 @@ My own list of awesome links.
 - https://flowcv.io/ - create a nice-looking CV
 - https://surge.sh/ - Deploy something—anything—right now, for free
 
+
+## design
+
+- https://www.freecodecamp.org/news/what-is-a-wireframe-ux-design-tutorial-website/
+- https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/
+
+
 ## frontend
 
 HTML + CSS + vanilla JavaScript
 
+- https://www.freecodecamp.org/ - really awesome to learn frontend stuff.
 - https://csslayout.io/ - nice inspiration to pick a layout and then practice CSS.
 - https://htmldom.dev/ - useful DOM manipulation recipes.
 - https://thisthat.dev/ - What is the difference between this & that? e.g.: `display: none` vs. `[hidden]`
@@ -28,6 +36,7 @@ HTML + CSS + vanilla JavaScript
 
 - https://welearncode.com/beginners-guide-react/
 - https://daveceddia.com/react-getting-started-tutorial/
+
 
 ## shell script
 
