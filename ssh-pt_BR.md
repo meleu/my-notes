@@ -1,4 +1,5 @@
 # SSH
+[✏️](https://github.com/meleu/my-notes/edit/master/ssh-pt_BR.md)
 
 ## Criar um usuário sem senha com acesso apenas por chave pública SSH
 
