@@ -13,7 +13,7 @@ My own list of awesome links.
 ## Free APIs
 
 - <http://forismatic.com/en/> - random quotes
-- <https://icanhazdadjoke.com/ - dad jokes
+- <https://icanhazdadjoke.com/> - dad jokes
 - <https://coronavirus-19-api.herokuapp.com> - coronavirus statistics
 - <http://api.urbandictionary.com/v0/define> - urban dictionary
 - <https://en.wikipedia.org/w/api.php> - wikipedia
