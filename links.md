@@ -62,4 +62,6 @@ HTML + CSS + vanilla JavaScript
 ## shell script
 
 - <https://github.com/dylanaraps/pure-bash-bible> - pure bash bible
+- <https://cheat.sh> - the only cheat sheet you need :)
+- <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
 
