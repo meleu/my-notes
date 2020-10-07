@@ -10,6 +10,18 @@ My own list of awesome links.
 - <https://surge.sh/> - Deploy something—anything—right now, for free
 
 
+## Free APIs
+
+- <http://forismatic.com/en/> - random quotes
+- <https://icanhazdadjoke.com/ - dad jokes
+- <https://coronavirus-19-api.herokuapp.com> - coronavirus statistics
+- <http://api.urbandictionary.com/v0/define> - urban dictionary
+- <https://en.wikipedia.org/w/api.php> - wikipedia
+- <https://graphql.anilist.co/> - anime info
+- <https://bulbapedia.bulbagarden.net/w/api.php> - pokemon data
+- <http://api.wordnik.com/v4/word.json/> - interesting for word definitions
+
+
 ## design
 
 - <https://www.freecodecamp.org/news/what-is-a-wireframe-ux-design-tutorial-website/>
