@@ -125,7 +125,7 @@ urlencode() {
             printf '%%%02X' "'$char" 
         fi
     done
-    printf '\n' # opcional
+    printf '\n' # optional
 }
 
 urlencode "$@"
@@ -143,7 +143,7 @@ urlencode "$@"
 urldecode() {
     local encoded="${*//+/ }"
     printf '%b\n' "${encoded//%/\\x}"
-    # o '\n' acima é opcional
+    # the '\n' above is optional
 }
 
 urldecode "$@"
