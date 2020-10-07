@@ -24,8 +24,9 @@ My own list of awesome links.
 
 ## design
 
-- <https://www.freecodecamp.org/news/what-is-a-wireframe-ux-design-tutorial-website/>
-- <https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/>
+- <https://www.freecodecamp.org/news/what-is-a-wireframe-ux-design-tutorial-website/> - wireframes prototyping - pt 1
+- <https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/> - wireframes prototyping - pt 2
+- <https://blog.prototypr.io/how-to-design-a-dark-theme-for-your-android-app-3daeb264637>
 
 
 ## frontend
@@ -36,7 +37,15 @@ HTML + CSS + vanilla JavaScript
 - <https://csslayout.io/> - nice inspiration to pick a layout and then practice CSS.
 - <https://htmldom.dev/> - useful DOM manipulation recipes.
 - <https://thisthat.dev/> - What is the difference between this & that? e.g.: `display: none` vs. `[hidden]`
-- <https://welearncode.com/> - Ali Spittel website. High quality articles.
+- <https://welearncode.com/> - Ali Spittel's website. High quality articles.
+
+
+## free assets
+
+- <http://heropatterns.com> - A collection of repeatable SVG background patterns for you to use on your web projects.
+- <https://unsplash.com> - Nice and free photos.
+- <https://undraw.co/illustrations> - Nice and free illustrations.
+- <https://paletton.com/> - Useful tool to help you to pic a nice color scheme.
 
 
 ## node
