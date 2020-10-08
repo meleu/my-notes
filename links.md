@@ -10,6 +10,9 @@ My own list of awesome links.
 - <https://surge.sh/> - Deploy something - anything - right now, for free
 
 
+
+
+
 ## Free APIs
 
 - <http://forismatic.com/en/> - random quotes
@@ -30,15 +33,22 @@ My own list of awesome links.
 - <https://blog.prototypr.io/how-to-design-a-dark-theme-for-your-android-app-3daeb264637>
 
 
+## developers who inspire me
+
+- <https://welearncode.com/> - Ali Spittel. High quality articles.
+- <https://www.taniarascia.com/> - Tania Rascia. Really good guides.
+- <https://adamwathan.me/> - Adam Wathan.
+
+
 ## frontend
 
 HTML + CSS + JavaScript
 
+- <https://jgthms.com/web-design-in-4-minutes/> - webdesign in 4 minutes.
 - <https://www.freecodecamp.org/> - really awesome to learn frontend stuff.
 - <https://csslayout.io/> - nice inspiration to pick a layout and then practice CSS.
 - <https://htmldom.dev/> - useful DOM manipulation recipes.
 - <https://thisthat.dev/> - What is the difference between this & that? e.g.: `display: none` vs. `[hidden]`
-- <https://welearncode.com/> - Ali Spittel's website. High quality articles.
 - <https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript#use_async_or_defer> - in depth guide about optimizing the loading time of javascript files.
 - <https://michalsnik.github.io/aos/> - animate on scroll library.
 
@@ -60,6 +70,7 @@ HTML + CSS + JavaScript
 
 - <https://welearncode.com/beginners-guide-react/>
 - <https://daveceddia.com/react-getting-started-tutorial/>
+- <https://www.taniarascia.com/getting-started-with-react/>
 
 
 ## shell script
