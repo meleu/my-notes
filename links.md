@@ -35,9 +35,10 @@ My own list of awesome links.
 
 ## developers who inspire me
 
-- <https://welearncode.com/> - Ali Spittel. High quality articles.
 - <https://www.taniarascia.com/> - Tania Rascia. Really good guides.
+- <https://welearncode.com/> - Ali Spittel. High quality articles.
 - <https://adamwathan.me/> - Adam Wathan.
+- <https://daveceddia.com/> - Dave Ceddia
 
 
 ## frontend
