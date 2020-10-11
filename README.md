@@ -11,6 +11,7 @@ Personal notes about things I've been learning (mostly programming).
 - [css-pt_BR](https://meleu.github.io/my-notes/css-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/css-pt_BR.md)
 - [docker](https://meleu.github.io/my-notes/docker) - [✏️](https://github.com/meleu/my-notes/edit/master/docker.md)
 - [dom-pt_BR](https://meleu.github.io/my-notes/dom-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/dom-pt_BR.md)
+- [http](https://meleu.github.io/my-notes/http) - [✏️](https://github.com/meleu/my-notes/edit/master/http.md)
 - [links](https://meleu.github.io/my-notes/links) - [✏️](https://github.com/meleu/my-notes/edit/master/links.md)
 - [nginx-pt_BR](https://meleu.github.io/my-notes/nginx-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/nginx-pt_BR.md)
 - [postgresql](https://meleu.github.io/my-notes/postgresql) - [✏️](https://github.com/meleu/my-notes/edit/master/postgresql.md)
