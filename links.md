@@ -53,10 +53,13 @@ HTML + CSS + JavaScript
 - <https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript#use_async_or_defer> - in depth guide about optimizing the loading time of javascript files.
 - <https://michalsnik.github.io/aos/> - animate on scroll library.
 
+
 ## free assets
 
 - <http://heropatterns.com> - A collection of repeatable SVG background patterns for you to use on your web projects.
 - <https://unsplash.com> - Nice and free photos.
+- <https://www.pexels.com/> - free photos.
+- <https://pikwizard.com/> - free photos
 - <https://undraw.co/illustrations> - Nice and free illustrations.
 - <https://randomuser.me> - random profile pictures for generic avatars.
 - <https://paletton.com/> - Useful tool to help you to pic a nice color scheme.
