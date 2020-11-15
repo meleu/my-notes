@@ -38,8 +38,9 @@ My own list of awesome links.
 
 - <https://www.taniarascia.com/> - Tania Rascia. Really good guides.
 - <https://welearncode.com/> - Ali Spittel. High quality articles.
-- <https://adamwathan.me/> - Adam Wathan.
-- <https://www.swyx.io/> - Shawn Wang 
+- <https://adamwathan.me/> - Adam Wathan
+- <https://www.swyx.io/> - Shawn Wang
+- <https://jvns.ca/> - Julia Evans
 - <https://daveceddia.com/> - Dave Ceddia
 
 
