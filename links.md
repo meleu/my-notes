@@ -42,6 +42,7 @@ My own list of awesome links.
 - <https://www.swyx.io/> - Shawn Wang
 - <https://jvns.ca/> - Julia Evans
 - <https://daveceddia.com/> - Dave Ceddia
+- <https://maggieappleton.com/> - Maggie Appleton
 
 
 
