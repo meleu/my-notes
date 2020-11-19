@@ -57,6 +57,7 @@ HTML + CSS + JavaScript
 - <https://thisthat.dev/> - What is the difference between this & that? e.g.: `display: none` vs. `[hidden]`
 - <https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript#use_async_or_defer> - in depth guide about optimizing the loading time of javascript files.
 - <https://michalsnik.github.io/aos/> - animate on scroll library.
+- <https://www.happyhues.co/> - Not sure what colors to use in your designs or where to use them? Happy Hues is a color palette inspiration site that acts as a real world example as to how the colors could be used in your design projects.
 
 
 ## free assets
