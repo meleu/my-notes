@@ -10,7 +10,9 @@ My own list of awesome links.
 - <https://surge.sh/> - Deploy something - anything - right now, for free
 
 
+## Database
 
+- <https://www.beekeeperstudio.io/> - Open Source SQL Editor and Database Manager
 
 
 ## Free APIs
@@ -28,6 +30,8 @@ My own list of awesome links.
 
 ## design
 
+- <https://figma.com> - prototyping UI
+- <https://whimsical.com> - prototype, wireframes, flowcharts, etc.
 - <https://www.freecodecamp.org/news/what-is-a-wireframe-ux-design-tutorial-website/> - wireframes prototyping - pt 1
 - <https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/> - wireframes prototyping - pt 2
 - <https://blog.prototypr.io/how-to-design-a-dark-theme-for-your-android-app-3daeb264637>
@@ -39,6 +43,7 @@ My own list of awesome links.
 - <https://welearncode.com/> - Ali Spittel. High quality articles.
 - <https://adamwathan.me/> - Adam Wathan.
 - <https://daveceddia.com/> - Dave Ceddia
+- <https://www.joelonsoftware.com/> - Joel Spolsky - nice "developer's philosophy" posts
 
 
 ## frontend
@@ -79,4 +84,6 @@ HTML + CSS + JavaScript
 - <https://github.com/dylanaraps/pure-bash-bible> - pure bash bible
 - <https://cheat.sh> - the only cheat sheet you need :)
 - <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
+- <http://mywiki.wooledge.org/> - awesome bash knowledge resource.
+- <https://wiki.bash-hackers.org> - 
 
