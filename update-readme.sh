@@ -44,7 +44,7 @@ readonly REGEX_TOC_HEADING='^## .* Notes'
 ##########################################################################
 # no need to edit anything from below this line
 
-readonly REPO_DIR="${GIT_DIR}/.."
+readonly REPO_DIR="$(git rev-parse --git-dir)/.."
 
 linksList() {
   local fileFull
@@ -63,7 +63,7 @@ linksList() {
 }
 
 updateReadme() {
-  local readme="${GIT_DIR}/../README.md"
+  local readme="${REPO_DIR}/README.md"
 
   if [[ ! -f "${readme}" ]]; then
     echo "${readme}: file not found. Aborting..." >&2
