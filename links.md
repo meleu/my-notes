@@ -8,6 +8,7 @@ My own list of awesome links.
 - <https://increment.com/> - a magazine about how teams build and operate software systems at scale.
 - <https://flowcv.io/> - create a nice-looking CV
 - <https://surge.sh/> - Deploy something - anything - right now, for free
+- <https://pagexl.com/> - Create a simple and beautiful one-page website in 5 minutes.
 
 
 ## Database
@@ -41,9 +42,13 @@ My own list of awesome links.
 
 - <https://www.taniarascia.com/> - Tania Rascia. Really good guides.
 - <https://welearncode.com/> - Ali Spittel. High quality articles.
-- <https://adamwathan.me/> - Adam Wathan.
+- <https://adamwathan.me/> - Adam Wathan
+- <https://www.swyx.io/> - Shawn Wang
+- <https://jvns.ca/> - Julia Evans
 - <https://daveceddia.com/> - Dave Ceddia
 - <https://www.joelonsoftware.com/> - Joel Spolsky - nice "developer's philosophy" posts
+- <https://maggieappleton.com/> - Maggie Appleton
+
 
 
 ## frontend
@@ -57,11 +62,15 @@ HTML + CSS + JavaScript
 - <https://thisthat.dev/> - What is the difference between this & that? e.g.: `display: none` vs. `[hidden]`
 - <https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript#use_async_or_defer> - in depth guide about optimizing the loading time of javascript files.
 - <https://michalsnik.github.io/aos/> - animate on scroll library.
+- <https://www.happyhues.co/> - Not sure what colors to use in your designs or where to use them? Happy Hues is a color palette inspiration site that acts as a real world example as to how the colors could be used in your design projects.
+
 
 ## free assets
 
 - <http://heropatterns.com> - A collection of repeatable SVG background patterns for you to use on your web projects.
 - <https://unsplash.com> - Nice and free photos.
+- <https://www.pexels.com/> - free photos.
+- <https://pikwizard.com/> - free photos
 - <https://undraw.co/illustrations> - Nice and free illustrations.
 - <https://randomuser.me> - random profile pictures for generic avatars.
 - <https://paletton.com/> - Useful tool to help you to pic a nice color scheme.
@@ -85,5 +94,5 @@ HTML + CSS + JavaScript
 - <https://cheat.sh> - the only cheat sheet you need :)
 - <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
 - <http://mywiki.wooledge.org/> - awesome bash knowledge resource.
-- <https://wiki.bash-hackers.org> - 
+- <https://wiki.bash-hackers.org> - more bash hacking
 

@@ -13,6 +13,7 @@ Personal notes about things I've been learning (mostly programming).
 - [dom-pt_BR](https://meleu.github.io/my-notes/dom-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/dom-pt_BR.md)
 - [http](https://meleu.github.io/my-notes/http) - [✏️](https://github.com/meleu/my-notes/edit/master/http.md)
 - [links](https://meleu.github.io/my-notes/links) - [✏️](https://github.com/meleu/my-notes/edit/master/links.md)
+- [nextjs-pt_BR](https://meleu.github.io/my-notes/nextjs-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/nextjs-pt_BR.md)
 - [nginx-pt_BR](https://meleu.github.io/my-notes/nginx-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/nginx-pt_BR.md)
 - [nodejs](https://meleu.github.io/my-notes/nodejs) - [✏️](https://github.com/meleu/my-notes/edit/master/nodejs.md)
 - [postgresql](https://meleu.github.io/my-notes/postgresql) - [✏️](https://github.com/meleu/my-notes/edit/master/postgresql.md)
