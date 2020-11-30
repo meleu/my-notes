@@ -58,6 +58,7 @@ HTML + CSS + JavaScript
 - <https://jgthms.com/web-design-in-4-minutes/> - webdesign in 4 minutes.
 - <https://www.freecodecamp.org/> - really awesome to learn frontend stuff.
 - <https://csslayout.io/> - nice inspiration to pick a layout and then practice CSS.
+- <https://css-tricks.com/dom/> - nice article to explain in simple terms what the DOM is.
 - <https://htmldom.dev/> - useful DOM manipulation recipes.
 - <https://thisthat.dev/> - What is the difference between this & that? e.g.: `display: none` vs. `[hidden]`
 - <https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript#use_async_or_defer> - in depth guide about optimizing the loading time of javascript files.
