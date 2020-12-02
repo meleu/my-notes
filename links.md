@@ -3,6 +3,10 @@
 
 My own list of awesome links.
 
+
+{% include_relative bash.md %}
+
+
 ## misc.
 
 - <https://increment.com/> - a magazine about how teams build and operate software systems at scale.
