@@ -9,6 +9,7 @@ My own list of awesome links.
 - <https://flowcv.io/> - create a nice-looking CV
 - <https://surge.sh/> - Deploy something - anything - right now, for free
 - <https://pagexl.com/> - Create a simple and beautiful one-page website in 5 minutes.
+- <https://css-tricks.com/license/> - interesting license note.
 
 
 ## Database
