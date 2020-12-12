@@ -10,7 +10,7 @@ Installing:
 docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
-**Note**: in the option `-p`, the first number is the port of the "real" machine, and the number after `:` is the container's port.
+**Note**: in the option `-p`, the first number is the port of the host machine, and the number after `:` is the container's port.
 
 
 ### Postbird
