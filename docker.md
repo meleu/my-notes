@@ -303,3 +303,111 @@ Run it:
 ```
 docker container run --publish 80:80 nginx-copy-file
 ```
+
+### Create an image with a volume that can be shared
+
+In this example we're going to use a Python web server. The file is named `run.py`:
+```python
+import logging
+import http.server
+import socketserver
+import getpass
+
+class MyHTTPHandler(http.server.SimpleHTTPRequestHandler):
+  def log_message(self, format, *args):
+    logging.info("%s - - [%s] %s\n"% (
+      self.client_address[0],
+      self.log_date_time_string(),
+      format%args
+    ))
+
+logging.basicConfig(
+  filename='/log/http-server.log',
+  format='%(asctime)s - %(levelname)s - %(message)s',
+  level=logging.INFO
+)
+logging.getLogger().addHandler(logging.StreamHandler())
+logging.info('starting...')
+PORT = 8000
+
+httpd = socketserver.TCPServer(("", PORT), MyHTTPHandler)
+logging.info('listening on port: %s', PORT)
+logging.info('user: %s', getpass.getuser())
+httpd.serve_forever()
+```
+
+**Note**: in the code above we're creating a log in the file `/log/http-server.log`.
+
+We'll also need a simple `index.html`:
+```html
+<h1>Hello from Python!</h1>
+```
+
+`Dockerfile`
+```
+FROM python:3.6
+LABEL maintainer 'meleu <meleu at meleu.dev>'
+
+RUN useradd www && \
+  mkdir /app && \
+  mkdir /log && \
+  chown www /log
+
+USER www
+VOLUME /log
+WORKDIR /app
+EXPOSE 8000
+
+ENTRYPOINT ["/usr/local/bin/python"]
+CMD ["run.py"]
+```
+
+**Note**: the volume that will be available for external containers will be the `/log`.
+
+Building the image:
+```
+docker image build --tag python-web-server
+```
+
+Running the container:
+```
+docker container run \
+  --interactive \
+  --tty \
+  --volume "$(pwd)":/app \
+  --publish 80:8000 \
+  --name python-server \
+  python-web-server
+```
+
+Now we're going to run another container and get access to the volume created in
+the container above:
+
+```
+docker container run \
+  --interactive \
+  --tty \
+  --volumes-from python-server \
+  debian \
+  cat /log/http-server.log
+```
+
+
+## Pushing an image to the Docker Hub
+
+1. create an account at <https://hub.docker.com>.
+
+2. create a tag for the image you're going to upload:
+```
+docker image tag ex-simple-build USER_NAME/IMAGE_BUILD_NAME:1.0
+```
+
+3. authenticate via CLI (it'll ask for your password):
+```
+docker login --username=USER_NAME
+```
+
+4. push it to the server:
+```
+docker image push USER_NAME/IMAGE_BUILD_NAME:1.0
+```
