@@ -25,4 +25,5 @@ Personal notes about things I've been learning (mostly programming).
 - [sed](https://meleu.github.io/my-notes/sed) - [✏️](https://github.com/meleu/my-notes/edit/master/sed.md)
 - [sql](https://meleu.github.io/my-notes/sql) - [✏️](https://github.com/meleu/my-notes/edit/master/sql.md)
 - [ssh-pt_BR](https://meleu.github.io/my-notes/ssh-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/ssh-pt_BR.md)
+- [vim](https://meleu.github.io/my-notes/vim) - [✏️](https://github.com/meleu/my-notes/edit/master/vim.md)
 - [vscode-pt_BR](https://meleu.github.io/my-notes/vscode-pt_BR) - [✏️](https://github.com/meleu/my-notes/edit/master/vscode-pt_BR.md)
