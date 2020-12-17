@@ -4,7 +4,7 @@
 ## video series: Onramp to Vim
 
 - link: <https://thoughtbot.com/upcase/onramp-to-vim>
-
+- (this series seems older but still interesting: <https://thoughtbot.com/upcase/the-art-of-vim>)
 
 ### sensible.vim
 
