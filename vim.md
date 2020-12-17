@@ -34,7 +34,7 @@ See `:h motion` for more info.
 
 The commands are usually composed of a verb and a noun. Example: `dw`, stands for delete a word.
 
-Tip: usually the same key used two times in a row applies the verb in the whole line. Examples: `dd` deletes the whole line, `cc` change the whole line.
+**Tip**: usually the same key used two times in a row applies the verb in the whole line. Examples: `dd` deletes the whole line, `cc` change the whole line.
 
 "Text Objects"
 
@@ -49,4 +49,4 @@ Tip: usually the same key used two times in a row applies the verb in the whole 
 
 See `:h text-objects` for more options.
 
-Tip: prefer using text-objects rather than motions in order to increase repeatability.
+**Tip**: prefer using text-objects rather than motions in order to increase repeatability.
