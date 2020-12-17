@@ -1,6 +1,3 @@
-# tmux
-[✏️](https://github.com/meleu/my-notes/edit/master/tmux.md)
-
 ## cheatsheet
 
 ### **By resources**
@@ -310,6 +307,9 @@ Initial commands:
 - `<prefix> %` - split horizontally
 - `<prefix> "` - split vertically
 - `<prefix> o` - jump to the other pane
+- `<prefix> c` - creates a new window
+
+Check `man tmux` and `/KEY BINDINGS` for more.
 
 #### Config file
 
@@ -339,5 +339,6 @@ And list the running sessions with:
 ```
 tmux list-sessions
 ```
+
 
 
