@@ -4,8 +4,8 @@
 ## cool videos
 
 - [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
-- [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac)
-- <https://thoughtbot.com/upcase/the-art-of-vim>) - some useful vim tips
+- [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac) - VimConf talk
+- <https://thoughtbot.com/upcase/the-art-of-vim> - some useful vim tips
 
 
 ## video series: Onramp to Vim
