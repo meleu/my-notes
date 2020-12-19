@@ -1,10 +1,19 @@
 # vim
 [✏️](https://github.com/meleu/my-notes/edit/master/vim.md)
 
+## cool videos
+
+- [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
+- [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac)
+- <https://thoughtbot.com/upcase/the-art-of-vim>) - some useful vim tips
+
+
 ## video series: Onramp to Vim
 
+This is the best video series I found on the internet to get started with vim
+
 - link: <https://thoughtbot.com/upcase/onramp-to-vim>
-- (this series seems older but still interesting: <https://thoughtbot.com/upcase/the-art-of-vim>)
+
 
 ### sensible.vim
 
