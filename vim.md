@@ -1,6 +1,16 @@
 # vim
 [✏️](https://github.com/meleu/my-notes/edit/master/vim.md)
 
+## vimwiki
+
+Questions to be answered:
+
+- How to add a trailing `.md` extension when creating a new wiki page with `<Enter>`?
+- How to git commit & push after saving with `:w`?
+- How to open a specific wiki from command line? (I want to open my-notes with an alias like `mynotes`)
+- How to sort an unordered list alphabetically?
+    - Answer: <https://github.com/christoomey/vim-sort-motion>
+
 ## cool videos
 
 - [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
