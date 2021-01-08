@@ -1,5 +1,5 @@
 # NextJS
-[✏️](https://github.com/meleu/my-notes/edit/master/nextjs-pt_BR.md)
+[✏️](https://github.com/meleu/my-notes/edit/master/nextjs.md)
 
 ## Diferenças SSG x SPA x SSR
 
