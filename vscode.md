@@ -1,5 +1,5 @@
 # Visual Studio Code
-[✏️](https://github.com/meleu/my-notes/edit/master/vscode-pt_BR.md)
+[✏️](https://github.com/meleu/my-notes/edit/master/vscode.md)
 
 ## debugar via VSCode
 
