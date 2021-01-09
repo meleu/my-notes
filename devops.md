@@ -169,7 +169,15 @@ A má implementação ou excesso de customização pode destruir uma ótima ferr
 
 "State of DevOps Report" é um documento que vale a pena conferir para entender para onde que o mercado está indo.
 
-Benefícios:
-- frequência de deploy.
-- lead time (tempo de entrega de ponta a ponta, desde o pedido até a entrega)
-- redução de downtime
+<https://puppet.com/resources/report/2020-state-of-devops-report>
+
+Ver também: <https://cloud.google.com/devops/>
+
+### Benefícios da Cultura DevOps
+
+1. frequência de deploy.
+2. lead time (tempo de entrega de ponta a ponta, desde o pedido até a entrega).
+3. redução de downtime.
+4. redução do tempo de recuperação (como há uma tolerância para que se falhe o mais cedo possível, adquire-se expertise para recuperar rapidamente).
+
+
