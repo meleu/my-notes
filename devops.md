@@ -1,5 +1,9 @@
+# DevOps
+[✏️](https://github.com/meleu/my-notes/edit/master/devops.md)
 
 ## Jornada DevOps
+
+https://www.udemy.com/course/curso-oficial-para-certificacao-exin-devops-profissional
 
 ### Intro
 
@@ -169,15 +173,84 @@ A má implementação ou excesso de customização pode destruir uma ótima ferr
 
 "State of DevOps Report" é um documento que vale a pena conferir para entender para onde que o mercado está indo.
 
-<https://puppet.com/resources/report/2020-state-of-devops-report>
+Benefícios:
+- frequência de deploy.
+- lead time (tempo de entrega de ponta a ponta, desde o pedido até a entrega)
+- redução de downtime
 
-Ver também: <https://cloud.google.com/devops/>
 
-### Benefícios da Cultura DevOps
 
-1. frequência de deploy.
-2. lead time (tempo de entrega de ponta a ponta, desde o pedido até a entrega).
-3. redução de downtime.
-4. redução do tempo de recuperação (como há uma tolerância para que se falhe o mais cedo possível, adquire-se expertise para recuperar rapidamente).
+
+### Integração Contínua
+
+Controle de versão
+  > Compilação
+    > Testes e análise de código (feedback/correção imediatos em caso de problemas)
+
+Codificação e testes no ambiente dos desenvolvedores.
+
+O instrutor menciona que o SONAR pode ser utilizado para testes
+
+
+
+### Entrega Contínua
+
+Integração Contínua finalizada
+  > Deploy em Homologação
+    > Testes e análise de código (feedback imediato em caso de falha)
+      > Pronto para deploy em produção
+
+- Tanto código quanto infraestrutura estejam prontos para implantar com segurança.
+- Deploy automatizado nos ambientes que antecedem a produção para inspeção final e novos testes.
+- O deploy em produção é manual (só "apertar um botão").
+
+
+
+### Implantação Contínua
+
+Integração Contínua finalizada
+  > Deploy em Homologação
+    > Testes e análise de código (feedback imediato em caso de falha)
+      > Deploy automático em produção
+
+A única diferença da Entrega Contínua é que o deploy não depende de intervenção humana. É necessário avaliar se o deploy contínuo faz sentido para o produto sendo desenvolvido.
+
+
+### Relação entre Integração, Entrega e Implantação
+
+Integração Contínua > Entrega Contínua > Implantação Contínua
+
+english:
+Continuous Integhration > Continuous Release > Continuous Deploy
+
+
+### Infraestrutura Ágil
+
+É a aplicação dos princípios ágeis na infraestrutura.
+
+Foco na infraestrutura como código:
+
+- Gerência e provisão de ambientes automaticamente.
+- Tudo fica centralizado no controle de versões.
+- Nuvem/virtualização é a base e existem ferramentas para otimizar (puppet, docker, chef, ansible, etc).
+
+
+### Kata
+
+Toyota Kata
+
+- Criação de uma estrutura para a prática habitual de melhoria.
+- A prática diária e que melhora os resultados.
+- Ciclo de estados futuros, resultados-alvos semanais e melhoria contínua do trabalho diário.
+- Bastante utilizado na Toyota com foco em pequenas ações e experimentação.
+
+
+Entender a condição atual <-> Estabelecer a próxima condição-alvo <-> PDCA na direção da condição alvo
+
+(não entendi muito bem, acho que precisarei pesquisar mais sobre o Toyota Kata)
+
+
+### Trabalho em Andamento (wip)
+
 
 
