@@ -295,3 +295,68 @@ Causas do débito técnico:
 - pressão de chefes e áreas de negócio
 
 
+### Fluxo de Valor
+
+O conceito de valor é subjetivo e nem sempre está associado à dinheiro.
+
+- Fluxo de valor: concretiza uma necessidade em um produto ou serviço para entrega de valor ao cliente.
+- Mapeamento: como o processo funciona para entrega de valor ao cliente e identifica gargalos ou desperdícios.
+
+
+### Lead Time, Tempo de Processamento e % de Conclusão e Precisão
+
+Lead time: tempo do pedido de uma nova funcionalidade pelo cliente até a entrega desta funcionalidade.
+
+solicitação -> início do trabalho -> entrega
+
+O tempo do início do trabalho até a entrega é chamado de "tempo de processamento". Neste caso o tempo que o trabalho ficou na fila não é contabilizado.
+
+Percentual de Conclusão e Precisão (Correto e Completo):
+
+- Significa o percentual que uma tarefa foi concluída com precisão.
+- Indica a qualidade de saída em cada etapa do fluxo de valor.
+
+- As 3 métricas mais importantes no Fluxo de Valor são:
+  - Lead time
+  - Tempo de processamento
+  - Percentual de conclusão e precisão
+
+Sucesso no DevOps depende do uso correto da Integração e Entrega Contínua
+<http://cio.com.br/gestao/2018/04/09/o-segredo-para-o-sucesso-do-devops/>
+
+Cinco atividades que compõem o DevOps:
+1. Integração Contínua
+2. Entrega Contínua
+3. Infraestrutura de Nuvem
+4. Automação de Testes
+5. Gerenciamento de Configuração
+
+Integração contínua e entrega contínua são os pilares mais difíceis de dominar.
+
+Principais armadilhas:
+
+1. Automatizar os processos errados.
+  - Perguntas a serem feitas:
+    - Será que isso precisa ser automatizado agora?
+    - Com que frequência o processo ou cenário é repetido?
+    - Quanto tempo dura o processo?
+    - Quais pessoas e dependências de recursos estão envolvidos no processo? Eles estão causando atrasos na CI/CD?
+    - O processo é sujeito a erros se não for automatizado?
+
+2. Confundir implantação contínua com entrega contínua.
+  - A equipe de Scrum pode criar um painel antes mesmo dos que os membros saibam o que precisam rastrear. Como resultado a equipe cai vítima de uma falácia lógica: "Estas são as métricas que temos, devem ser importantes".
+  - Quando liberar o código-base para a produção é uma decisão de negócios.
+
+3. Não ter dashboards e métricas significativas.
+  - Muitas vezes o membro da equipe mais vocal sequestra o processo, e os outros se sentem frustrados com um painel que reúne apenas as preferências de uma pessoa. Ouça a todos.
+
+4. Faltar coordenação entre a CI e CD.
+  - A implementação de um pipeline CI decente e um sistema de CD completo leva meses e requer colaboração e garantia de qualidade da equipe de DevOps, engenheiros de operação, Scrum masters, etc. Talvez o aspecto mais difícil da CI/CD é este fator humano. Assim como não é possível programar um relacionamento saudável entre duas pessoas, não é possível automatizar colaboração e comunicação.
+
+5. Balancear a frequência de execução e trabalhos de CI e a utilização de recursos
+  - Trabalhos de CI desnecessários consomem recursos, o que desperdiça tempo e dinheiro.
+  - O software deve ser dividido em componentes menores para criar pipelines mais rápidos em execução. Ou os trabalhos de CI devem ser concebidos para checkins por lote.
+
+**Manter o objetivo à vista**
+
+CI/CD é essencial pois atende aos objetivos de negócio. DevOps pode criar uma experiência de trabalho melhor para a equipe, mas não é por isso que as empresas implementam DevOps.
