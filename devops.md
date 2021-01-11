@@ -180,12 +180,11 @@ Benefícios:
 
 
 
-
 ### Integração Contínua
 
 Controle de versão
-  > Compilação
-    > Testes e análise de código (feedback/correção imediatos em caso de problemas)
+  -> Compilação
+    -> Testes e análise de código (feedback/correção imediatos em caso de problemas)
 
 Codificação e testes no ambiente dos desenvolvedores.
 
@@ -196,9 +195,9 @@ O instrutor menciona que o SONAR pode ser utilizado para testes
 ### Entrega Contínua
 
 Integração Contínua finalizada
-  > Deploy em Homologação
-    > Testes e análise de código (feedback imediato em caso de falha)
-      > Pronto para deploy em produção
+  -> Deploy em Homologação
+    -> Testes e análise de código (feedback imediato em caso de falha)
+      -> Pronto para deploy em produção
 
 - Tanto código quanto infraestrutura estejam prontos para implantar com segurança.
 - Deploy automatizado nos ambientes que antecedem a produção para inspeção final e novos testes.
@@ -209,19 +208,19 @@ Integração Contínua finalizada
 ### Implantação Contínua
 
 Integração Contínua finalizada
-  > Deploy em Homologação
-    > Testes e análise de código (feedback imediato em caso de falha)
-      > Deploy automático em produção
+  -> Deploy em Homologação
+    -> Testes e análise de código (feedback imediato em caso de falha)
+      -> Deploy automático em produção
 
 A única diferença da Entrega Contínua é que o deploy não depende de intervenção humana. É necessário avaliar se o deploy contínuo faz sentido para o produto sendo desenvolvido.
 
 
 ### Relação entre Integração, Entrega e Implantação
 
-Integração Contínua > Entrega Contínua > Implantação Contínua
+Integração Contínua -> Entrega Contínua -> Implantação Contínua
 
 english:
-Continuous Integhration > Continuous Release > Continuous Deploy
+Continuous Integhration -> Continuous Release -> Continuous Deploy
 
 
 ### Infraestrutura Ágil
@@ -252,5 +251,47 @@ Entender a condição atual <-> Estabelecer a próxima condição-alvo <-> PDCA 
 
 ### Trabalho em Andamento (wip)
 
+Muitos WIP acarreta em desperdício de tempo.
+
+[Conforme foi mencionado em uma palestra do Scott Hanselman: perde-se muito tempo com troca de contexto.]
+
+- Muito WIP é um anti-valor, sob forma de potencial retrabalho, já que pode haver alterações enquanto o trabalho está em andamento.
+
+Quadro Kanban: produção puxada e WIP
+
+![kanban](img/kanban.png)
+
+
+### Débito Técnico
+
+Se o débito técnico não for resolvido vira uma bola de neve.
+
+Entropia: por mais que um software seja bem feito, com o tempo ele vai se deteriorando.
+
+- Não resolver erros na origem leva a problemas cada vez mais difíceis de corrigir com o passar do tempo.
+- Reduz a performance da equipe e aumento o TCO (Custo Total de Propriedade).
+- Os objetivos conflitantes das áreas Dev e Ops contribuem para o aumento do débito técnico.
+
+Classificação de débito técnico: Martin Fowler
+
+- Irresponsável e proposital: não há tempo para o design e utiliza uma solução rápida sem qualidade.
+- Prudente e proposital: entrega do produto com limitações conhecidas e os riscos são assumidos.
+- Irresponsável e sem querer: o time desconhece as técnicas e não sabe a bagunça que está criando.
+- Prudente e sem querer: há uma solução que agrega valor ao negócio, mas depois de completar a solução verifica-se que a arquitetura poderia ter sido melhor.
+
+Como resolver débito técnico?
+
+Reservar 20% do tempo da equipe somente para refatoração.
+
+
+Causas do débito técnico:
+
+- ausência de testes
+- requisitos não estão claros
+- documentação pobre
+- pouco foco em refatoração
+- equipes não colaborativas
+- conflitos de interesse
+- pressão de chefes e áreas de negócio
 
 
