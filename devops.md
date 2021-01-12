@@ -360,3 +360,107 @@ Principais armadilhas:
 **Manter o objetivo à vista**
 
 CI/CD é essencial pois atende aos objetivos de negócio. DevOps pode criar uma experiência de trabalho melhor para a equipe, mas não é por isso que as empresas implementam DevOps.
+
+
+### As 3 Maneiras
+
+1. Fluxo
+2. Feedback
+3. Aprendizado e Experimentação
+
+#### 1. Fluxo
+
+**Objetivo:** acelerar o fluxo dos desenvolvedores para a operação.
+
+**Princípios:**
+
+1. Tornar o trabalho visível (kanban).
+2. Reduzir o tamanho dos lotes e intervalos.
+3. Aplicar teoria das restrições e otimizar o fluxo (descobrir o gargalo).
+4. Remover desperdícios e foco no cliente.
+5. Reduzir o número de transferências (handoff).
+6. Incorporar qualidade na origem.
+7. Limitar o trabalho em andamento, aka WIP. (troca de contexto causa perda de tempo/energia)
+8. Infraestrutura como código e self-service.
+9. Integração, entrega e implantação contínua.
+10. Testes automatizados e TDD.
+11. Arquitetura e releases de baixo risco.
+
+
+#### 2. Feedback
+
+**Objetivo:** obter feedback o mais rápido possível em todos os estágios do fluxo de valor.
+
+**Princípios:**
+
+1. Ver problemas quando e onde ocorrem ("ir ao gemba").
+2. Aglomerar (envolver toda a equipe) quando problema aparece ("corda de Andon")
+3. Qualidade próxima da fonte (menos aprovações).
+4. Telemetria self-service e irradiadores de informação disponível para todos.
+5. Desenvolvimento por hipóteses e testes A/B.
+6. Equipes de Dev e Ops compartilham o trabalho diário e plantões de suporte 24 x 7 (quando der um incidente chame os dois).
+7. Revisão de código: pair programming, sobre os ombros, divulgação 
+
+
+#### 3. Aprendizado e Experimentação
+
+**Objetivo:** Cultura de alta confiança que permite correr riscos e potencializar o aprendizado contínuo.
+
+Errar rápido, aprender rápido, evitar o mesmo erro novamente.
+
+**Princípios:**
+
+1. Cultura justa e segura para aprender com erros (post-mortem).
+2. Injeção de falhas na produção para aumentar resiliência.
+3. Converter descobertas locais em melhorias globais.
+4. Reservar tempo para melhorar o trabalho diário (kata e blitz de melhoria).
+5. Reunião post-mortem sem culpa (relacionado com item 1).
+6. Instituir dias de jogos para ensaiar falhas.
+7. Difundir conhecimento usando testes automatizados como documentação.
+
+
+### Sistemas de Registro e Engajamento
+
+(Gartner) TI bimodal é dividida em 2 tipos de sistemas:
+
+1. Registro: ERP, financeiro, RH, sistemas de informação.
+2. Engajamento: Sistemas voltados ao cliente ou funcionário (aplicativos, comércio eletrônico).
+
+- Nos sistemas de registro, o mais importante é fazer as mudanças corretamente.
+- Nos sistemas de engajamento, o mais importante é fazer as mudanças rapidamente.
+
+Os autores do Manual DevOps consideram que os dois tipos de sistemas deveriam ter estabilidade e velocidade.
+
+
+### Lei de Conway
+
+"O design do sistema sempre é uma cópia da estrutura de comunicação da organização."
+
+Na cultura DevOps, o objetivo é combater o que é dito nessa lei.
+
+tipo de estrutura | características | resultados
+-|-|-
+organizções hierarquizadas, comando e controle | pouca colaboração e comunicação ineficaz | Sistemas centralizados, processos engessados e lentidão de resposta ao mercado e clientes
+Organizações flexíveis e equipes com grande autonomia | Forte colaboração e objetivos compartilhados | Sistemas modulares, fluxo de valor efetivo e adaptabilidade para atender mercado e clientes
+
+[Achei as observações acima muito simplórias e tendenciosas de forma a parecer que "hierarquia causa burocracia, falta de colaboração e lentidão". No entanto, na _minha visão_ de DevOps, nas ditas "organizações flexíveis", toda essa autonomia e flexibilização só existe porque grande parte da burocracia é automatizada.]
+
+**Minimizando os efeitos da lei de Conway**
+
+- Manter um time pequeno [squad?]
+  - diminui a quantidade de canais de comunicação
+  - `canais = (n^2 - n) / 2`
+- Incentivar que todos os participantes sintam-se proprietários pelo resultado final entregeue ao cliente.
+  - Você implementa, você executa.
+- Apelido criado pela Amazon: "equipe duas pizzas".
+  - Uma equipe em que apenas 2 pizzas seja suficiente para alimentar a todos.
+
+
+**Benefícios das equipes pequenas**
+
+1. Entendimento claro do sistema que está trabalhando, e evita problema de comunicação.
+2. Limita a velocidade de crescimento desordenado do sistema e ajuda a garantir que a equipe mantenha um entendimento compartilhado.
+3. Concede autonomia para as equipes definirem a forma de trabalho para entregar o resultado combinado.
+4. Possibilita experiência de liderança em um ambiente onde a falha não tem consequências desastrosas.
+
+
