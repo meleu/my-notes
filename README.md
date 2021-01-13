@@ -3,7 +3,7 @@ Personal notes about things I've been learning (mostly programming).
 
 [my-notes repo](https://github.com/meleu/my-notes/) by [meleu](https://github.com/meleu)
 
-**Note**: if you want to create your own `my-notes` repo and get your docs linked like you're seening below 👇, check the instructions in the [update-readme.sh](https://github.com/meleu/my-notes/blob/master/update-readme.sh) script.
+**Note**: if you want to create your own `my-notes` repo and get your docs linked like you're seeing below 👇, check the instructions in the [update-readme.sh](https://github.com/meleu/my-notes/blob/master/update-readme.sh) script.
 
 
 ## 📝 Notes
