@@ -3,7 +3,7 @@
 
 ## Jornada DevOps
 
-https://www.udemy.com/course/curso-oficial-para-certificacao-exin-devops-profissional
+<https://www.udemy.com/course/curso-oficial-para-certificacao-exin-devops-profissional>
 
 ### Intro
 
