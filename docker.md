@@ -411,3 +411,325 @@ docker login --username=USER_NAME
 ```
 docker image push USER_NAME/IMAGE_BUILD_NAME:1.0
 ```
+
+## Networking
+
+Default networking model (bridge network):
+```
+,-------------, ,-------------,
+| Container A | | Container B |
+|-------------| |-------------|
+| net.interf. | | net.interf. |
+'-------------' '-------------'
+      ^               ^
+      |               |
+      v               v
+,-----------------------------,
+|     Bridge (docker0)        |
+'-----------------------------'
+,-----------------------------,
+|           host              |
+'-----------------------------'
+              ^
+              |
+              v
+           internet
+```
+
+Networking types:
+- None network
+- Bridge network (default)
+- Host network
+- Overlay network (via Swarm)
+
+commands:
+```
+docker network ls
+```
+
+### None Network
+```
+$ docker container run --rm alpine ash -c ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:AC:11:00:02  
+          inet addr:172.17.0.2  Bcast:172.17.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:180 (180.0 B)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+$ docker container run --net none --rm alpine ash -c ifconfig
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+
+### Bridge Network
+
+```
+$ docker network inspect bridge
+[
+    {
+        "Name": "bridge",
+        "Id": "62015cfacbd4491f71d72d2edc2abdea62466c5351d87373ad64ad8cfb7c69b6",
+        "Created": "2020-12-12T16:36:28.31057956-03:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {
+            "com.docker.network.bridge.default_bridge": "true",
+            "com.docker.network.bridge.enable_icc": "true",
+            "com.docker.network.bridge.enable_ip_masquerade": "true",
+            "com.docker.network.bridge.host_binding_ipv4": "0.0.0.0",
+            "com.docker.network.bridge.name": "docker0",
+            "com.docker.network.driver.mtu": "1500"
+        },
+        "Labels": {}
+    }
+]
+```
+
+Creating two containers and ping one each other:
+
+```
+$ docker container run -d --name container1 alpine sleep 1000
+b65cf2f729bdd6c0b35fa057c7ac253980b2ca852fe49c7eb09c00a78ca5f67b
+
+$ docker container exec -it container1 ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:AC:11:00:02  
+          inet addr:172.17.0.2  Bcast:172.17.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:21 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:3128 (3.0 KiB)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+
+$ docker container run -d --name container2 alpine sleep 1000
+d330529c17f5a3c3a7073755a17be2c8c3b0e37df2744770ca3d6d61271c1836
+$ docker container exec -it container2 ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:AC:11:00:03  
+          inet addr:172.17.0.3  Bcast:172.17.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:20 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:2978 (2.9 KiB)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+$ docker container exec -it container2 ping 172.17.0.2
+PING 172.17.0.2 (172.17.0.2): 56 data bytes
+64 bytes from 172.17.0.2: seq=0 ttl=64 time=0.097 ms
+64 bytes from 172.17.0.2: seq=1 ttl=64 time=0.122 ms
+64 bytes from 172.17.0.2: seq=2 ttl=64 time=0.128 ms
+...
+```
+
+Creating a new network separated from the default one:
+```
+$ docker network create --driver bridge NewNetwork
+4efc2b0ce69807aa4fe068715b2e60b5bbbbfa18a58f4682a7682029112f0e6c
+
+$ docker network ls
+NETWORK ID     NAME         DRIVER    SCOPE
+4efc2b0ce698   NewNetwork   bridge    local
+62015cfacbd4   bridge       bridge    local
+38729066bc9d   host         host      local
+9a7fdf6bef68   none         null      local
+
+$ docker network inspect NewNetwork 
+[
+    {
+        "Name": "NewNetwork",
+        "Id": "4efc2b0ce69807aa4fe068715b2e60b5bbbbfa18a58f4682a7682029112f0e6c",
+        "Created": "2020-12-15T18:04:10.565305611-03:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+```
+
+Note the network is now 172.18.0.0 (not 172.17.0.0).
+
+Now let's create a new container connected to the NewNetwork and check if we can ping the two containers in the default bridge network:
+```
+$ docker container run -d --name container3 --net NewNetwork alpine sleep 1000
+c2a20307341bef4b04ed5902fbcb6efc5b0677eb0980813391f851f6604b8608
+
+$ docker container exec -it container3 ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:AC:12:00:02  
+          inet addr:172.18.0.2  Bcast:172.18.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:47 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:7454 (7.2 KiB)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+$ docker container exec -it container3 ping 172.17.0.2 # <-- ip of container1
+PING 172.17.0.2 (172.17.0.2): 56 data bytes
+^C
+--- 172.17.0.2 ping statistics ---
+30 packets transmitted, 0 packets received, 100% packet loss
+
+```
+
+We couldn't reach container1 from container3 because they're connected to different networks.
+
+Now let's connect container3 to the default bridge network:
+```
+$ docker network connect bridge container3 
+
+$ docker container exec -it container3 ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:AC:12:00:02  
+          inet addr:172.18.0.2  Bcast:172.18.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:62 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:9956 (9.7 KiB)  TX bytes:336 (336.0 B)
+
+eth1      Link encap:Ethernet  HWaddr 02:42:AC:11:00:02  
+          inet addr:172.17.0.2  Bcast:172.17.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:14 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:1996 (1.9 KiB)  TX bytes:0 (0.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+
+$ docker container exec -it container3 ping 172.17.0.2 # <-- ip of container1
+PING 172.17.0.2 (172.17.0.2): 56 data bytes
+64 bytes from 172.17.0.2: seq=0 ttl=64 time=0.071 ms
+64 bytes from 172.17.0.2: seq=1 ttl=64 time=0.107 ms
+64 bytes from 172.17.0.2: seq=2 ttl=64 time=0.108 ms
+64 bytes from 172.17.0.2: seq=3 ttl=64 time=0.108 ms
+64 bytes from 172.17.0.2: seq=4 ttl=64 time=0.108 ms
+^C
+--- 172.17.0.2 ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 0.071/0.100/0.108 ms
+
+$ # let's disconnect container3 from the default bridge network...
+
+$ docker network disconnect bridge container3 
+
+$ docker container exec -it container3 ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:AC:12:00:02  
+          inet addr:172.18.0.2  Bcast:172.18.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:62 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:9956 (9.7 KiB)  TX bytes:336 (336.0 B)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:10 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:10 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:840 (840.0 B)  TX bytes:840 (840.0 B)
+
+
+$ docker container exec -it container3 ping 172.17.0.2 # <-- ip of container1
+PING 172.17.0.2 (172.17.0.2): 56 data bytes
+^C
+--- 172.17.0.2 ping statistics ---
+5 packets transmitted, 0 packets received, 100% packet loss
+
+```
+
+### Host network
+
+Giving to the container direct access to the host's interfaces.
+
+Example:
+```
+$ docker container run -d --name container4 --net host alpine sleep 1000
+
+$ docker container exec -it container4 ifconfig
+# it shows all the interfaces you have in the host OS
+```
+
