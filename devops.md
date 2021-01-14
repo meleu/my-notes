@@ -431,8 +431,9 @@ Errar rápido, aprender rápido, evitar o mesmo erro novamente.
 
 Os autores do Manual DevOps consideram que os dois tipos de sistemas deveriam ter estabilidade e velocidade.
 
+### Aspectos Organizacionais
 
-### Lei de Conway
+#### Lei de Conway
 
 "O design do sistema sempre é uma cópia da estrutura de comunicação da organização."
 
@@ -456,11 +457,135 @@ Organizações flexíveis e equipes com grande autonomia | Forte colaboração e
   - Uma equipe em que apenas 2 pizzas seja suficiente para alimentar a todos.
 
 
-**Benefícios das equipes pequenas**
+#### Benefícios das equipes pequenas
 
 1. Entendimento claro do sistema que está trabalhando, e evita problema de comunicação.
 2. Limita a velocidade de crescimento desordenado do sistema e ajuda a garantir que a equipe mantenha um entendimento compartilhado.
 3. Concede autonomia para as equipes definirem a forma de trabalho para entregar o resultado combinado.
 4. Possibilita experiência de liderança em um ambiente onde a falha não tem consequências desastrosas.
 
+
+
+#### Estrutura flexível potencializa DevOps
+
+Gestão Clássica | Gestão de Fluxo de Valor
+-|-
+informação restrita a poucos (silos) | informações compartilhadas (interfaces)
+foco maior nos departamentos | foco nos objetivos dos processos
+pouco foco no cliente | foco nos clientes dos processos
+comunicação é vertical | comunicação é transversal
+delegação de autoridade limitada | alto grau de empoderamento
+visão restrita à tarefa departamental | visão macro e organizacional
+processos podem não agregar valor | melhoria contínua nos processos
+estruturado nas habilitações e poderes | estruturado no modo de fazer o trabalho
+
+
+#### Papéis DevOps
+
+- Dono do Produto: a voz interna da empresa que define as funcionalidades
+- Desenvolvimento: criar as funcionalidades dos aplicativos
+- QA: realiza loops de feedback para garantir qualidade
+- Operações: manter o ambiente de produção e alcance do SLA (?)
+- Segurança: manter segurança de sistemas de dados
+- Gerente de Release: administrar e coordenar a implantação em produção
+- Gerente de fluxo: garantir que alcance os requisitos do cliente
+
+#### Etapas DevOps
+
+1. equipe dedicada: coloque em um espaço físico separado os melhores generalistas
+que tenham uma relação respeitosa e de longa data
+2. metas SMART
+3. sprints curtos
+4. requisitos não funcionais: reservar pelo menos 20% do ciclo de melhoria para reduzir dívida técnicoa.
+5. visibilidade: divulgar evolução das melhorias
+6. ferramentas: backlog unificado
+
+
+#### Perfis I, T e E
+
+**I**:
+- especialista em uma única área
+- cria gargalo
+- impedem flexibilidade
+- ruim para um time DevOps
+
+**T**:
+- especialista com um "quê" de generalista
+- habilidades em outras áreas
+- flexível
+
+**E**:
+- Experiência, Expertise, Execução, Exploração
+
+
+#### Integração Ops e Devs
+
+1. Criar serviços compartilhados para aumentar a produtividade do desenvolvedor:
+    - self-service, sem ticket de solicitação
+2. Incorporar engenheiros de Ops nas equipes de serviço
+3. Ops ter ligação com cada equipe de serviço para entender:
+    - qual funcionalidade do novo produto
+    - como opera e escalabilidade
+    - monitoramento e métricas
+    - desvios arquiteturais e padrões
+4. Integrar Ops nos rituais de Dev
+
+
+### 1a. maneira: Fluxo
+
+**Conteúdo**:
+
+1. pipeline de implementação
+2. testes automatizados
+3. integração contínua
+4. release de baixo risco
+
+
+#### Pipeline de Implementação
+
+Fonte: livro "Continuous Delivery"
+
+- É o processo de automação do fluxo de valor que leva o software do
+controle de versão até o ambiente de produção (cliente).
+- Principal objetivo: feedback rápido para todos.
+- Correção "imediata".
+
+Exemplo de Ferramenta: Jenkins
+
+**Mudanças se movendo no pipeline**:
+
+Equipe de entrega -> controle de versão -> testes unitários -> teste de aceitação -> testes de aceitação do usuário -> entrega/release
+
+
+**Visão do Pipeline:**
+
+- Estágio de Commit:
+    - Garante que o sistema funciona em nível técnico.
+    - Compila, testes automatizados, análise de código.
+    - Se OK, gera artefatos no controle de versão.
+- Testes de aceite automatizado:
+    - Garante o sistema OK (funcional e não-funcional): comportamento atende às necessidades do cliente.
+    - Configuração do ambiente, instalação de binários, smoke tests, testes de aceitação.
+- Testes do aceite do usuário:
+    - Detecta defeitos não encontrados.
+    - UAT (User Acceptance Testing).
+    - Recomendado fazer testes em paralelo.
+
+**Benefícios do Pipeline:**
+
+- testes contínuos e feedback rápido.
+- implantações em produção tornam-se parte rotineira do trabalho diário.
+- autonomia para a equipe desenvolver, testar e implementar com segurança.
+
+**Requisitos para o Pipeline:**
+
+- implementar da mesma forma em todos os ambientes.
+- testes de fumaça: confirmar se conexão com sistemas de apoio está OK (banco de dados, APIs externas).
+- garantir ambientes consistentes e sincronizados.
+
+**Capacidades do Pipeline:**
+
+- implantação em produção do pacote criado com um click self-service.
+- requisitos de auditoria e conformidade, registrar automaticamente quais comandos foram executados.
+- teste de fumaça
 
