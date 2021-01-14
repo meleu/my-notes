@@ -93,9 +93,15 @@ HTML + CSS + JavaScript
 
 ## shell script
 
+- <https://ebook.bobby.sh/> - inspiration for an interactive bash book/website.
 - <https://github.com/dylanaraps/pure-bash-bible> - pure bash bible
 - <https://cheat.sh> - the only cheat sheet you need :)
 - <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
 - <http://mywiki.wooledge.org/> - awesome bash knowledge resource.
 - <https://wiki.bash-hackers.org> - more bash hacking
 
+
+## post-mortem
+
+- <https://www.freecodecamp.org/news/what-is-a-software-post-mortem/> - article
+- te
