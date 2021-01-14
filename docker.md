@@ -94,8 +94,8 @@ The following command
 2. creates a new container.
 3. starts the container.
 4. run the bash.
-  4.1. `-i` for interactive mode.
-  4.2. `-t` for attaching a pseudo-terminal to it.
+    1. `-i` for interactive mode.
+    2. `-t` for attaching a pseudo-terminal to it.
 
 ```
 docker run -it debian bash

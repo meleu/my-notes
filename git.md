@@ -14,3 +14,12 @@ git reset --hard origin/master
 # git reset --hard <repo>/<branch>
 ```
 
+## testing a pull request
+
+```sh
+git fetch origin pull/1234/head:pr-1234
+git checkout pr-1234
+
+# git fetch <repo> pull/<pr-id>/head:<local-branchname>
+# git checkout <local-branchname>
+```

@@ -1,5 +1,5 @@
 # Document Object Model
-[✏️](https://github.com/meleu/my-notes/edit/master/dom-pt_BR.md)
+[✏️](https://github.com/meleu/my-notes/edit/master/dom.md)
 
 O mais básico do básico de DOM manipulation.
 
