@@ -79,7 +79,7 @@ DevOps é uma evolução natural do Manifesto Ágil (que aplica vários princíp
 
 Todos devem ir ao gemba com frequência para conhecer o "chão de fábrica".
 
-Evitar suposições e cria empatia entre as pessoas.
+Evita suposições e cria empatia entre as pessoas.
 
 
 ### Corda de Andon
