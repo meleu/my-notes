@@ -29,7 +29,6 @@ docker container exec   # executes a command in a running container
 
 That's why after each `docker run`, it creates a new container.
 
-? Question ?: What's the difference between `docker start`
 
 ## Concepts
 
