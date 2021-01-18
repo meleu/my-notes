@@ -3,7 +3,7 @@
 
 ## basic commands
 
-Install docker following the instructions in https://docs.docker.com/install/ and don't forget to follow the post-install instructions.
+Install docker following the instructions in <https://docs.docker.com/get-docker/> and don't forget to follow the post-install instructions.
 
 Basic docker commands:
 
