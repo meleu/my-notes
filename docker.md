@@ -3,7 +3,7 @@
 
 ## basic commands
 
-Install docker following the instructions in https://docs.docker.com/install/ and don't forget to follow the post-install instructions.
+Install docker following the instructions in <https://docs.docker.com/get-docker/> and don't forget to follow the post-install instructions.
 
 Basic docker commands:
 
@@ -29,7 +29,6 @@ docker container exec   # executes a command in a running container
 
 That's why after each `docker run`, it creates a new container.
 
-? Question ?: What's the difference between `docker start`
 
 ## Concepts
 
