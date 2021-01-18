@@ -589,3 +589,224 @@ Equipe de entrega -> controle de versão -> testes unitários -> teste de aceita
 - requisitos de auditoria e conformidade, registrar automaticamente quais comandos foram executados.
 - teste de fumaça
 
+
+#### Infraestrutura como Código
+
+- Código e configurações dentro do controle de versão.
+- Criação automatizada e sob demanda (self-service) em todos os ambientes.
+- Todos os estágios do fluxo de valor com ambientes iguais/semelhantes ao de produção.
+- Infraestrutura imutável: foco em recriar todo o ambiente de produção de forma rápida em vez de realizar alterações.
+
+**Ferramentas:**
+
+- virtualização: VMWare, Vagrant, Amazon Machine EC2
+- criação de servidor "bare metal": instalação PXE via rede
+- gerenciamento de configuração: Puppet, Chef, Ansible, Salt, CFEngine.
+- configuração de SO automatizada: Solaris Jumpstart, Red Hat Kickstart, Debian Preseed.
+- Containers: Docker, Vagrant
+- Nuvem: AWS, GCP, Azure, DigitalOcean
+
+
+#### Definição de Pronto
+
+- Ágil tradicional: "ao final de cada intervalo de desenvolvimento temos código integrado, testado, funcionando e que pode ser entregue"
+- DevOps adiciona:
+    - "demonstrado em um ambiente do tipo produção"
+    - "criado a partir do trunk com um processo de um click e validado com testes automatizados"
+
+
+#### Controle de Versão
+
+- Importante incluir informações do ambiente que o software é executado e deve ser compartilhado por todos do fluxo de valor: QA, Dev, Ops, Segurança.
+- Todo o código do aplicativo e dependências devem estar presentes.
+- Qualquer script usado para criar esquemas de BD, dados de referência de aplicativo, etc.
+- Todas as ferramentas de criação de ambiente e artefatos usados na infra como código.
+- Qualquer arquivo usado para criar containers.
+- Todos os testes automatizados de apoio e quaisquer scripts de teste manual.
+- Script de empacotamento de código, implementação, migração de BD e provisionamento de ambiente.
+
+
+#### Remover Restrições
+
+Teoria das Restrições: toda atividade tem uma restrição que mais salta aos olhos. É nesta restrição que devemos focar.
+
+**5 Passos para Remover Restrições:**
+
+1. Identificar o gargalo
+2. Explorar as restrições
+3. Sincronizar o sistema à restrição
+4. Elevar a restrição
+5. Melhoria contínua
+
+Exemplos
+
+Restrição | Ação
+-|-
+Demorar para criar e configurar ambientes | Infraestrutura como código
+Demora no deploy | Automatizar deploys
+Demora para testar funcionalidades | Automatizar os testes
+Arquitetura monolítica | Usar arquitetura modular ou microsserviços
+
+Dica: Microsserviços potencializa DevOps
+
+
+#### Desperdícios
+
+Desperdícios que podem ser removidos:
+
+Desperdício | Descrição
+-|-
+Trabalho parcialmente pronto | Trabalho não concluído ou parado nas filas
+Processos extras | Atividades desnecessárias para agregar valor ao cliente
+Recursos extras | Funcionalidades que não agregam valor para o cliente
+Multitarefa | Pessoas envolvidas em vários projetos e fluxos ao mesmo tempo
+Movimentação | Movimento desnecessário
+Defeitos | Retrabalho para corrigir erros
+Trabalho manual | Atividade manual propensa a erros
+Ato heróico | Esforço acima do normal para atingir meta
+
+
+#### Testes Automatizados
+
+"Sem testes automatizados, quanto mais código escrevemos, mais tempo e dinheiro são necessários para testá-lo"
+~ Gary Gruver
+
+- Testes apenas no final do desenvolvimento tiram oportunidade de aprendizado e impactam a entrega de valor.
+- Fundamental adicionar ao pipeline de implementação.
+- Para agilizar, é possível executar testes em paralelo
+
+
+**Tipos de Teste**:
+
+- Teste Unitário
+    - testa um única método, classe ou função.
+- Teste de Aceitação
+    - testa como um todo e maior nível de funcionalidade
+    - testa se foram introduzidos erros de regressão
+    - objetivo: provar que o software funciona de acordo com a visão do cliente
+- Teste de Integração
+    - garantir que o código interage corretamente com outros aplicativos e serviços em produção
+
+
+**Importante para a prova**
+
+- priorizar os testes unitários
+- feedback imediato -> correção na origem
+
+Pirâmide de teste ideal:
+
+![](piramide-teste-ideal.png)
+
+Pirâmide de teste não-ideal:
+
+![](piramide-teste-nao-ideal.png)
+
+
+**TDD: Test-Driven Development**
+
+1. Vermelho: escreve o teste (que irá falhar)
+2. Verde: Implementa o suficiente para passar
+3. Amarelo: Refatora com otimizações
+
+
+#### Ambiente de Desenvolvimento
+
+- Trunk: código principal "oficial".
+- Branches: ramificações onde os desenvolvedores estão trabalhando
+
+- As mudanças em cada branch devem ser integradas ao trunk.
+- Quanto mais tempo demora o merge, maior o conflito e complexidade.
+- O uso de muitas branches costuma aumentar o débito técnico.
+
+
+**Estratégias de branching**
+
+Estratégia | Vantagens | Desvantagens
+-|-
+Produtividade individual | Projeto privado que não atrapalha outras equipes | Merge no final do projeto gera muitos problemas
+Produtividade da equipe | Fila única com todos trabalhando no trunk e commit frequente. Não há o estresse de merge no final do projeto | Difícil de implantar e cada commit pode quebrar o projeto inteiro. Deve-se puxar a corda de Andon para que todos ajudem na correção.
+
+
+#### Dívidas Técnicas
+
+- Erros não corrigidos aumentam dívida técnica.
+- Código sem padrão.
+- Código sujo.
+- Teste ineficaz.
+- Bugs escondidos.
+- Dificulta entrega de qualidade ao cliente do fluxo de valor.
+
+Dicas:
+
+- Desenvolvimento baseado no trunk.
+- Infraestrutura como código.
+- Testes automatizados.
+- Integração contínua e lotes pequenos.
+- Blitz de melhoria.
+- Feedback imediato e aprendizado contínuo.
+
+
+#### Release de Baixo Risco
+
+Momentos diferentes:
+
+Implantação -> Liberação
+
+inglês: Deploy -> Release
+
+**Categorias de Liberação**
+
+- Baseada no ambiente:
+    - há 2 ou mais ambientes e apenas um fica ativo para os clientes.
+- Baseada no aplicativo (recomendado)
+    - Novas funcionalidades de forma seletiva usando configurações simples.
+    - Usar feature flags.
+
+
+##### Baseadas no Ambiente
+
+**Release Azul-Verde**
+
+- Dois ambientes, um ativo e o outro em stand-by.
+- Novas alterações podem ser implantadas no ambiente stand-by e em seguida o tráfego é direcionado para ele.
+- É o tipo mais simples de release de baixo risco.
+- É um problema se forem necessárias duas versões de BD.
+
+
+**Release Canário**
+
+- Dois ambientes, um ativo e o outro stand-by.
+- Um deles receberá as novas features e parte do tráfego de usuários (10%) e aumenta gradativamente.
+- O **sistema imune a cluster** é uma variação do Canário e permite reverter o deploy automaticamente quando ocorre falha em produção (ex.: monitoramento indicando maior tempo de resposta).
+
+
+##### Baseadas no Aplicativo
+
+**Alternância de Recursos**
+
+- Liga/desliga recursos da aplicação de acordo com critérios definidos (ex.: funcionários, localidade).
+- Feature flag
+- Lançamento escuro: implantação sem o usuário perceber.
+
+Benefícios do release baseado no aplicativo:
+
+1. Permite reverter facilmente quando ocorrem problemas.
+2. Degradar o desempenho: reduzir qualidade do serviço quando existe risco de falha em produção (Netflix: retira algumas funcionalidades quando há risco de queda de alguns microsserviços).
+3. Aumentar resiliência com arquitetura voltada a serviços: permite ocultar recursos ainda não prontos ou com defeito.
+
+
+#### Arquitetura de Baixo Risco
+
+Uma arquitetura de baixo risco é baseada em microsserviços, no entanto envolve um custo em conhecimento na equipe.
+
+Microsserviços x Monolito
+
+Microsserviços: Funcionalidades em serviços independentes
+
+Aplicação Monolítica: Funcionalidades ficam em processo único.
+
+Arquitetura | Vantagens | Desavantagens
+-|-|-
+Monolítica | Inicialmente simples, baixa latência entre processos (não depende de rede), eficiente em pequena escala | Fraca escalabilidade e redundância, longo período de build, implantação "big-bang".
+Microsserviço | Cada unidade é simples, escalonamento independente, teste/implantação independente, facilita visão por produto (cada squad é responsável por um pedaço da aplicação) | Latência de rede, precisa de ferramentas para gerenciar dependências.
+
