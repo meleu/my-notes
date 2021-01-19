@@ -732,3 +732,492 @@ $ docker container exec -it container4 ifconfig
 # it shows all the interfaces you have in the host OS
 ```
 
+
+### Starting Multiple Containers
+
+- Docker Compose: <https://docs.docker.com/compose/install/>
+
+Basically:
+```sh
+# check the latest release version: https://github.com/docker/compose/releases
+sudo curl -L \
+  "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" \
+  -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+**Example**
+
+File structure (<https://github.com/cod3rcursos/curso-docker/node-mongo-compose>):
+```
+node-mongo-compose/
+├── backend
+│   ├── app.js
+│   ├── package.json
+│   └── package-lock.json
+├── docker-compose.yml
+└── frontend
+    └── index.html
+```
+
+`docker-compose.yml`:
+```
+version: '3'
+services:
+  db:
+    image: mongo:3.4
+  backend:
+    image: node:8.1
+    volumes:
+      - ./backend:/backend
+    ports:
+      - 3000:3000
+    command: bash -c "cd /backend && npm i && node app"
+  frontend:
+    image: nginx:1.13
+    volumes:
+      - ./frontend:/usr/share/nginx/html/
+    ports:
+      - 80:80
+```
+
+And then run:
+```
+docker-compose up
+```
+
+### A more realistic example
+
+```
+mkdir email-worker-compose
+cd email-worker-compose
+```
+
+#### postgresql
+
+`docker-compose.yml`:
+```yml
+version: '3' # versao do docker-compose
+services:
+  db:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+```
+
+commands:
+```sh
+docker-compose up -d # daemon mode
+docker-compose ps
+docker-compose exec db psql -U postgres -c '\l'
+```
+
+#### volumes
+
+Create the following files:
+`scripts/init.sql`:
+```sql
+create database email_sender;
+
+\c email_sender
+
+create table emails (
+  id serial not null,
+  data timestamp not null default current_timestamp,
+  assunto varchar(100) not null,
+  mensagem varchar(250) not null
+);
+```
+
+`scripts/check.sql`:
+```sql
+\l
+\c email_sender
+\d emails
+```
+
+And edit the `docker-compose.yml`:
+```yml
+version: '3' # versao do docker-compose
+volumes:
+  dados:
+services:
+  db:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      # volume dos dados
+      - dados:/var/lib/postgresql/data
+      # scripts
+      - ./scripts:/scripts
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      # Check <https://hub.docker.com/_/postgres> - "Initialization scripts"
+```
+
+And then:
+```sh
+docker-compose down # assure we're starting fresh
+docker-compose up -d
+docker-compose ps
+docker-compose exec db psql -U postgres -f /scripts/check.sql
+```
+
+#### frontend
+
+`web/index.html`:
+```html
+<html>
+    <head>
+        <meta charset='uft-8'>
+
+        <title>E-mail Sender</title>
+
+        <style>
+            label { display: block; }
+            textarea, input { width: 400px; }
+        </style>
+    </head>
+    <body class="container">
+        <h1>E-mail Sender</h1>
+        <form action="http://localhost:8080 method="POST">
+            <div>
+                <label for="assunto">Assunto</label>
+                <input type="text" name="assunto">
+            </div>
+
+            <div>
+                <label for="mensagem">Mensagem</label>
+                <textarea name="mensagem" cols="50" rows="6"></textarea>
+            </div>
+
+            <div>
+                <button>Enviar !</button>
+            </div>
+        </form>
+    </body>
+</html>
+```
+
+`docker-compose.yml`:
+```yml
+# services: ...
+# ...
+  frontend:
+    image: nginx:1.13
+    volumes:
+      # site
+      - ./web:/usr/share/nginx/html/
+    ports:
+      - 80:80
+```
+
+Testing:
+```
+docker-compose down # assure we're starting fresh
+docker-compose up -d
+docker-compose ps
+docker-compose logs -f -t
+# browser http://localhost/
+```
+
+#### backend app
+
+Initially we're going to allow the app server to be contacted directly, via port 8080. Later we'll use a reverse proxy.
+
+`app/app.sh`:
+```sh
+#!/bin/sh
+
+pip install bottle==0.12.13
+python -u sender.py
+```
+
+`app/sender.py`:
+```py
+from bottle import route, run, request
+
+@route('/', method='POST')
+def send():
+  assunto = request.forms.get('assunto')
+  mensagem = request.forms.get('mensagem')
+  return 'Mensagem enfileirada ! Assunto: {} Mensagem: {}'.format(
+    assunto, mensagem
+  )
+
+if __name__ == '__main__':
+  run(host='0.0.0.0', port=8080, debug=True)
+```
+
+`docker-compose.yml`:
+```yml
+# services: ...
+# ...
+  app:
+    image: python:3.6
+    volumes:
+      # application
+      - ./app:/app
+    working_dir: /app
+    command: bash ./app.sh
+    ports:
+      - 8080:8080
+```
+
+Testing:
+```
+docker-compose down # assure we're starting fresh
+docker-compose up -d
+docker-compose ps
+docker-compose logs -f -t
+# browser http://localhost/
+```
+
+#### reverse proxy
+
+Adding a config in the frontend to act like a reverse proxy to the backend app, so we
+don't need to allow direct access to the backend (increase security).
+
+`nginx/default.conf`:
+```
+server {
+  listen 80;
+  server_name localhost;
+
+  location / {
+    root /usr/share/nginx/html;
+    index index.html index.htm;
+  }
+
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+    root /usr/share/nginx/html;
+  }
+
+  location /api {
+    proxy_pass http://app:8080/;
+    # the "app" address is the service name used in the docker-compose.yml
+    proxy_http_version 1.1;
+  }
+}
+```
+
+`web/index.html`
+```diff
+-         <form action="http://localhost:8080" method="POST">
++         <form action="http://localhost/api" method="POST">
+```
+
+`docker-compose.yml`
+```diff
+services:
+  frontend:
++      # reverse proxy config
++      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+  app:
+-    ports:
+-      - 8080:8080
+```
+
+Testing:
+```
+docker-compose down # assure we're starting fresh
+docker-compose up -d
+docker-compose ps
+docker-compose logs -f -t
+# browser http://localhost/
+```
+
+#### segregate networks
+
+We're going to have a network for the web frontend and a network for the database.
+And the app is going to be connected to both.
+
+`docker-compose.yml`:
+```diff
+networks:
+  banco:
+  web:
+
+services:
+  db:
++    networks:
++      - banco
+  frontend:
++    networks:
++      - web
++    depends_on:
++      - app
+
+  app:
++    networks:
++      - web
++      - banco
++    depends_on:
++      - db
+```
+
+`app/app.sh`:
+```sh
+#!/bin/sh
+
+pip install bottle==0.12.13 psycopg2==2.7.3.2
+python -u sender.py
+```
+
+`app/sender.py`:
+```py
+import psycopg2
+from bottle import route, run, request
+
+DSN = 'dbname=email_sender user=postgres host=db'
+SQL = 'INSERT INTO emails (assunto, mensagem) VALUES (%s, %s)'
+
+def register_message(assunto, mensagem):
+  conn = psycopg2.connect(DSN)
+  cur = conn.cursor()
+  cur.execute(SQL, (assunto, mensagem))
+  conn.commit()
+  cur.close()
+  conn.close()
+
+  print('Mensagem registrada!')
+
+@route('/', method='POST')
+def send():
+  assunto = request.forms.get('assunto')
+  mensagem = request.forms.get('mensagem')
+
+  register_message(assunto, mensagem)
+  return 'Mensagem enfileirada ! Assunto: {} Mensagem: {}'.format(
+    assunto, mensagem
+  )
+
+if __name__ == '__main__':
+  run(host='0.0.0.0', port=8080, debug=True)
+```
+
+Testing:
+```
+docker-compose down # assure we're starting fresh
+docker-compose up -d
+docker-compose ps
+docker-compose logs -f -t
+# browser http://localhost/
+docker-compose exec db psql -U postgres -d email_sender -c 'select * from emails'
+```
+
+#### queue and workers
+
+Add a new network named `fila`, and two new services using that network: `queue` and `worker`.
+The service `app` is also connected to the `fila` network.
+
+```diff
+networks:
+  banco:
+  web:
++  fila:
+
+services:
+	app:
+    networks:
+      - web
+      - banco
++      - fila
+    depends_on:
+      - db
++      - queue
+
++  queue:
++    image: redis:3.2
++    networks:
++      - fila
++
++  worker:
++    image: python:3.6
++    volumes:
++    # worker
++    - ./worker:/worker
++    working_dir: /worker
++    command: bash ./app.sh
++    networks:
++      - fila
++    depends_on:
++      - queue
+```
+
+`worker/app.sh`:
+```sh
+#!/bin/sh
+
+pip install redis==2.10.5
+python -u worker.py
+```
+
+`worker/worker.py`:
+```py
+import redis
+import json
+from time import sleep
+from random import randint
+
+if __name__ == '__main__':
+  r = redis.Redis(host='queue', port=6379, db=0)
+  while True:
+    mensagem = json.loads(r.blpop('sender')[1])
+    # simulando envio de email...
+    print ('Mandando a mensagem: ', mensagem['assunto'])
+    sleep(randint(15, 45))
+    print('Mensagem', mensagem['assunto'], 'enviada')
+```
+
+`app/app.sh`
+```sh
+#!/bin/sh
+
+pip install bottle==0.12.13 psycopg2==2.7.3.2 redis==2.10.5
+python -u sender.py
+```
+
+`app/sender.py`:
+```py
+import psycopg2
+import redis
+import json
+from bottle import Bottle, request
+
+
+class Sender(Bottle):
+    def __init__(self):
+        super().__init__()
+        self.route('/', method='POST', callback=self.send)
+        self.fila = redis.StrictRedis(host='queue', port=6379, db=0)
+        DSN = 'dbname=email_sender user=postgres host=db'
+        self.conn = psycopg2.connect(DSN)
+        
+    def register_message(self, assunto, mensagem):
+        SQL = 'INSERT INTO emails (assunto, mensagem) VALUES (%s, %s)'
+        cur = self.conn.cursor()
+        cur.execute(SQL, (assunto, mensagem))
+        self.conn.commit()
+        cur.close()
+
+        msg = {'assunto': assunto, 'mensagem': mensagem}
+        self.fila.rpush('sender', json.dumps(msg))
+
+        print('Mensagem registrada !')
+
+    def send(self):
+        assunto = request.forms.get('assunto')
+        mensagem = request.forms.get('mensagem')
+
+        self.register_message(assunto, mensagem)
+        return 'Mensagem enfileirada ! Assunto: {} Mensagem: {}'.format(
+            assunto, mensagem
+        )
+
+if __name__ == '__main__':
+    sender = Sender()
+    sender.run(host='0.0.0.0', port=8080, debug=True)
+```
+
