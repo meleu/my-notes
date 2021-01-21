@@ -1112,6 +1112,7 @@ docker-compose exec db psql -U postgres -d email_sender -c 'select * from emails
 Add a new network named `fila`, and two new services using that network: `queue` and `worker`.
 The service `app` is also connected to the `fila` network.
 
+`docker-compose.yml`:
 ```diff
 networks:
   banco:
@@ -1220,4 +1221,11 @@ if __name__ == '__main__':
     sender = Sender()
     sender.run(host='0.0.0.0', port=8080, debug=True)
 ```
+
+
+#### scalate
+
+- video: <https://www.udemy.com/course/curso-docker/learn/lecture/7560004>
+- repo: <https://github.com/cod3rcursos/curso-docker/tree/master/email-worker-compose>
+
 

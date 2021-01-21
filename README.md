@@ -14,6 +14,8 @@ Personal notes about things I've been learning (mostly programming).
 - [devops](https://meleu.github.io/my-notes/devops) - [✏️](https://github.com/meleu/my-notes/edit/master/devops.md)
 - [docker](https://meleu.github.io/my-notes/docker) - [✏️](https://github.com/meleu/my-notes/edit/master/docker.md)
 - [dom](https://meleu.github.io/my-notes/dom) - [✏️](https://github.com/meleu/my-notes/edit/master/dom.md)
+- [gaps](https://meleu.github.io/my-notes/gaps) - [✏️](https://github.com/meleu/my-notes/edit/master/gaps.md)
+- [gitlab](https://meleu.github.io/my-notes/gitlab) - [✏️](https://github.com/meleu/my-notes/edit/master/gitlab.md)
 - [git](https://meleu.github.io/my-notes/git) - [✏️](https://github.com/meleu/my-notes/edit/master/git.md)
 - [http](https://meleu.github.io/my-notes/http) - [✏️](https://github.com/meleu/my-notes/edit/master/http.md)
 - [links](https://meleu.github.io/my-notes/links) - [✏️](https://github.com/meleu/my-notes/edit/master/links.md)
