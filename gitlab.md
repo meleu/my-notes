@@ -25,7 +25,7 @@ build the car:
     - echo "chassis" > car.txt
     - echo "engine" >> car.txt
     - echo "wheels" >> car.txt
-  artifacts:
+  artifacts: # artifacts are kept for the next job
     paths:
       - build/
 
