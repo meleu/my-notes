@@ -9,37 +9,57 @@
 
 Create a repo and then add a `.gitlab-ci.yml` file like this:
 ```yml
-# stages: define the order of execution
+# define the order of execution
 stages:
-  - build
-  - test
+    - prep
+    - build
+    - test
 
 # list of jobs
+prepare the car:
+    # defining which stage this job belongs to
+    stage: prep
+    script:
+        - mkdir build
+        - touch build/car.txt
+    # artifacts are kept for the next job
+    artifacts:
+        paths:
+            - build/
+
+author:
+    stage: build
+    script:
+        - mkdir meta
+        - echo "$GITLAB_USER_NAME" > meta/author
+    artifacts:
+        paths:
+            - meta/
+
 build the car:
-  # defining which stage this job belongs to
-  stage: build
-  script:
-    - mkdir build
-    - cd build
-    - touch car.txt
-    - echo "chassis" > car.txt
-    - echo "engine" >> car.txt
-    - echo "wheels" >> car.txt
-  artifacts: # artifacts are kept for the next job
-    paths:
-      - build/
+    # multiple jobs with the same stage run in parallel
+    stage: build
+    script:
+        - cd build
+        - echo "chassis" > car.txt
+        - echo "engine" >> car.txt
+        - echo "wheels" >> car.txt
+    artifacts:
+        paths:
+            - build/
 
 test the car:
-  # defining which stage this job belongs to
-  stage: test
-  script:
-    - ls
-    - test -f build/car.txt
-    - cd build
-    - cat car.txt
-    - grep "chassis" car.txt
-    - grep "engine" car.txt
-    - grep "wheels" car.txt
+    stage: test
+    script:
+        - ls
+        - test -f build/car.txt
+        - cd build
+        - cat car.txt
+        - grep "chassis" car.txt
+        - grep "engine" car.txt
+        - grep "wheels" car.txt
+        - cat ../meta/author
+
 ```
 
 **Notes**:
@@ -50,7 +70,7 @@ test the car:
 
 #### gitlab architecture
 
-![gitlab architecture](gitlab-architecture.png)
+![gitlab architecture](img/gitlab-architecture.png)
 
 Configuring Runners:
 - settings > CI/CD > Runners > Expand
