@@ -96,7 +96,12 @@ ls public
 
 Create a `.gitlab-ci.yml`:
 ```yml
+stages:
+  - build
+  - test
+
 build website:
+  stage: build
   image: node
   script:
     - npm install
@@ -105,5 +110,22 @@ build website:
   artifacts:
     paths:
       - ./public
+
+test artifact:
+  image: alpine
+  stage: test
+  script:
+    - grep -q "Gatsby" ./public/index.html
+
+test website:
+  image: node
+  stage: test
+  script:
+    - npm install
+    - npm install -g gatsby-cli
+    # que tosco :nauseated:
+    - gatsby serve &
+    - sleep 3
+    - curl "http://localhost:9000" | tac | tac | grep -q "Gatsby"
 ```
 
