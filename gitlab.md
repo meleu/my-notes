@@ -129,3 +129,13 @@ test website:
     - curl "http://localhost:9000" | tac | tac | grep -q "Gatsby"
 ```
 
+### deploy in surge.sh
+
+```
+npm install --global surge
+surge
+# follow the instructions
+```
+
+In order to put your surge credentials in your CI config, go to:
+- settings > CI/CD > Evironment variables
