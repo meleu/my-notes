@@ -76,3 +76,34 @@ Configuring Runners:
 - settings > CI/CD > Runners > Expand
 
 
+### Exercise with Gatsby
+
+```
+npm install -g gatsby-cli
+gatsby new static-website
+cd static-website
+gatsby develop
+# create a repository in gitlab called my-static-website
+git remote add origin git@gitlab.com:USERNAME/my-static-website.git
+git push -u origin master
+# check the gitlab repo
+
+# building locally
+gatsby build
+# the output of this process is placed in the public dir
+ls public
+```
+
+Create a `.gitlab-ci.yml`:
+```yml
+build website:
+  image: node
+  script:
+    - npm install
+    - npm install -g gatsby-cli
+    - gatsby build
+  artifacts:
+    paths:
+      - ./public
+```
+
