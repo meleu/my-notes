@@ -5,6 +5,31 @@
 
 - <https://thoughtbot.com/upcase/onramp-to-vim>
 
+## random tips
+
+- `:set nu` or `:set number` - line numbers
+
+- `:set ai` | `:set noai` - enable/disable autoindent
+
+- `:set visualbell` - blink screen instead of sound
+
+- `:ab md mydomain.intranet.com` - when you type `md` it becomes `mydomain.intranet.com`
+
+- visualy select part of the text and `:'<,'>$!sort` - sort the lines
+
+- `:noh` - disables search highlight
+
+## basic .vimrc options
+
+```vimrc
+colorscheme darkblue
+set number
+set tabstop=2
+set showcmd
+set cursorline " gutter
+```
+
+
 ## install vim-plug
 
 The [vim-plug](https://github.com/junegunn/vim-plug) is useful to install/update vim plugins.
