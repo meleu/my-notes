@@ -1,6 +1,7 @@
 # gitlab CI/CD
 [✏️](https://github.com/meleu/my-notes/edit/master/gitlab.md)
 
+
 ## Udemy Course
 
 - link: <https://www.udemy.com/course/gitlab-ci-pipelines-ci-cd-and-devops-for-beginners>
@@ -96,13 +97,15 @@ ls public
 
 Create a `.gitlab-ci.yml`:
 ```yml
+image: node
+
 stages:
   - build
   - test
+  - deploy
 
 build website:
   stage: build
-  image: node
   script:
     - npm install
     - npm install -g gatsby-cli
@@ -118,15 +121,19 @@ test artifact:
     - grep -q "Gatsby" ./public/index.html
 
 test website:
-  image: node
   stage: test
   script:
     - npm install
     - npm install -g gatsby-cli
-    # que tosco :nauseated:
     - gatsby serve &
     - sleep 3
     - curl "http://localhost:9000" | tac | tac | grep -q "Gatsby"
+
+deploy to surge: 
+  stage: deploy
+  script:
+    - npm install --global surge
+    - surge --project ./public --domain instazone.surge.sh
 ```
 
 ### deploy in surge.sh
