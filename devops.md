@@ -165,7 +165,7 @@ Criatividade para inovar mantendo estabilidade do ambiente.
 
 OBS.: a prova EXIN não cobra ferramentas, pois estas mudam constantemente.
 
-https://digital.ai/periodic-table-of-devops-tools
+<https://digital.ai/periodic-table-of-devops-tools>
 
 A má implementação ou excesso de customização pode destruir uma ótima ferramenta. Incentive a opinião das equipes no "chão de fábrica".
 
