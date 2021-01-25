@@ -48,7 +48,6 @@ My own list of awesome links.
 - <https://adamwathan.me/> - Adam Wathan
 - <https://www.swyx.io/> - Shawn Wang
 - <https://jvns.ca/> - Julia Evans
-- <https://daveceddia.com/> - Dave Ceddia
 - <https://www.joelonsoftware.com/> - Joel Spolsky - nice "developer's philosophy" posts
 - <https://maggieappleton.com/> - Maggie Appleton
 
@@ -60,6 +59,7 @@ HTML + CSS + JavaScript
 
 - <https://jgthms.com/web-design-in-4-minutes/> - webdesign in 4 minutes.
 - <https://www.freecodecamp.org/> - really awesome to learn frontend stuff.
+- <https://learnfromsteph.dev/> - A (modern/2020ish) web development video course for beginners 
 - <https://csslayout.io/> - nice inspiration to pick a layout and then practice CSS.
 - <https://css-tricks.com/dom/> - nice article to explain in simple terms what the DOM is.
 - <https://htmldom.dev/> - useful DOM manipulation recipes.
