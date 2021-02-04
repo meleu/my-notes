@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # update-readme.sh
 ##########################################################################
-# Update's the readme with links to the repository's content.
+# Updates the readme with links to the repository's content.
 #
 # Use it as a pre-commit git hook to make it run automagically everytime
 # you commit and push a change to your repo.
@@ -26,6 +26,7 @@
 # Put the content of this script in '.git/hooks/pre-commit', like this:
 #
 # $ cat update-readme.sh > .git/hooks/pre-commit
+# $ chmod a+x .git/hooks/pre-commit
 #
 # STEP 4:
 # Now every '*.md' file you have in the root dir of your repo will be

@@ -19,6 +19,7 @@ Personal notes about things I've been learning (mostly programming).
 - [git](https://meleu.github.io/my-notes/git) - [✏️](https://github.com/meleu/my-notes/edit/master/git.md)
 - [http](https://meleu.github.io/my-notes/http) - [✏️](https://github.com/meleu/my-notes/edit/master/http.md)
 - [links](https://meleu.github.io/my-notes/links) - [✏️](https://github.com/meleu/my-notes/edit/master/links.md)
+- [linux-pc](https://meleu.github.io/my-notes/linux-pc) - [✏️](https://github.com/meleu/my-notes/edit/master/linux-pc.md)
 - [nextjs](https://meleu.github.io/my-notes/nextjs) - [✏️](https://github.com/meleu/my-notes/edit/master/nextjs.md)
 - [nginx](https://meleu.github.io/my-notes/nginx) - [✏️](https://github.com/meleu/my-notes/edit/master/nginx.md)
 - [nodejs](https://meleu.github.io/my-notes/nodejs) - [✏️](https://github.com/meleu/my-notes/edit/master/nodejs.md)
