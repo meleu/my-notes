@@ -1,6 +1,17 @@
 # gitlab CI/CD
 [✏️](https://github.com/meleu/my-notes/edit/master/gitlab.md)
 
+## GitLab tricks
+
+When using a docker registry with no hash:
+
+```yml
+services:
+#  - name: docker:19.03.12-dind
+#    entrypoint: ["dockerd-entrypoint.sh"]
+    command: ["--insecure-registry=registry-domain-name-1", "--insecure-registry=registry-domain-name-2"]
+```
+
 
 ## Udemy Course
 
@@ -146,3 +157,4 @@ surge
 
 In order to put your surge credentials in your CI config, go to:
 - settings > CI/CD > Evironment variables
+
