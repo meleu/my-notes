@@ -1,4 +1,5 @@
 # Tricks for Linux in a Personal Computer (maybe useful for servers)
+[✏️](https://github.com/meleu/my-notes/edit/master/linux-pc.md)
 
 ## Bootable USB Pendrive
 
