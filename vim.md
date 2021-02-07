@@ -5,11 +5,27 @@
 
 - <https://thoughtbot.com/upcase/onramp-to-vim>
 
+
+## cool videos
+
+- [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
+- [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac) - VimConf talk
+- <https://thoughtbot.com/upcase/the-art-of-vim> - some useful vim tips
+
+
+## video series: Onramp to Vim
+
+This is the best video series I found on the internet to get started with vim
+
+- link: <https://thoughtbot.com/upcase/onramp-to-vim>
+
+
+
 ## random tips
 
 - `:set nu` or `:set number` - line numbers
 
-- `:set ai` | `:set noai` - enable/disable autoindent
+- `:set ai` \| `:set noai` - enable/disable autoindent
 
 - `:set visualbell` - blink screen instead of sound
 
@@ -28,6 +44,14 @@ set tabstop=2
 set showcmd
 set cursorline " gutter
 ```
+
+### sensible.vim
+
+Avoid too much configurations, but take a look at this one (which claims to be "defaults everyone can agree on"):
+<https://github.com/tpope/vim-sensible>
+
+It enables things like `<C-L>` to clear `hlsearch`, `<C-W>` to delete previous word when in INSERT mode, etc.
+
 
 
 ## install vim-plug
@@ -140,28 +164,6 @@ Questions to be answered:
 - How to open a specific wiki from command line? (I want to open my-notes with an alias like `mynotes`)
 - How to sort an unordered list alphabetically?
     - Answer: <https://github.com/christoomey/vim-sort-motion>
-
-## cool videos
-
-- [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
-- [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac) - VimConf talk
-- <https://thoughtbot.com/upcase/the-art-of-vim> - some useful vim tips
-
-
-## video series: Onramp to Vim
-
-This is the best video series I found on the internet to get started with vim
-
-- link: <https://thoughtbot.com/upcase/onramp-to-vim>
-
-
-### sensible.vim
-
-Avoid too much configurations, but take a look at this one (which claims to be "defaults everyone can agree on"):
-<https://github.com/tpope/vim-sensible>
-
-It enables things like `<C-L>` to clear `hlsearch`, `<C-W>` to delete previous word when in INSERT mode, etc.
-
 
 ### motions and moving
 
