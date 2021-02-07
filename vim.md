@@ -3,22 +3,10 @@
 
 ## links
 
-- <https://thoughtbot.com/upcase/onramp-to-vim>
-
-
-## cool videos
-
+- <https://thoughtbot.com/upcase/onramp-to-vim> - the best video series I found to get started with vim.
 - [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
 - [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac) - VimConf talk
 - <https://thoughtbot.com/upcase/the-art-of-vim> - some useful vim tips
-
-
-## video series: Onramp to Vim
-
-This is the best video series I found on the internet to get started with vim
-
-- link: <https://thoughtbot.com/upcase/onramp-to-vim>
-
 
 
 ## random tips
