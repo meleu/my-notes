@@ -37,7 +37,7 @@
 ## basic .vimrc options
 
 ```vimrc
-colorscheme darkblue
+colorscheme evening
 set number
 set tabstop=2
 set showcmd
