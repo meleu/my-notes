@@ -3,6 +3,7 @@
 
 ## links
 
+- video in portuguese: <https://www.youtube.com/watch?v=hdZMqMeruSQ> - 8:29 and nothing new
 - <https://thoughtbot.com/upcase/onramp-to-vim> - the best video series I found to get started with vim.
 - [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
 - [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac) - VimConf talk
