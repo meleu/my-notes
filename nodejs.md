@@ -1,6 +1,13 @@
 # Node JS
 [✏️](https://github.com/meleu/my-notes/edit/master/nodejs.md)
 
+## Node Version Manager
+
+It's preferable to use `nvm` instead of installing nodejs from the distro's package manager: <https://github.com/nvm-sh/nvm>
+
+Once it's installed, just run: `nvm install --lts`
+
+
 ## `ERR_FEATURE_UNAVAILABLE_ON_PLATFORM`
 
 I got this error while using node v14 on Linux:
