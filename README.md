@@ -26,6 +26,7 @@ Personal notes about things I've been learning (mostly programming).
 - [postgresql](https://meleu.github.io/my-notes/postgresql) - [✏️](https://github.com/meleu/my-notes/edit/master/postgresql.md)
 - [react](https://meleu.github.io/my-notes/react) - [✏️](https://github.com/meleu/my-notes/edit/master/react.md)
 - [sed](https://meleu.github.io/my-notes/sed) - [✏️](https://github.com/meleu/my-notes/edit/master/sed.md)
+- [software-engineering](https://meleu.github.io/my-notes/software-engineering) - [✏️](https://github.com/meleu/my-notes/edit/master/software-engineering.md)
 - [sql](https://meleu.github.io/my-notes/sql) - [✏️](https://github.com/meleu/my-notes/edit/master/sql.md)
 - [ssh](https://meleu.github.io/my-notes/ssh) - [✏️](https://github.com/meleu/my-notes/edit/master/ssh.md)
 - [tmux](https://meleu.github.io/my-notes/tmux) - [✏️](https://github.com/meleu/my-notes/edit/master/tmux.md)
