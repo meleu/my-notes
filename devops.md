@@ -1,6 +1,11 @@
 # DevOps
 [✏️](https://github.com/meleu/my-notes/edit/master/devops.md)
 
+## Videos
+
+- <https://www.youtube.com/playlist?list=PLEx5khR4g7PLCoWS5k9u2WQ8RdKqhKEKn> - this is a huge (and highly valuable) playlist. Below I'm listing the ones I liked the most.
+    - <https://www.youtube.com/watch?v=MCPrtYxuVPU> - 3 Practices for Effective DevOps Adoption - good insights
+
 ## Jornada DevOps
 
 <https://www.udemy.com/course/curso-oficial-para-certificacao-exin-devops-profissional>
