@@ -3,8 +3,21 @@
 
 ## Videos
 
-- <https://www.youtube.com/playlist?list=PLEx5khR4g7PLCoWS5k9u2WQ8RdKqhKEKn> - this is a huge (and highly valuable) playlist. Below I'm listing the ones I liked the most.
-    - <https://www.youtube.com/watch?v=MCPrtYxuVPU> - 3 Practices for Effective DevOps Adoption - good insights
+### seminal DevOps videos
+
+- <https://www.youtube.com/watch?v=LdOe18KhtT4> - 10+ Deploys Per Day: Dev and Ops Cooperation at Flickr
+- <https://www.youtube.com/watch?v=CZ3wIuvmHeM> - Mastering Chaos - A Netflix Guide to Microservices
+
+### GOTO talks about DevOps
+
+<https://www.youtube.com/playlist?list=PLEx5khR4g7PLCoWS5k9u2WQ8RdKqhKEKn> - GOTO talks about DevOps. Below I'm listing the ones I watched and liked the most.
+
+- <https://www.youtube.com/watch?v=MCPrtYxuVPU> - 3 Practices for Effective DevOps Adoption - good insights
+
+### probably useful
+
+- <https://youtu.be/hQcFE0RD0cQ> - DevOps Tutorial for Beginners | Learn DevOps in 7 Hours - Full Course [**Note**: indian accent]. Talks about git, jenkins, docker, kubernetes, ansible, puppet, and nagios.
+
 
 ## Jornada DevOps
 
