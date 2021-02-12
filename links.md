@@ -90,6 +90,7 @@ HTML + CSS + JavaScript
 
 - <https://welearncode.com/beginners-guide-react/>
 - <https://www.taniarascia.com/getting-started-with-react/>
+- <https://egghead.io/courses/the-beginner-s-guide-to-react> - really cool
 
 
 ## shell script
