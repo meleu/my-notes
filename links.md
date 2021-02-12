@@ -16,7 +16,8 @@ My own list of awesome links.
 
 ## Database
 
-- <https://www.beekeeperstudio.io/> - Open Source SQL Editor and Database Manager
+- <https://www.beekeeperstudio.io/> - Open Source SQL Editor and Database Manager (very lightweight)
+- <https://dbeaver.io/> - Free Universal Database Tool (powerful)
 
 
 ## Free APIs
@@ -88,7 +89,6 @@ HTML + CSS + JavaScript
 ## React
 
 - <https://welearncode.com/beginners-guide-react/>
-- <https://daveceddia.com/react-getting-started-tutorial/>
 - <https://www.taniarascia.com/getting-started-with-react/>
 
 
@@ -100,9 +100,12 @@ HTML + CSS + JavaScript
 - <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
 - <http://mywiki.wooledge.org/> - awesome bash knowledge resource.
 - <https://wiki.bash-hackers.org> - more bash hacking
+- <https://github.com/jlevy/the-art-of-command-line> - master the command line (useful resource of inspiration for writing articles)
 
 
-## post-mortem
+## post-mortems
 
 - <https://www.freecodecamp.org/news/what-is-a-software-post-mortem/> - article
-- te
+- <https://k8s.af/> - Kubernetes Failure Stories
+
+
