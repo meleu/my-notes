@@ -1,6 +1,11 @@
 # gitlab CI/CD
 [✏️](https://github.com/meleu/my-notes/edit/master/gitlab.md)
 
+## test this
+
+<https://docs.gitlab.com/ee/user/project/pages/getting_started/pages_from_scratch.html>
+
+
 ## GitLab tricks
 
 ### Add SSH key to a GitLab account
