@@ -1,1 +1,1 @@
-# Notes about videos I watched
+# Notes about videos watched
