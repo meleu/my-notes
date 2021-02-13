@@ -18,8 +18,15 @@
 
 - <https://youtu.be/hQcFE0RD0cQ> - DevOps Tutorial for Beginners | Learn DevOps in 7 Hours - Full Course [**Note**: indian accent]. Talks about git, jenkins, docker, kubernetes, ansible, puppet, and nagios.
 
+## Books
 
-## Jornada DevOps
+- Projeto Fênix
+- Manual de DevOps
+- Continuous Delivery
+- Microsserviços Prontos para Produção
+
+
+## Jornada DevOps - Curso Udemy
 
 <https://www.udemy.com/course/curso-oficial-para-certificacao-exin-devops-profissional>
 
