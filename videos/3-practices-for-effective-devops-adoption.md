@@ -34,7 +34,7 @@ Se uma organização está focando apenas em automação, talvez o mais adequado
 
 Podemos dizer que entrega contínua é a tecnologia, DevOps é a maneira de trabalhar.
 
-DevOps é CALMS
+- DevOps é CALMS
     - Culture/Cultura
         - Foco nas pessoas.
         - Adotar experimentação.
