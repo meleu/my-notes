@@ -12,7 +12,7 @@
 
 <https://www.youtube.com/playlist?list=PLEx5khR4g7PLCoWS5k9u2WQ8RdKqhKEKn> - GOTO talks about DevOps. Below I'm listing the ones I watched and liked the most.
 
-- <https://www.youtube.com/watch?v=MCPrtYxuVPU> - 3 Practices for Effective DevOps Adoption - good insights for cultural changes advocates.
+- <https://www.youtube.com/watch?v=MCPrtYxuVPU> - 3 Practices for Effective DevOps Adoption - good insights for cultural changes advocates. [My notes about this video](videos/3-practices-for-effective-devops-adoption)
 
 ### probably useful
 
