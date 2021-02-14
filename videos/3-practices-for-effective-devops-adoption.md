@@ -2,6 +2,7 @@
 
 - <https://youtu.be/MCPrtYxuVPU>
 - Speaker: Dr Eoin Woods, CTO at Endava
+- Slides: <https://files.gotocon.com/uploads/slides/conference_32/1456/original/Woods-DevOps-ThreePractices-GOTOpia-202009.pdf>
 
 
 ## Reminder: what is "DevOps"? - 03:55
