@@ -9,7 +9,6 @@ My own list of awesome links.
 - <https://increment.com/> - a magazine about how teams build and operate software systems at scale.
 - <https://flowcv.io/> - create a nice-looking CV (it really helped me to get a job).
 - <https://surge.sh/> - Deploy something - anything - right now, for free.
-- <https://pagexl.com/> - Create a simple and beautiful one-page website in 5 minutes.
 - <https://github.com/stijnvc/holo-alfa> - minimalist, simple and elegant jekyll theme (probably gonna use it for entrelinhas).
 - <https://css-tricks.com/license/> - interesting license note.
 - <https://www.destroyallsoftware.com/> - explaining advanced programming practices via concrete examples.
@@ -62,6 +61,7 @@ HTML + CSS + JavaScript
 - <https://jgthms.com/web-design-in-4-minutes/> - webdesign in 4 minutes.
 - <https://www.freecodecamp.org/> - really awesome to learn frontend stuff.
 - <https://learnfromsteph.dev/> - A (modern/2020ish) web development video course for beginners 
+- <https://pagexl.com/> - Create a simple and beautiful one-page website in 5 minutes.
 - <https://csslayout.io/> - nice inspiration to pick a layout and then practice CSS.
 - <https://css-tricks.com/dom/> - nice article to explain in simple terms what the DOM is.
 - <https://htmldom.dev/> - useful DOM manipulation recipes.

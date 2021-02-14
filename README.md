@@ -17,6 +17,7 @@ Personal notes about things I've been learning (mostly programming).
 - [gitlab](https://meleu.github.io/my-notes/gitlab) - [✏️](https://github.com/meleu/my-notes/edit/master/gitlab.md)
 - [git](https://meleu.github.io/my-notes/git) - [✏️](https://github.com/meleu/my-notes/edit/master/git.md)
 - [http](https://meleu.github.io/my-notes/http) - [✏️](https://github.com/meleu/my-notes/edit/master/http.md)
+- [jekyll](https://meleu.github.io/my-notes/jekyll) - [✏️](https://github.com/meleu/my-notes/edit/master/jekyll.md)
 - [knowledge-gaps](https://meleu.github.io/my-notes/knowledge-gaps) - [✏️](https://github.com/meleu/my-notes/edit/master/knowledge-gaps.md)
 - [links](https://meleu.github.io/my-notes/links) - [✏️](https://github.com/meleu/my-notes/edit/master/links.md)
 - [linux-pc](https://meleu.github.io/my-notes/linux-pc) - [✏️](https://github.com/meleu/my-notes/edit/master/linux-pc.md)

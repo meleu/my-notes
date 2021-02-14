@@ -3,6 +3,13 @@
 - <https://youtu.be/9qAhq0LAtpI>
 - Palestrante: Romero Machado
 
+## Comentários
+
+Já de cara observo que o palestrante usa a técnica do "vou te revelar um segredo que os grandes mestres escondem" para segurar a atenção do espectador.
+
+Aliás o título do vídeo deixa bem claro que meio clickbait, mas mesmo assim achei as dicas válidas.
+
+
 ## 2:30 - 1. Você não tem a obrigação de agradar a todos.
 
 A maioria das pessoas sofre com medo, timidez e inibição pois sempre fica com aquela auto-cobrança da perfeição. De ter que agradar e ser querida por todos.
