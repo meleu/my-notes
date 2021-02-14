@@ -20,10 +20,12 @@
 
 ## Books
 
-- Projeto Fênix
-- Manual de DevOps
-- Continuous Delivery
-- Microsserviços Prontos para Produção
+- The Phoenix Project, by Gene Kim, Kevin Behr and George Spafford
+- The DevOps Handbook, by Gene Kim, Jez Humble, Patrick Debois, John Willis
+- Continuous Delivery, by Dave Farley and Jez Humble
+- Production Ready Microservices, by Susan Fowler
+- Web Operations by John Allspaw and Jesse Robbins
+
 
 
 ## Jornada DevOps - Curso Udemy
