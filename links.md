@@ -9,6 +9,7 @@ My own list of awesome links.
 - <https://increment.com/> - a magazine about how teams build and operate software systems at scale.
 - <https://flowcv.io/> - create a nice-looking CV (it really helped me to get a job).
 - <https://surge.sh/> - Deploy something - anything - right now, for free.
+- <http://www.hemingwayapp.com/> - Hemingway App makes your writing bold and clear.
 - <https://github.com/stijnvc/holo-alfa> - minimalist, simple and elegant jekyll theme (probably gonna use it for entrelinhas).
 - <https://css-tricks.com/license/> - interesting license note.
 - <https://www.destroyallsoftware.com/> - explaining advanced programming practices via concrete examples.
