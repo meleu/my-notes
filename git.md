@@ -23,3 +23,9 @@ git checkout pr-1234
 # git fetch <repo> pull/<pr-id>/head:<local-branchname>
 # git checkout <local-branchname>
 ```
+
+## gitflow
+
+Interesting video (portuguese): <https://www.youtube.com/watch?v=wzxBR4pOTTs>
+
+Good doc: <https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow>
