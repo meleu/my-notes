@@ -5,8 +5,17 @@
 ## links
 
 - <https://github.com/jlevy/the-art-of-command-line> - The Art of Command Line - good source of inspiration for articles
-- <https://github.com/alebcay/awesome-shell> - Awesome Shell resources
 - <https://github.com/alexanderepstein/Bash-Snippets> - **THIS IS AN EXTREMELY VALUABLE RESOURCE**
+- <https://github.com/dylanaraps/pure-bash-bible> - pure bash bible
+- <https://github.com/alebcay/awesome-shell> - Awesome Shell resources
+- <https://ebook.bobby.sh/> - inspiration for an interactive bash book/website.
+- <https://cheat.sh> - the only cheat sheet you need :)
+- <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
+
+### references
+
+- <http://mywiki.wooledge.org/> - awesome bash knowledge resource.
+- <https://wiki.bash-hackers.org> - more bash hacking
 
 
 ## using bit.ly url shortener from terminal
