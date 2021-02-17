@@ -1,9 +1,12 @@
 # bash
 [✏️](https://github.com/meleu/my-notes/edit/master/bash.md)
 
-## cool scripts
 
-I need to find that repo with some day-to-day useful scripts!!!
+## links
+
+- <https://github.com/jlevy/the-art-of-command-line> - The Art of Command Line - good source of inspiration for articles
+- <https://github.com/alebcay/awesome-shell> - Awesome Shell resources
+- <https://github.com/alexanderepstein/Bash-Snippets> - **THIS IS AN EXTREMELY VALUABLE RESOURCE**
 
 
 ## using bit.ly url shortener from terminal
