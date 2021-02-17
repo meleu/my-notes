@@ -1,5 +1,7 @@
 # GOTO 2020 • Five Things Every Developer Should Know about Software Architecture • Simon Brown
 
+- <https://youtu.be/9Az0q2XHtH8>
+
 ## 1. Software architecture isn't about big design up front
 
 Responding to change over following a plan
