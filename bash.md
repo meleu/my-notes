@@ -1,6 +1,11 @@
 # bash
 [✏️](https://github.com/meleu/my-notes/edit/master/bash.md)
 
+## cool scripts
+
+I need to find that repo with some day-to-day useful scripts!!!
+
+
 ## using bit.ly url shortener from terminal
 
 See the article (in portuguese): <https://meleu.sh/url-shortener/>
