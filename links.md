@@ -95,16 +95,6 @@ HTML + CSS + JavaScript
 - <https://egghead.io/courses/the-beginner-s-guide-to-react> - really cool
 
 
-## shell script
-
-- <https://ebook.bobby.sh/> - inspiration for an interactive bash book/website.
-- <https://github.com/dylanaraps/pure-bash-bible> - pure bash bible
-- <https://cheat.sh> - the only cheat sheet you need :)
-- <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
-- <http://mywiki.wooledge.org/> - awesome bash knowledge resource.
-- <https://wiki.bash-hackers.org> - more bash hacking
-- <https://github.com/jlevy/the-art-of-command-line> - master the command line (useful resource of inspiration for writing articles)
-
 
 ## post-mortems
 
