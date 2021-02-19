@@ -182,3 +182,20 @@ Agility makes DevOps relevant. DevOps makes agility impactful.
 ### For your DevOps journey
 
 
+---
+
+
+## Por que DevOps?
+
+Até cerca de 10 anos atrás, grandes projetos de software eram lançado em ciclos de meses. Uma nova release a cada 6 meses, ou se fosse um projeto rápido, a cada 3 meses.
+
+Um grande problema dessa maneira de desenvolver software é que desde quando começamos o planejamento e começamos as primeiras etapas do projeto até a entrega do produto 6 meses depois, o "mundo mudou". Requisitos julgados como importantes já não são tão necessários assim.
+
+O Movimento Ágil (iniciado em 2001) com o tempo começou a ganhar força. Um dos valores mais fundamentais do Manifesto para Desenvolvimento Ágil é: responder a mudanças mais que seguir um plano. Isso permite que o desenvolvimento aconteça de forma mais rápida.
+
+No entanto ser mais rápido não significa
+
+
+
+
+
