@@ -185,17 +185,97 @@ Agility makes DevOps relevant. DevOps makes agility impactful.
 ---
 
 
+
 ## Por que DevOps?
 
-Até cerca de 10 anos atrás, grandes projetos de software eram lançado em ciclos de meses. Uma nova release a cada 6 meses, ou se fosse um projeto rápido, a cada 3 meses.
+Até cerca de 10 anos atrás, grandes projetos de software eram lançados em ciclos que duravam meses. Uma nova release a era lançada a cada 6 meses, ou se fosse um projeto rápido, a cada 3 meses.
 
-Um grande problema dessa maneira de desenvolver software é que desde quando começamos o planejamento e começamos as primeiras etapas do projeto até a entrega do produto 6 meses depois, o "mundo mudou". Requisitos julgados como importantes já não são tão necessários assim.
+Um grande problema dessa maneira de desenvolver software é que desde quando começamos o planejamento e levantamento de requisitos até a entrega do produto 6 meses depois, o "mundo mudou". Requisitos julgados como importantes já não são tão necessários assim.
 
-O Movimento Ágil (iniciado em 2001) com o tempo começou a ganhar força. Um dos valores mais fundamentais do Manifesto para Desenvolvimento Ágil é: responder a mudanças mais que seguir um plano. Isso permite que o desenvolvimento aconteça de forma mais rápida.
+Em 2001 um grupo de pioneiros em desenvolvimento de software publicou o **Manifesto para Desenvolvimento Ágil de Software**, desde então as chamadas "metodologias ágeis" começaram a ganhar força e mostrar resultados expressivos. Principalmente devido a um de seus valores mais fundamentais: responder a mudanças mais que seguir um plano.
 
-No entanto ser mais rápido não significa
+As Metodologias Ágeis permitem que os desenvolvedores (Dev) produzam de maneira mais rápida. E rapidamente coletando feedback valioso que dá novos direcionamentos ao projeto.
+
+No entanto, por mais fiéis que sejam aos princípios de agilidade, o resultado desse trabalho ainda demora um tempo para ser colocado em produção, pois o time de Operações (Ops) trabalha com objetivos distintos (manter segurança e estabilidade).
+
+- TODO: Graças a tecnologias de (???) "containers & services" (???) foi possível o desenvolvimento de ferramentas que começaram a permitir a automação de muitas tarefas repetitivas desempenhadas pelo pessoal de Operações/Infraestrutura.
+
+O movimento DevOps é uma maneira de trazer o pessoal de Operações para dentro das metodologias ágeis, através destas ferramentas de automação.
 
 
+
+## Problemas comuns que aparecem durante a jornada DevOps
+
+Um fenômeno que vem ocorrendo recentemente é que muitas empresas ficam sabendo de como "esse tal de DevOps" está trazendo sucesso para muitas companhias, e portanto também querem implementar a mesma metodologia em suas respectivas organizações. No entanto, se ainda não há uma maturidade na utilização de metodologias ágeis na organização, a jornada DevOps será bastante árdua.
+
+Alguns dos problemas mais comuns:
+
+- Silos
+    - Dev
+    - Ops
+    - Segurança
+    - [Marketing]
+    - [Finanças]
+
+- Expectativas
+    - TODO: ???
+    - TODO: ???
+
+- Cultura e ambiente organizacional
+    - TODO: ???
+    - TODO: ???
+
+- Foco nas ferramentas
+    - O CoE pode acabar ele próprio se tornando mais um silo
+
+
+
+## Práticas para adoção de DevOps
+
+- Agilidade
+- Pipelines
+- Time habilitador (COE-TECH)
+
+OBS.: Por que "pipeline" e "time habilitador" são tópicos distintos? Pois no médio/longo prazo, o time habilitador entrega a pipeline para o squad de desenvolvimento e este tem maturidade e autonomia para ser responsável pela manutenção da pipeline.
+
+
+### Agilidade
+
+Functional agile teams with effective product owners. Enables the reliable flow of useful change, crucial for DevOps working.
+
+DevOps needs a regular, sustainable and predictable flow of valuable changes.
+
+
+### Pipelines
+
+Automated, validating, single-route to production for all code changes. Technical artefact shared between Dev and Ops, contributes to reliability and efficiency.
+
+- Single automated path from commit to production.
+
+- Visible manifestation of your path-to-production.
+
+- Increases confidence stage by stage (stability 7 confidence).
+    - Includes manual checkpoints where needed.
+
+- build > unit test > package > test deploy > integration test > non-functional test > acceptance test > deploy
+
+
+
+### Time habilitador
+
+Technical teams providing transitional expertise and transferring knowledge. Help to build and evolve critical new infrastructure and coach & lead other teams.
+
+DevOps implementation is not trivial, it's actually difficult... and it's never a technology problem.
+
+There's a lot to learn... a lot of culture to instill... a lot of behaviour to encourage.
+
+The Enabler Teams are one way we've found to help with this.
+
+Enabler teams work as peer-team within the overall engineering team to:
+
+- Develop culture by example.
+- Bring and transfer technical knowledge.
+- Build useful shared things that make everyone more productive.
 
 
 
