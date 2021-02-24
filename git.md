@@ -34,3 +34,13 @@ git checkout pr-1234
 # git checkout <local-branchname>
 ```
 
+## getting the latest commit
+
+```sh
+git log origin/master --max-count=1 --no-merges --format='format:%h'
+
+# git log <repo>/<branch> --max-count=1 --no-merges --format='format:%h'
+```
+
+For more info about formatting see `man git log`.
+
