@@ -18,6 +18,7 @@ A ideia é que cada container rode apenas a aplicação ou serviço e que seus d
 
 > Dúvida:
 > O que é um pod?
+> Resposta: containers que trabalham em conjunto.
 
 "Um dos gravíssimos erros é ver o pessoal migrar suas aplicações com imagens gigantescas com vários gigas para containers e achar que vai deixar aquilo ligado eternamente. Container não é pra isso. Container é feito para nascer e morrer rápido."
 - Jonathan Baraldi
