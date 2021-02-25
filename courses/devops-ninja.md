@@ -119,3 +119,28 @@ Apresentação: **DevOps na AWS: Construindo Sistemas para Entregas Rápidas** -
 
 - Software precisa ser alterado rapidamente. Isso é uma grande vantagem competitiva.
 
+
+## Arquitetura do Ambiente
+
+- 4 máquinas virtuais
+    - 1 Rancher server
+    - 3 para cluster kubernetes
+    - requisitos para cada máquina:
+        - 2-4 vcpu
+        - 4-6 gb ram
+        - 30 gb
+
+- ter um domínio: testes.dev
+    - rancher.<dominio>
+    - app1.rancher.<dominio>
+    - app2.rancher.<dominio>
+
+
+> Ingress: é o que responde pela aplicação do kubernetes externamente.
+
+Parte prática inicia aos 13:35.
+
+Comandos a serem executados:
+
+- <https://github.com/jonathanbaraldi/devops/blob/master/exercicios/exercicios.md>
+
