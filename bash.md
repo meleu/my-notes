@@ -1,5 +1,10 @@
+---
+modified: 2021-02-26T06:26:50-03:00
+---
+
 # bash
-[✏️](https://github.com/meleu/my-notes/edit/master/bash.md)
+
+[:pencil2:](https://github.com/meleu/my-notes/edit/master/bash.md)
 
 
 ## links
@@ -19,6 +24,8 @@
 
 
 ## using bit.ly url shortener from terminal
+
+[Note: using https://0x0.st/ is a good/simpler alternative. Not sure for how long, though]
 
 See the article (in portuguese): <https://meleu.sh/url-shortener/>
 
