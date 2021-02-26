@@ -208,3 +208,118 @@ EOF
 Começa em 21:30 da aula 4.
 
 Lembrar de liberar todas as portas no firewall.
+
+
+## Construindo sua aplicação
+
+- <https://www.udemy.com/course/devops-mao-na-massa-docker-kubernetes-rancher/learn/lecture/19490614>
+
+Importante: necessário ter uma conta no [docker hub](https://hub.docker.com/). Meu nome de usuário é `meleuzord`.
+
+> Isso parece ser uma dica para remover todos os containers locais:
+> ```
+> docker rm -f $(docker ps -a -q)
+> ```
+
+
+Comandos a serem executados na máquina do rancher:
+
+```sh
+# considerando logado como usuário ubuntu
+sudo su
+apt-get install git -y
+curl -L \
+  "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" \
+  -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+exit # sair do 'sudo su'
+
+cd # ir para /home/ubuntu
+git clone https://github.com/jonathanbaraldi/devops
+cd devops/exercicios/app
+
+####################
+# container do redis
+####################
+cd redis
+# criando uma imagem no nosso docker hub
+docker build -t meleuzord/redis:devops .
+
+# executando o container a partir da imagem criada acima
+docker run -d \
+  --name redis \
+  -p 6379:6379 \
+  meleuzord/redis:devops
+
+# conferindo...
+docker ps
+docker logs redis
+
+###################
+# container do node
+###################
+cd ../node
+docker build -t meleuzord/node:devops .
+
+# executando o container ligando-o com o container do redis
+docker run -d \
+  --name node \
+  -p 8080:8080 \
+  --link redis meleuzord/node:devops
+# com isso temos a aplicação rodando e conectada ao redis.
+# para conferir acesse /redis
+
+# conferindo...
+docker ps
+docker logs node
+
+#################
+# container nginx
+#################
+cd ../nginx
+docker build -t meleuzord/nginx:devops
+
+# executando o container ligando-o com o container do node
+docker run -d \
+  --name nginx \
+  -p 80:80 \
+  --link node \
+  meleuzord/nginx:devops
+
+# conferindo...
+docker ps
+docker logs nginx
+
+# com isso podemos acessar a aplicação na porta 80 e 8080
+```
+
+Após confirmar que estes 3 containers estão servindo a aplicação corretamente, podemos remover todos os containers (para posteriormente chamá-los através do `docker-compose`).
+
+```sh
+docker rm -f $(docker ps -a -q)
+docker volume rm $(docker volume ls)
+```
+
+### docker-compose
+
+```sh
+cd ..
+vim docker-compose.yml
+# editar linhas 8, 18 e 37, colocando username do docker hub
+
+docker-compose -f docker-compose.yml up -d
+curl localhost:80
+# realizar o mesmo teste com curl na sua máquina local
+
+# testar em /redis, /html e /load
+
+# conferindo...
+docker logs
+
+# terminando a aplicação
+docker-compose down
+```
+
+## Rancher - Single Node
+
