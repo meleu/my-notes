@@ -9,9 +9,11 @@
 ```sh
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
-# this script does NOT work with Linux Mint :(
+# the script below does NOT work with Linux Mint :(
+# detailed instructions here: https://docs.docker.com/get-docker/
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
+
 
 sudo usermod -aG docker meleu
 
