@@ -19,7 +19,7 @@ sudo usermod -aG docker meleu
 
 Or manually:
 
-Install docker following the instructions in <https://docs.docker.com/get-docker/> and don't forget to follow the post-install instructions.
+Install docker following the instructions in <https://docs.docker.com/get-docker/> and <https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository>. And don't forget to follow the [post-install instructions](https://docs.docker.com/engine/install/linux-postinstall/).
 
 
 ## basic commands
