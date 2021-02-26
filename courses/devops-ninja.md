@@ -138,9 +138,73 @@ Apresentação: **DevOps na AWS: Construindo Sistemas para Entregas Rápidas** -
 
 > Ingress: é o que responde pela aplicação do kubernetes externamente.
 
+### Prática
+
+- <https://github.com/jonathanbaraldi/devops/blob/master/exercicios/exercicios.md#aula-4---ambiente>
+
 Parte prática inicia aos 13:35.
 
-Comandos a serem executados:
+- Start your free trial with a $100 credit for 60 days: <https://try.digitalocean.com/freetrialoffer/>
 
-- <https://github.com/jonathanbaraldi/devops/blob/master/exercicios/exercicios.md>
+Criar 4 máquinas virtuais 4 GB/2 CPUs (máquina de $20 na DigitalOcean):
 
+- rancher
+- k8s1
+- k8s2
+- k8s3
+
+#### Em cada máquina criar o usuário `ubuntu` com acesso via chave SSH
+
+##### Na máquina "local"
+
+criar uma chave pública na máquina que será usada para acessar o host remoto:
+```sh
+ssh-keygen -t dsa
+```
+
+Isso vai gerar o arquivo `/home/USERNAME/.ssh/id_dsa.pub`.
+
+##### No host remoto
+
+```sh
+# executar como root
+####################
+
+# criar um usuário sem senha
+useradd --create-home --home-dir /home/USERNAME --shell /bin/bash USERNAME
+usermod -aG sudo ubuntu
+ufw allow OpenSSH
+
+# Copiar o conteúdo de `/home/{USER_NAME}/.ssh/id_dsa.pub` **da máquina local**
+# e colar **no host remoto** em `/home/ubuntu/.ssh/authorized_keys`.
+
+# Configurar as permissões
+chown -R ubuntu:ubuntu /home/ubuntu/.ssh
+chmod 700 /home/ubuntu/.ssh
+chmod 600 /home/ubuntu/.ssh/authorized_keys
+```
+
+Pode ser uma boa dar uma olhadinha em `/etc/ssh/sshd_config` e certificar-se que `PubkeyAuthentication yes`.
+
+Se tudo der certo agora é possível ir na "máquina local" e se logar sem senha usando o comando:
+```
+ssh ubuntu@ip.do.host
+```
+
+#### Instalando docker em cada máquina
+
+```sh
+# executar na sua máquina local
+ssh -T ubuntu@ip.do.host << EOF
+  sudo su
+  curl https://releases.rancher.com/install-docker/19.03.sh | sh
+  usermod -aG docker ubuntu
+EOF
+``` 
+
+
+#### Configuração DNS
+
+Começa em 21:30 da aula 4.
+
+Lembrar de liberar todas as portas no firewall.
