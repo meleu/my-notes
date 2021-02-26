@@ -42,6 +42,11 @@ See `:h text-objects` for more options.
 
 ## links
 
+- <https://thoughtbot.com/upcase/onramp-to-vim> - the best video series I found to get started with vim.
+- [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
+- [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac) - VimConf talk
+- <https://thoughtbot.com/upcase/the-art-of-vim> - some useful vim tips
+- <https://alldrops.info> - useful vim drops
 - video in portuguese: <https://www.youtube.com/watch?v=hdZMqMeruSQ>
     - 8:30 - 15:00: useful options for `.vimrc`
     - 15:00 - ??:??: plugins to make vim behave like vscode
@@ -53,10 +58,7 @@ See `:h text-objects` for more options.
         - <https://github.com/ryanoasis/vim-devicons> - must install [nerdfonts](https://github.com/ryanoasis/nerd-fonts) - alguma coisa deu errado aqui (30 minutos).
         - <https://github.com/vim-airline/vim-airline> and <https://github.com/vim-airline/vim-airline-themes>
         - parei nos 38 minutos
-- <https://thoughtbot.com/upcase/onramp-to-vim> - the best video series I found to get started with vim.
-- [Vim: tutorial on customization and configuration - by Leeren](https://www.youtube.com/watch?v=JFr28K65-5E) - advanced, very well reviewed
-- [Vim as an IDE - by Leeren](https://www.youtube.com/watch?v=Gs1VDYnS-Ac) - VimConf talk
-- <https://thoughtbot.com/upcase/the-art-of-vim> - some useful vim tips
+
 
 
 ## random tips
