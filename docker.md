@@ -7,9 +7,20 @@
 - <https://labs.play-with-docker.com/>
 
 
-## basic commands
+## installation
+
+Cheat:
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+```
+
+Or manually:
 
 Install docker following the instructions in <https://docs.docker.com/get-docker/> and don't forget to follow the post-install instructions.
+
+
+## basic commands
 
 Basic docker commands:
 
