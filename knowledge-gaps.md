@@ -16,3 +16,10 @@ I need to remember what exactly is NAT, what it does and how it works.
 
 I need to understand, at least in general, how a Virtual Private Network works.
 
+
+## nslookup
+
+What the `nslookup` command does?
+
+[Note: I remember the "TCP/IP Illustrated" book explains it very well and with practical examples.]
+
