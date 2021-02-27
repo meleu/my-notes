@@ -86,7 +86,7 @@ You can changes the defaults via command line arguments:
 docker container run --publish 8080:80 --name webhost -d nginx:1.11 nginx -T
 #  --publish 8080:80  # change host listening port
 #  nginx:1.11         # change version of image
-#  nginx -T           # change CMD run on start
+#  nginx -T           # change CMD to be ran on start
 ```
 
 
