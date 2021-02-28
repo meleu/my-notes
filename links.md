@@ -13,6 +13,7 @@ My own list of awesome links.
 - <https://github.com/stijnvc/holo-alfa> - minimalist, simple and elegant jekyll theme (probably gonna use it for entrelinhas).
 - <https://css-tricks.com/license/> - interesting license note.
 - <https://www.destroyallsoftware.com/> - explaining advanced programming practices via concrete examples.
+- <https://www.executeprogram.com/> - seems to be an awesome resource to effectively learn JavaScript/TypeScript (uses spaced repetition).
 
 
 ## Database
