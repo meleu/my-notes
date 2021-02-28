@@ -4,7 +4,7 @@
 
 ## links
 
-- <https://labs.play-with-docker.com/>
+- <https://labs.play-with-docker.com/> - practice online, directly in your browser.
 
 
 ## installation
@@ -72,7 +72,7 @@ docker container stats                    # monitor performance stats for all co
 
 The `docker run` command groups 4 other commands:
 
-```
+```sh
 docker image pull       # downloads the image from the registry
 docker container create # creates the container
 docker container start  # starts the container
@@ -81,6 +81,16 @@ docker container exec   # executes a command in a running container
 
 That's why after each `docker run`, it creates a new container.
 
+**Note**: if you give a command at the end of a `docker run` command, it replaces the `CMD` defined for that image. Example:
+```sh
+# creates a container named 'nginx-shell' where the CMD is replaced with bash
+# (use -it to make it interactive)
+docker container run --name nginx-shell -it nginx bash
+
+# later, when we start that container, its CMD is still bash
+# (use -ai to make it interactive)
+docker container start -ai nginx-shell
+```
 
 ## Basic `docker network` commands
 
@@ -104,4 +114,27 @@ docker network inspect <networkName>
 docker container run --network <networkName> <imageName>
 ```
 
+Filtering with `jq`:
+```sh
+# which containers are connected to a specific network:
+docker network inspect <networkName> | jq '.[].Containers'
+
+# which networks the container is connected to
+docker container inspect <containerName> | jq '.[].NetworkSettings.Network'
+```
+
+**Note**: the Docker daemon has a builtin DNS server that containers use by default in custom networks (not in the default one 'bridge'). It defaults the hostname to the container's name. Example:
+```sh
+# creting a new network
+docker network create new-network
+
+# creating two containers connected to the new network
+docker container run --network new-network --name container1 alpine sleep 10000
+docker container run --network new-network --name container2 alpine sleep 10000
+
+# it's possible to ping one each other using the container's name
+docker container exec -it container2 ping container1
+```
+
+> knowledge gap: understand what exactly the `--network-alias` option does.
 
