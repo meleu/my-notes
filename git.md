@@ -5,6 +5,10 @@
 
 - <https://github.com/eficode-academy/git-katas> - deliberate git practice
 
+### egghead.io
+
+- <https://egghead.io/q/git>
+
 ### gitflow
 
 - Interesting video (portuguese): <https://www.youtube.com/watch?v=wzxBR4pOTTs>
