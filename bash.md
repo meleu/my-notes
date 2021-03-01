@@ -1,7 +1,3 @@
----
-modified: 2021-02-26T06:26:50-03:00
----
-
 # bash
 
 [:pencil2:](https://github.com/meleu/my-notes/edit/master/bash.md)
@@ -16,6 +12,14 @@ modified: 2021-02-26T06:26:50-03:00
 - <https://ebook.bobby.sh/> - inspiration for an interactive bash book/website.
 - <https://cheat.sh> - the only cheat sheet you need :)
 - <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
+
+### egghead.io
+
+- <https://egghead.io/q/bash>
+
+- <https://egghead.io/courses/upgrade-your-terminal-and-make-it-a-joy-to-work-with-13f1>
+- <https://egghead.io/courses/automate-daily-development-tasks-with-bash>
+- <https://egghead.io/courses/advanced-bash-automation-for-web-developers>
 
 ### references
 
