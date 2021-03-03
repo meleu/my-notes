@@ -2,6 +2,10 @@
 
 [✏️](https://github.com/meleu/my-notes/edit/master/jenkins-vs-gitlab.md)
 
+## video
+
+Achei a opinião desse cara nesse pequeno vídeo bem bacana e ponderada: <https://www.youtube.com/watch?v=99kA0b9Xb8o>
+
 
 ## links
 
