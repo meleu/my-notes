@@ -81,14 +81,12 @@ Embora o Jenkins seja ótimo para automatizar algumas coisas, ele é muito frág
 - Jenkins requer plugins de terceiros para suportar _analytics_.
 - Com o Jenkings, os requisitos de auditoria e conformidade não são fáceis de cumprir. Não é fácil rastrear mudanças em um novo _release_.
 
-[Dúvida: GitLab suporta essas features? Analytics e rastreamento de releases?]
-
 
 ### Jenkins X
 
 Jenkins X tem altos requisitos de sistema, deployment limitado apenas a clusters Kubernetes. Só tem interface de linha de comando (no momento) e ainda usa Groovy.
 
-[Achei o arumento bem fraco.]
+[Achei o argumento bem fraco.]
 
 
 ### Suporte a Kubernetes
@@ -97,6 +95,8 @@ Do GitLab PMM:
 
 > Jenkins teve que construir um novo projeto separado para trabalhar com o Kubernetes. O GitLab adotou nativamente o Kubernetes desde o início.
 
+
+---
 
 
 ## Diferenciadores do GitLab
