@@ -1,5 +1,8 @@
 # Jenkins vs GitLab
 
+[✏️](https://github.com/meleu/my-notes/edit/master/jenkins-vs-gitlab.md)
+
+
 ## links
 
 - <https://about.gitlab.com/devops-tools/jenkins-vs-gitlab/jenkins-gaps/>
