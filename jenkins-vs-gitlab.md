@@ -9,7 +9,7 @@
 - <https://about.gitlab.com/devops-tools/jenkins-vs-gitlab/gitlab-differentiators/>
 
 
-A seguir temos a tradução livre dos artigos acima. Em seguida eu escrevo a [minha opinião](#minha-opiniao) final mostrando os principais pontos que tornam o GitLab uma melhor opção para a implementação de DevOps em uma organização.
+A seguir temos a tradução livre dos artigos acima. Em seguida eu escrevo a [minha opinião](#minha-opinião) final mostrando os principais pontos que tornam o GitLab uma melhor opção para a implementação de DevOps em uma organização.
 
 OBSERVAÇÃO: nas traduções, os textos [entre colchetes] são colocações minhas.
 
