@@ -171,7 +171,7 @@ Os pontos diferenciais "matadores" em favor do GitLab são:
     - [Release](https://about.gitlab.com/stages-devops-lifecycle/release/)
     - [Configuração](https://about.gitlab.com/stages-devops-lifecycle/configure/)
     - [Monitoramento](https://about.gitlab.com/stages-devops-lifecycle/monitor/)
-- Tirando CI/CD, todas essas funcionalidades no Jenkins só seriam conseguidas através de plugins de terceiros, o que traria uma grande carga de trabalho para manter seguro e atualizado.
+    - Tirando CI/CD, todas essas funcionalidades no Jenkins só seriam conseguidas através de plugins de terceiros, o que traria uma grande carga de trabalho para manter seguro e atualizado.
 
 - Configuração da pipeline feita em um arquivo `.gitlab-ci.yml` armazenado no mesmo repositório do código da aplicação.
     - _Configuration as Code_
