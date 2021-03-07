@@ -14,7 +14,7 @@ My own list of awesome links.
 - <https://css-tricks.com/license/> - interesting license note.
 - <https://www.destroyallsoftware.com/> - explaining advanced programming practices via concrete examples.
 - <https://www.executeprogram.com/> - seems to be an awesome resource to effectively learn JavaScript/TypeScript (uses spaced repetition).
-
+- <https://www.youtube.com/watch?v=y62zj9ozPOM&list=PLhQjrBD2T3828ZVcVzEIhsHVgjANGZveu> - 2017 version of Harvard's CS50. Known as the best version of the course.
 
 ## Database
 
