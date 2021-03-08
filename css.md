@@ -1,6 +1,10 @@
 # CSS
 [✏️](https://github.com/meleu/my-notes/edit/master/css.md)
 
+## course
+
+- <https://css-for-js.dev/> - this seems to be an awesome course (CSS aimed to JS developers).
+
 ## smooth scrolling
 
 ```css
