@@ -23,3 +23,16 @@ gem install jekyll bundler
 
 **Note**: I remember I installed it via Ruby enVironment Manager (<https://rvm.io/>) in the past and it was a good option, but the rvm installation process is not for dummies and I didn't take notes at that time. I need to retry it taking notes.
 
+
+
+## New Jekyll Project
+
+```sh
+jekyll new projectName
+cd projectName
+bundle exec jekyll serve
+```
+
+Edit the `_config.yml`:
+```yml
+```

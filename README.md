@@ -33,4 +33,5 @@ Personal notes about things I've been learning (mostly programming).
 - [ssh](https://meleu.github.io/my-notes/ssh) - [✏️](https://github.com/meleu/my-notes/edit/master/ssh.md)
 - [tmux](https://meleu.github.io/my-notes/tmux) - [✏️](https://github.com/meleu/my-notes/edit/master/tmux.md)
 - [vim](https://meleu.github.io/my-notes/vim) - [✏️](https://github.com/meleu/my-notes/edit/master/vim.md)
+- [virtualbox](https://meleu.github.io/my-notes/virtualbox) - [✏️](https://github.com/meleu/my-notes/edit/master/virtualbox.md)
 - [vscode](https://meleu.github.io/my-notes/vscode) - [✏️](https://github.com/meleu/my-notes/edit/master/vscode.md)
