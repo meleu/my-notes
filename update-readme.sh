@@ -12,12 +12,16 @@
 #
 # STEP 1:
 # Change the BASE_URL and EDIT_URL variables accordingly.
+readonly BASE_URL='https://meleu.github.io/my-notes'
+readonly EDIT_URL='https://github.com/meleu/my-notes/edit/master'
 #
 # STEP 2:
 # Create a README.md with anything you want in the top of the file and
-# then create a heading for your ToC like this: '## Notes'.
+# then create a heading for your ToC like this: '## Table of Contents'.
 # If you want a different heading, change the REGEX_TOC_HEADING variable
 # accordingly.
+readonly REGEX_TOC_HEADING='^## .* Table of Contents'
+#
 # NOTE: everything below that heading will be updated right before each
 #       commit you do, so don't put there the text you want to be in the 
 #       readme file.
@@ -36,46 +40,105 @@
 #
 # meleu - https://meleu.dev/
 
-##########################################################################
-# IMPORTANT!: edit the variables below to point to your own repository
-readonly BASE_URL='https://meleu.github.io/my-notes'
-readonly EDIT_URL='https://github.com/meleu/my-notes/edit/master'
-# change the regex below if you want a different ToC heading
-readonly REGEX_TOC_HEADING='^## .* Notes'
-##########################################################################
-# no need to edit anything from below this line
-
 readonly REPO_DIR="$(git rev-parse --git-dir)/.."
 
-linksList() {
-  local fileFull
+
+# FUNCTIONS
+###############################################################################
+
+# hasToCHeading():
+# arg1: readme file
+hasToCHeading() {
+  local file="$1"
+  grep -iq "${REGEX_TOC_HEADING}" "${file}"
+}
+
+# readmeList(): print only README files with the $REGEX_TOC_HEADING
+# arg1: directory
+# arg2: 'true' to check only one sublevel
+readmeList() {
+  local startingDir="${1:-$REPO_DIR}"
+  local readmeFile
+  local maxdepth="${2}"
+  local maxdepthArg
+
+  [[ ${maxdepth} == 'true' ]] && maxdepthArg='-mindepth 2 -maxdepth 2'
+
+  for readmeFile in $(find "${startingDir}" ${maxdepthArg} -type f -name 'README.md' | sort); do
+    hasToCHeading "${readmeFile}" && echo "${readmeFile}"
+  done
+}
+
+# subDirList(): print only subdirectories with a valid README
+# arg1: directory
+subDirList() {
+  local startingDir="${1:-$REPO_DIR}"
+  local directory
+  for directory in $(readmeList "${startingDir}" true); do
+    dirname "${directory}"
+  done
+}
+
+# createToCFolders(): create links for subdirectories
+# arg1: readme file
+createToCFolders() {
+  local readmeFile="${1}"
+  local directory
+  local iteratorDir
+  local directories=()
+
+  [[ -f "${readmeFile}" ]] || return 1
+
+  directory="$(dirname "${readmeFile}")"
+  directories+=( $(subDirList "${directory}") )
+
+  [[ -z "${directories[@]}" ]] && return 0
+
+  echo -e '\n### 📂 Folders\n' >> "${readmeFile}"
+
+  for iteratorDir in "${directories[@]}"; do
+    directory="${iteratorDir/$REPO_DIR\//}"
+    echo "- [${directory}/](${BASE_URL}/${directory})" >> "${readmeFile}"
+  done
+}
+
+# createToCNotes(): create links for notes in the same dir as the readme file
+# arg1: readme file
+createToCNotes() {
+  local readmeFile="${1}"
+  local directory
+  local iteratorFile
   local fileBase
   local fileNoExtension
 
-  for fileFull in "${REPO_DIR}"/*.md ; do
-    fileBase="${fileFull##*/}"
+  [[ -f "${readmeFile}" ]] || return 1
+
+  directory="$(dirname "${readmeFile}")"
+  directory="${directory/$REPO_DIR\//}"
+
+  echo -e '\n### 📝 Notes\n' >> "${readmeFile}"
+
+  for iteratorFile in "${directory}"/*.md ; do
+    fileBase="${iteratorFile##*/}"
     [[ $fileBase =~ .*README\.md ]] && continue
 
     fileNoExtension="${fileBase%.*}"
 
-    echo -n "- [${fileNoExtension}](${BASE_URL}/${fileNoExtension})"
-    echo " - [✏️](${EDIT_URL}/${fileBase})"
+    echo -n "- [${fileNoExtension}](${BASE_URL}/${directory}/${fileNoExtension})" >> "${readmeFile}"
+    echo " - [✏️](${EDIT_URL}/${directory}/${fileBase})" >> "${readmeFile}"
   done
 }
 
+# updateReadme(): update all readme files in the repository
 updateReadme() {
-  local readme="${REPO_DIR}/README.md"
+  local readmeFile
 
-  if [[ ! -f "${readme}" ]]; then
-    echo "${readme}: file not found. Aborting..." >&2
-    exit 1
-  fi
-
-  # delete the current ToC (everything below '## Notes')
-  sed -ni "1,/${REGEX_TOC_HEADING}/p" "${readme}"
-  echo >> "${readme}"
-  linksList >> "${readme}"
-  git add "${readme}"
+  for readmeFile in $(readmeList); do
+    sed -ni "1,/${REGEX_TOC_HEADING}/p" "${readmeFile}"
+    createToCFolders "${readmeFile}"
+    createToCNotes "${readmeFile}"
+    git add "${readmeFile}"
+  done
 }
 
 updateReadme "$@"
