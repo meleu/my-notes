@@ -132,3 +132,9 @@ Misguided performers have the **highest use of outsourcing** of all groups.
 - The data on functional outsourcing is in, and it's decisive: this is not a winning bet
 - Optimize for throughput, stability and availability.
 
+
+## Books Suggested
+
+- DevOps Handbook
+- Accelerated
+
