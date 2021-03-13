@@ -12,3 +12,4 @@ Notes about several courses I've been taking.
 - [docker-mastery](https://meleu.github.io/my-notes/courses/docker-mastery) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/docker-mastery.md)
 - [efficient-learning](https://meleu.github.io/my-notes/courses/efficient-learning) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/efficient-learning.md)
 - [jornada-devops](https://meleu.github.io/my-notes/courses/jornada-devops) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/jornada-devops.md)
+- [treinamento-azure](https://meleu.github.io/my-notes/courses/treinamento-azure) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/treinamento-azure.md)
