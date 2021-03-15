@@ -7,4 +7,5 @@ My notes about the DevOps Bootcamp by Nana: <https://www.techworld-with-nana.com
 
 ### 📝 Notes
 
-- [intro](https://meleu.github.io/my-notes/courses/devops-bootcamp/intro) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/intro.md)
+- [01-intro](https://meleu.github.io/my-notes/courses/devops-bootcamp/01-intro) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/01-intro.md)
+- [02-version-control-git](https://meleu.github.io/my-notes/courses/devops-bootcamp/02-version-control-git) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/02-version-control-git.md)
