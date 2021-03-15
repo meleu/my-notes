@@ -4,6 +4,10 @@ Notes about several courses I've been taking.
 
 ## 🗃️ Table of Contents
 
+### 📂 Folders
+
+- [courses/devops-bootcamp/](https://meleu.github.io/my-notes/courses/devops-bootcamp)
+
 ### 📝 Notes
 
 - [aws-serverless-workshop](https://meleu.github.io/my-notes/courses/aws-serverless-workshop) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/aws-serverless-workshop.md)
