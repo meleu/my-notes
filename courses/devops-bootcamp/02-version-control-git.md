@@ -51,8 +51,8 @@ Main players:
 ### Local Repository
 
 - Install a git client
-  - GUI: <www.git-scm.com/downloads/guis>
-  - CLI: <www.git-scm.com/downloads>
+  - GUI: <https://git-scm.com/downloads/guis>
+  - CLI: <https://git-scm.com/downloads>
 
 
 - git client needs to be connected with remote platform
