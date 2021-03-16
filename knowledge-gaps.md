@@ -21,5 +21,12 @@ I need to understand, at least in general, how a Virtual Private Network works.
 
 What the `nslookup` command does?
 
+OK, it "shows the DNS config", but I want the details. I want to be able to explain it like using the Feynman Technique.
+
 [Note: I remember the "TCP/IP Illustrated" book explains it very well and with practical examples.]
+
+
+## SSH
+
+How SSH public and private keys work?
 
