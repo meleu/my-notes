@@ -38,3 +38,53 @@ Parts of git:
 
 ## Setup Git Repository Remote and Local
 
+Main players:
+- github
+- gitlab
+
+- Platforms where you host your repository
+- Most companies have their own git servers (ex.: bitbucket, self-hosted gitlab)
+- private vs. public repositories
+- public repositories for open source projects
+- you can do a lot via the platforms UI
+
+### Local Repository
+
+- Install a git client
+  - GUI: <www.git-scm.com/downloads/guis>
+  - CLI: <www.git-scm.com/downloads>
+
+
+- git client needs to be connected with remote platform
+- you need authenticate to the server
+- your public SSH key must be added to the remote platform
+    - this allows us to push/pull to/from the remote repository with no need to provide login/password everytime.
+
+```sh
+# cloning a repo
+git clone <repository-URL>
+```
+
+Inside the repository directory there's a subdir named `.git/`. It has information about the repository and **is used only locally**.
+
+
+### Working with Git
+
+Working Directory --`git add`--> Staging Area --`git commit`--> Local repository
+
+```sh
+# status of local git repo
+git status
+
+# add a file to the staging area
+git add FILENAME
+
+# commit the files in the staging area to the local repository
+git commit
+
+# see the history of changes (commits) in the local repository
+git log
+
+# pushing the local repository content to the remote one
+git push
+```
