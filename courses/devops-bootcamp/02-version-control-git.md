@@ -1,6 +1,6 @@
 # Version Control with Git
 
-## What is Version Control?
+## 1. What is Version Control?
 
 - Developers working on the same code
 - Code is hosted centrally on the internet (code repository)
@@ -22,7 +22,7 @@ The **best practice** to avoid it is to push and pull often to/from remote repos
 - Each change is labelled with commit message.
  
 
- ## Basic Concepts of Git
+ ## 2. Basic Concepts of Git
 
 - The most popular version control tool
 
@@ -36,7 +36,7 @@ Parts of git:
 - Git clients: to execute git commands
 
 
-## Setup Git Repository Remote and Local
+## 3. Setup Git Repository Remote and Local
 
 Main players:
 - github
@@ -68,7 +68,7 @@ git clone <repository-URL>
 Inside the repository directory there's a subdir named `.git/`. It has information about the repository and **is used only locally**.
 
 
-### Working with Git
+## 4. Working with Git
 
 Working Directory --`git add`--> Staging Area --`git commit`--> Local repository
 
@@ -87,4 +87,29 @@ git log
 
 # pushing the local repository content to the remote one
 git push
+```
+
+## 5. Initialize a Git project locally
+
+Project locally is NOT a git repository yet:
+
+```sh
+# existing_directory is not yet a git repository
+# (meaning: doesn't have a '.git' directory)
+cd existing_directory
+
+# say that this is going to be a git repo
+git init
+
+# set a remote repository for it
+git remote add origin <git-repository-URL>
+
+# adding files to staging area
+git add .
+
+# commit to local repo
+git commit -m 'Initial commit'
+
+# push to remote setting an upstream branch named 'master'
+git push --set-upstream origin master
 ```
