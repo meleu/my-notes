@@ -38,7 +38,7 @@ git checkout pr-1234
 # git checkout <local-branchname>
 ```
 
-## getting the latest commit
+## getting the latest commit hash
 
 ```sh
 git log origin/master --max-count=1 --no-merges --format='format:%h'
