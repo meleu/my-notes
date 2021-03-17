@@ -113,3 +113,109 @@ git commit -m 'Initial commit'
 # push to remote setting an upstream branch named 'master'
 git push --set-upstream origin master
 ```
+
+## 6. Concept of Branches
+
+- Master branch = main branch
+    - created by default, when initializing a git repo
+
+The concept of branches exist in order to cleanly divide the work of different developers.
+
+**Best practices** is to create branches for each feature and each bugfix.
+
+Examples:
+
+- `feature/user-auth` - for the user authentication feature
+- `bugfix/user-auth-error` - for fixing the error in the user authentication
+
+- big feature branches long open, increase the chance of merge conflicts
+- with branches you achieve a stable main branch (which is ready for deployment)
+
+```sh
+# show the current branch you're working
+git branch
+
+# pulling updates from the remote repository (which may include new branches)
+git pull
+
+# switching to another branch
+git checkout <branchname>
+
+# creating a new local branch and switch to it right away
+git checkout -b <new-branchname>
+
+# pushing the newly created local branch to the remote repo
+git push -u origin <new-branchname>
+```
+
+**NOTE** before creating a new branch and start working on it, it's import to switch back to `master`, in order to base your branch on master.
+
+Common practice: having the `master` and the `develop` branches
+
+- develop branch: intermediary master
+- during sprint: features and bugfixes into dev
+- end of sprint: merge into master
+
+### master vs. master+develop
+
+- master only:
+    - only master branch for continuous integration/delivery
+    - pipeline is triggered whenever feature/bugfix code is merged into master
+    - deploying every single feature/bugfix
+- master+develop
+    - features/bugfixes are collected in dev branch
+    - dev branch often becomes "work in progress" branch [not a good practice]
+
+## 7. Merge Requests
+
+- best practice: other developer reviews code changes before merging
+- use cases: big feature, junior developer or expertise in different area
+- great chance to learn and grow from each other!
+
+
+## 8. Deleting Branches
+
+Keep only branches that are being actively being worked.
+
+- best practice:
+    - delete branch after merging
+    - create a new branch when needed
+
+```sh
+# delete a branch locally
+git branch -d <branchname>
+
+# delete a remote branch
+git push <repo> --delete <branchname>
+```
+
+## 9. Rebase
+
+When you try to push changes to a repo and the remote repo has a commit (from another dev) you don't have locally, you need to `git pull` and it'll automatically merge the changes into your repo by creating a new commit. This is useful but add some "pollution" to your commit history.
+
+In order to avoid such pollution, use the command `git pull -r`, and it'll just insert the commit you don't have before your commit.
+
+```sh
+# avoid "Merge branch..." pollution in commit history
+git pull -r
+```
+
+
+## 10. Resolving Merge Conflicts
+
+Happens when more than one developer change code in the same line of a file. Even if you try to `git pull -r` you'll receive a `CONFLICT` message.
+
+When such situation happens YOU must tell git which change to take. Open the file where the conflict happens in your editor and fix the conflicts. And then `git rebase --continue`.
+
+```sh
+# pulling remote changes and rebase
+git pull -r
+
+# a conflict happens, fix it in your editor
+
+# continue with the rebase
+git rebase --continue
+
+# push changes to remote
+git push
+```
