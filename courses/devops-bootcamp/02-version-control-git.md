@@ -219,3 +219,81 @@ git rebase --continue
 # push changes to remote
 git push
 ```
+
+
+## 11. .gitignore file
+
+Used to exclude certain folders or files from git to be tracked.
+
+```sh
+# removing tracked-but-now-ignored files from the repository
+git rm -r --cached removed_directory/
+```
+
+Useful link: <https://gitignore.io/>
+
+## 12. git stash
+
+Scenario where `git stash` is useful:
+
+1. Making changes to the current branch
+2. Notice that something isn't working anymore - "Did I break it with my changes?"
+3. Hide changes temporarily away to test if it works without my code changes: `git stash`
+4. Bring changes back to my local working directory: `git stash pop`
+
+
+## 13. Going back in history
+
+```sh
+# seeing the history
+git log
+
+# NOTE: 'detached HEAD' state means you are not in the most
+# uptodate commit
+
+# choose the commit hash you want to test
+git checkout <commit-hash>
+
+# if you want to create a new branch from the current state
+git checkout -b <new-branch-name>
+
+# if you want to go back to the latest commit
+git checkout <branch-name>
+```
+
+## 14. Undoing commits
+
+Undoing **and removing** commits that were not yet pushed to the remote repository:
+```sh
+# reverting a commit
+# the '--hard' option discards the changes made in the commits being reverted.
+git reset --hard HEAD~1
+
+# the number after the tilde '~' sets the amount of commits to be reverted
+# example reverting last 3 commits:
+git reset --hard HEAD~3
+
+# reverting the commit but keeping the changes
+# (this is equivalent to use --soft)
+git reset HEAD~1
+
+# once you're happy with the changes you've made, let's ammend that commit
+git commit --amend -m 'commit message'
+```
+
+Undoing **and removing** commits that were already pushed to the remote repository
+
+**WARNING**: Don't do this in master or develop branch! Only do this when working alone in a branch!
+```sh
+# reverting a commit
+git reset --hard HEAD~1
+
+# force push a new commit history to the remote repository
+git push --force
+```
+
+Reverting changes through a new commit actually changing the files to the previous state.
+```sh
+# create a new commit changing the commit but in the reverse way
+git revert <commit-hash>
+```
