@@ -297,3 +297,30 @@ Reverting changes through a new commit actually changing the files to the previo
 # create a new commit changing the commit but in the reverse way
 git revert <commit-hash>
 ```
+
+
+## 15. Merging branches
+
+```sh
+# example: you're on a new branch and the master branch was
+# changed by another dev, and you want such changes in your
+# new branch.
+
+# go to the master branch and pull the changes
+git checkout master
+git pull
+
+# go back to your branch
+git checkout <branch-name>
+
+# merge the changes from master into your branch
+git merge master
+```
+
+## 16. Git for DevOps
+
+- Infrastructure as Code
+- CI/CD pipeline and Build Automation
+    - checkout code, test and build application, etc.
+    - need integration for the build automation tool with application git repository.
+    - you need to setup integration with automation tool and git repository.
