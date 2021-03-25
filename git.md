@@ -13,6 +13,7 @@
 
 - Interesting video (portuguese): <https://www.youtube.com/watch?v=wzxBR4pOTTs>
 - Good doc: <https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow>
+- cheatsheet: <https://danielkummer.github.io/git-flow-cheatsheet/index.html>
 
 
 ## copy of the remote repository
