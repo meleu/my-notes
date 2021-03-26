@@ -160,7 +160,7 @@ Focusing on:
 
 ### Predefined environment Variables
 
-- [Predefined variables reference](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html)
+- doc: <https://docs.gitlab.com/ee/ci/variables/predefined_variables.html>
 
 Example of useful one:
 
@@ -169,5 +169,99 @@ Example of useful one:
 
 ### CI/CD Schedules
 
+- doc: <https://docs.gitlab.com/ee/ci/pipelines/schedules.html>
+
 - left sidebar > CI/CD > Schedules
 
+
+### Using caches to optimize the build speed
+
+- doc: <https://docs.gitlab.com/ee/ci/caching/>
+
+```yml
+#...
+build website:
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+```
+
+- `cache.key`: the key to identify the cache. Suggestion: `${CI_COMMIT_REF_SLUG}`
+- `cache.paths`: paths to be cached
+
+**NOTE**: it can also be in the global context.
+
+**WARNING!**: sometimes caches misbehave and makes jobs fail. In such cases, go to the Web UI and click on the `[Clear Runner Caches]` button.
+
+
+#### Cache vs. Artifacts
+
+- Artifacts:
+    - is usually the output of a build tool
+    - designed to save some compiled/generated part of the build
+    - used to pass data between stages/jobs
+- Cache:
+    - not to be used to store build results
+    - should only be used as a **temporary storage for project dependencies**
+
+
+## Deployment Environments
+
+Basic pipeline:
+
+![CI/CD Pipeline](img/cicd-pipeline.png)
+
+- doc: <https://docs.gitlab.com/ee/ci/environments/>
+
+Environments in GitLab
+
+- allow you to control the continuous delivery/deployment process
+- easily track deployments
+- you will know exactly what was deployed and on which environment
+- you will have a full history of your deployments
+
+Usage example:
+```yml
+# ...
+deploy staging:
+  stage: deploy staging
+  environment:
+    name: staging
+    url: meleu-gatsby-staging.surge.sh
+  script:
+    - npm install --global surge
+    - surge --project ./public --domain meleu-gatsby-staging.surge.sh
+
+deploy production:
+  stage: deploy production
+  environment:
+    name: production
+    url: meleu-gatsby.surge.sh
+  script:
+    - npm install --global surge
+    - surge --project ./public --domain meleu-gatsby.surge.sh
+# ...
+```
+
+After running the pipeline, go to the left sidebar -> Operations -> Environments
+
+
+## Variables
+
+No mysteries, just use it like this:
+
+```yml
+variables:
+  STAGING_DOMAIN: meleu-gatsby-staging.surge.sh
+  PRODUCTION_DOMAIN: meleu-gatsby.surge.sh
+```
+
+And then you can access them as you access variables in shell scripts. Example: `${PRODUCTION_DOMAIN}`. 
+
+
+## Manual triggers
+
+- docs:
+    - <https://docs.gitlab.com/ee/ci/yaml/#allow_failure>
+    - <https://docs.gitlab.com/ee/ci/yaml/#whenmanual>
