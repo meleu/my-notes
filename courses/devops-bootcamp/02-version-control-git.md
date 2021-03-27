@@ -319,6 +319,8 @@ git merge master
 
 ## 16. Git for DevOps
 
+Situations where you, as a DevOps Engineer, need git:
+
 - Infrastructure as Code
 - CI/CD pipeline and Build Automation
     - checkout code, test and build application, etc.
