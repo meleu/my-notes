@@ -28,5 +28,9 @@ OK, it "shows the DNS config", but I want the details. I want to be able to expl
 
 ## SSH
 
-How SSH public and private keys work?
+Explain how exactly SSH public and private keys work? (the concpets)
 
+
+## LDAP
+
+What exactly is LDAP?
