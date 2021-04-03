@@ -251,3 +251,67 @@ curl -u user:password -X GET "http://${ip}:${port}/service/rest/v1/components/${
 - Nexus storage to store all the uploaded files
 - storage of binary files
 - **Local** storage or **Cloud** storage
+
+Configs are placed at `/opt/sonatype-work/nexus3/blobs`.
+
+### Blob Store - Type
+
+- Type field = Storage Backend
+    - file system-based storage (default)
+    - cloud-based storage (e.g. S3)
+        - wondering if DigitalOcean Spaces could also be used?
+- state field = state of the blob store
+    - started: indicates it's running as expected
+    - failed: indicates a configuration issue - failed to initialize
+- blob count = number of blobs currently stored
+
+**NOTE:** when creating a new blob store, the Path field is the absolute path to the desired file system location. It needs to be fully accessible by the `nexus` user account.
+
+### Some things to consider
+
+- Blob store **can NOT be modified!**
+- Blob store used by a repository **can NOT be deleted!**
+
+- You need to decide carefully:
+    - How many blob stores you want to create
+    - With which sizes
+    - Which ones you'll use for which repos
+    - You need to know approximately how much space each repo will need
+
+
+## 8. Component vs. Asset
+
+In the Nexus' web interface, Browse link in the sidebar, you see the components and their assets.
+
+- Component
+    - abstract (high level definition)
+    - what we are uploading
+    - term "component" refers to any type or format (jar, zip, Dockerfile, etc.)
+
+- Asset
+    - Actual packages/files being uploaded
+    - 1 component = 1 or more assets
+
+- Docker Format gives assets unique identifiers (Docker layers)
+- Docker Layers == Assets
+- e.g. two Docker images -> 2 components sharing same assets
+
+
+## 9. Cleanup Policies and Scheduled Tasks
+
+Admin > Cleanup Policies > Create Cleanup Policy
+
+After creating a cleanup policy, you still need to associate it to a repository.
+
+Admin > Repositories > choose a repo > Cleanup Policies > Save
+
+### When will the cleanup happen?
+
+Admin > System > Tasks
+
+A task is created as soon as you create a Cleanup Policy
+
+Create a Task to compact blob store
+
+You can also run the tasks manually by clicking in the [Run] button.
+
