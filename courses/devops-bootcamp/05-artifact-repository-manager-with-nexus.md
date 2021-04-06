@@ -153,6 +153,8 @@ Just showing the UI.
 
 - starts at 1:45
 
+**NOTE**: When doing the exercise, you'll need to go to Admin > Security > Realms. And then activate `npm Bearer Token Realm`.
+
 
 ### Gradle Project - Configure with Nexus
 
