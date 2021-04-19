@@ -22,7 +22,7 @@ The **best practice** to avoid it is to push and pull often to/from remote repos
 - Each change is labelled with commit message.
  
 
- ## 2. Basic Concepts of Git
+## 2. Basic Concepts of Git
 
 - The most popular version control tool
 
