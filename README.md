@@ -15,7 +15,6 @@ Personal notes about things I've been learning (mostly programming).
 
 ### 📝 Notes
 
-- [AAAA-TESTE](https://meleu.github.io/my-notes/.git/../AAAA-TESTE) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../AAAA-TESTE.md)
 - [apache](https://meleu.github.io/my-notes/.git/../apache) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../apache.md)
 - [bash](https://meleu.github.io/my-notes/.git/../bash) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../bash.md)
 - [css](https://meleu.github.io/my-notes/.git/../css) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../css.md)
