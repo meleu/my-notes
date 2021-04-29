@@ -226,3 +226,108 @@ docker run \
 ```
 
 - 14:30 - interacting with mongo-express interface
+
+
+## 9. Docker Compose - Run multiple Docker containers
+
+Comparison between `docker run` command and Docker compose yaml config:
+
+**`docker run` commands:**
+```sh
+# mongodb
+docker run \
+  -p 27017:27017 \
+  --detach \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=password \
+  --name mongodb \
+  --net mongo-network \
+  mongo
+
+# mongo-express
+docker run \
+  -p 8081:8081 \
+  --detach \
+  -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+  -e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+  -e ME_CONFIG_MONGODB_SERVER=mongodb \
+  --net mongo-network \
+  --name mongo-express \
+  mongo-express
+```
+
+**`mongo.yaml`:**
+```yaml
+version: '3'
+services:
+  mongodb: # --name
+    image: mongo
+    ports: # --publish
+      - 27017:27017
+    environment: # -e
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+  mongo-express: # --name
+    image: mongo-express
+    ports: # --publish
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+
+# Docker Compose takes care of creating a common network!
+```
+
+Install docker-compose. See the version here: <https://github.com/docker/compose/releases>
+
+```sh
+sudo curl -L \
+  https://github.com/docker/compose/releases/download/1.29.1/docker-compose-Linux-x86_64 \
+  -o /usr/loca/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+```
+
+```sh
+# booting up the containers specified in the `mongo.yml`:
+docker-compose -f mongo.yml up
+
+# turn down:
+docker-compose -f mongo.yml down
+```
+
+
+## 10. Dockerfile - Build your own Docker Image
+
+(see also: <../docker-mastery#building-images-the-dockerfile-basics>)
+
+```Dockerfile
+FROM node:13-alpine
+
+ENV \
+    MONGO_DB_USERNAME=admin \
+    MONGO_DB_PWD=password
+
+# RUN command to be executed when creating the image
+RUN mkdir -p /home/app
+
+# COPY executes in the host machine
+COPY . /home/app
+
+# CMD is the entrypoint command
+# command, arg1
+CMD ["node", "/home/app/server.js"]
+```
+
+The filename MUST be exactly `Dockerfile` (including the capital `D`).
+
+Assuming you're on the same directory of the `Dockerfile`:
+```sh
+docker image build -t my-app:1.0 .
+
+# check if it really created the image:
+docker image ls
+
+```
