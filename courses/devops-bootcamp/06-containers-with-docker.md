@@ -26,7 +26,6 @@
 - Packaged with all needed configuration
 - One command to install the app
 - Run same app with more than one different version
-
 - Devs and Ops work together to package the application in a container
 - No environmental configuration needed on server - except Docker runtime
 
@@ -114,15 +113,25 @@ docker image ls
 
 # list running containers
 docker container ls
+docker ps
 
 # list all available containers
 docker container ls -a
+docker ps -a
 
-# create a container based on an image
+# create and run a container based on an image
 docker container run redis
+docker container run redis:4.0  # specify the version
 
-# start an existing created
-docker start container_name
+# create and run a container in detach mode
+docker container run --detach redis
+docker container run -d redis
+
+# start an existing created container
+docker container start container_name
+
+# stop a running container
+docker container stop container_name
 ```
 
 ### Container Port vs. Host Port
@@ -136,9 +145,84 @@ docker start container_name
 # host port: 6000
 # container port: 6379
 docker container run --publish 6000:6379 redis
+docker container run -p 6000:6379 redis
 
 # host port: 6001
 # container port: 6379
 docker container run --publish 6001:6379 redis:4.0
 ```
 
+
+## 6. Debug Commands
+
+```sh
+# see the latest logs from a running container
+docker container logs containerName
+
+# execute a command in a running container
+docker container exec containerName command
+
+# start a shell session in a running container
+docker container exec -it containerName /bin/bash
+# using `env` to see the environment variables is quite useful
+```
+
+## 7. Docker Demo - Project Overview
+
+Workflow with Docker
+
+![workflow with docker](img/workflow-with-docker.png)
+
+
+## 8. Developing with Docker
+
+```sh
+# get project's source file from...
+????
+
+# get MongoDB image
+docker pull mongo
+
+# get MongoDB frontend
+docker pull mongo-express
+
+```
+
+- 4:40 - Explaining Docker Network
+
+```sh
+# list available docker networks
+docker network ls
+
+# create a new network
+docker network create mongo-network
+```
+
+### MongoDB containers
+
+```sh
+# https://hub.docker.com/_/mongo
+# create a MongoDB container defining the root username/password
+docker run \
+  -p 27017:27017 \
+  --detach \
+  -e MONGO_INITDB_ROOT_USERNAME=admin \
+  -e MONGO_INITDB_ROOT_PASSWORD=password \
+  --name mongodb \
+  --net mongo-network \
+  mongo
+
+# https://hub.docker.com/_/mongo-express
+# create the Mongo Express container
+docker run \
+  -p 8081:8081 \
+  --detach \
+  -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
+  -e ME_CONFIG_MONGODB_ADMINPASSWORD=password \
+  -e ME_CONFIG_MONGODB_SERVER=mongodb \
+  --net mongo-network \
+  --name mongo-express \
+  mongo-express
+```
+
+- 14:30 - interacting with mongo-express interface
