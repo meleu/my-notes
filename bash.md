@@ -2,6 +2,9 @@
 
 [:pencil2:](https://github.com/meleu/my-notes/edit/master/bash.md)
 
+## ideas
+
+- gitignore - a function that gets a `.gitignore` file from <https://gitignore.io/>. Command: `curl -L https://gitignore.io/api/linux,windows`
 
 ## links
 
