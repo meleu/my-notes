@@ -2,6 +2,37 @@
 
 - <https://www.udemy.com/course/apache-maven-beginner-to-guru/>
 
+## DevOps Notes
+
+Notes by me while taking this course.
+
+### First Maven Execution
+
+Noticed that when running some maven tasks for the first time (like `clean` and `package`) it downloads artifacts and it takes a lot of time, and the next executions go really fast (no need to download stuff).
+
+Doing this in a pipeline, where the runner is a "fresh" container, results in downloading artifacts allways.
+
+There must be a way to prevent this.
+
+---
+
+The very first execution of `mvn package` for my simple Hello World project took 01:08 min, because maven needed to download a bunch of artifacts from `https://repo.maven.apache.org/`.
+
+The next executions took less than 1 second!!!
+
+That fact alerted me that probably I could dramatically improve the speed of my GitLab CI pipeline...
+
+Every stage of the pipeline starts a "fresh" container. We have two stages with maven (one to build and another to run a SAST Scanner), I noticed that in both we're downloading artifacts...
+
+I need to save such artifacts in a cache!
+
+---
+
+
+
+
+
+
 ## Compiling Java
 
 ### Creating Java jar files from Command line
@@ -72,7 +103,7 @@ Example for our HelloWorld:
     <groupId>guru.springframework</groupId>
     <artifactId>hello-world</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -80,7 +111,7 @@ Example for our HelloWorld:
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
-    
+
 </project>
 ```
 
@@ -107,3 +138,54 @@ mv HelloWorld.java src/main/java
 mvn clean package
 
 ```
+
+
+
+### Dependencies
+
+In order to add dependencies to your project, just add the dependency's coordinates to your `pom.xml`, like this:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.8.1</version>
+    </dependency>
+</dependencies>
+```
+
+In the next run of `mvn package` it'll download the dependencies.
+
+
+## Maven Basics
+
+### Maven Coordinates
+
+```xml
+    <groupId>guru.springframework</groupId>
+    <artifactId>hello-world</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+```
+
+- `SNAPSHOT` sufix tells maven this is a development version.
+
+
+
+### Maven Repositories
+
+Types:
+
+- Local: `~/.m2/`
+- Central: <https://repo1.maven.org/maven2>
+- Remote: other locations which can be public or private
+    - JBoss, Oracle, Atlassian, Google Android
+    - Private - hosted by companies for internal artifacts
+
+```
+                      ,-> Central
+Project <-> ~/.m2/ <-{
+                      '-> Others
+```
+
+
