@@ -8,6 +8,14 @@
 
 Notes by me while taking this course.
 
+### Things I want to be able to clarify
+
+- [ ] Why using `verify` to build the project
+- [ ] Would it be possible to deploy to nexus via maven instead of curl?
+- [ ] Why use dependency check before Sonar?
+- [ ] Understand the `settings.xml`.
+
+
 ### First Maven Execution
 
 Noticed that when running some maven tasks for the first time (like `clean` and `package`) it downloads artifacts and it takes a lot of time, and the next executions go really fast (no need to download stuff).
@@ -29,13 +37,6 @@ Every stage of the pipeline starts a "fresh" container. We have two stages with 
 I need to save such artifacts in a cache!
 
 ---
-
-
-### Things I want to be able to clarify
-
-- [ ] Why using `verify` to build the project
-- [ ] Would it be possible to deploy to nexus via maven instead of curl?
-- [ ] Understand the `settings.xml`.
 
 
 
