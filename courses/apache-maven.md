@@ -412,3 +412,25 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -Darchetyp
     - `site:effective-site`
 
 
+
+## Generating Source with Maven
+
+### XSD to Java with Maven
+
+- video: <https://www.udemy.com/course/apache-maven-beginner-to-guru/learn/lecture/12889626>
+- repo: <https://github.com/springframeworkguru/mb2g-jaxb>
+- jaxb maven plugin
+
+
+### Java Classes from JSON Schema
+
+- video: <https://www.udemy.com/course/apache-maven-beginner-to-guru/learn/lecture/12889886>
+- repo: <https://github.com/springframeworkguru/mb2g-json-schema>
+- jasonschema2pojo
+
+
+### Generating Java Classes with Project Lombok
+
+- Project Lombok is a code generator which uses annotation processing to enhance classes
+- You can generate getters, setters, toString, etc from annotations at compile time.
+
