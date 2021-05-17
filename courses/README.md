@@ -19,3 +19,4 @@ Notes about several courses I've been taking.
 - [efficient-learning](https://meleu.github.io/my-notes/courses/efficient-learning) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/efficient-learning.md)
 - [gitlab-ci](https://meleu.github.io/my-notes/courses/gitlab-ci) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/gitlab-ci.md)
 - [jornada-devops](https://meleu.github.io/my-notes/courses/jornada-devops) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/jornada-devops.md)
+- [sonarqube](https://meleu.github.io/my-notes/courses/sonarqube) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/sonarqube.md)
