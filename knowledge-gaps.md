@@ -34,3 +34,11 @@ Explain how exactly SSH public and private keys work? (the concpets)
 ## LDAP
 
 What exactly is LDAP?
+
+
+## TLS/SSL
+
+How TLS/SSL certificates work?
+
+possibly useful reading: <https://www.digitalocean.com/community/tutorials/a-comparison-of-let-s-encrypt-commercial-and-private-certificate-authorities-and-self-signed-ssl-certificates>
+
