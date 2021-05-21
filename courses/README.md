@@ -10,7 +10,6 @@ Notes about several courses I've been taking.
 
 ### 📝 Notes
 
-- [apache-maven](https://meleu.github.io/my-notes/courses/apache-maven) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/apache-maven.md)
 - [aws-serverless-workshop](https://meleu.github.io/my-notes/courses/aws-serverless-workshop) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/aws-serverless-workshop.md)
 - [azure-900-kasolutions](https://meleu.github.io/my-notes/courses/azure-900-kasolutions) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/azure-900-kasolutions.md)
 - [curso-docker-cod3r](https://meleu.github.io/my-notes/courses/curso-docker-cod3r) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/curso-docker-cod3r.md)
@@ -19,4 +18,5 @@ Notes about several courses I've been taking.
 - [efficient-learning](https://meleu.github.io/my-notes/courses/efficient-learning) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/efficient-learning.md)
 - [gitlab-ci](https://meleu.github.io/my-notes/courses/gitlab-ci) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/gitlab-ci.md)
 - [jornada-devops](https://meleu.github.io/my-notes/courses/jornada-devops) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/jornada-devops.md)
+- [maven](https://meleu.github.io/my-notes/courses/maven) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/maven.md)
 - [sonarqube](https://meleu.github.io/my-notes/courses/sonarqube) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/sonarqube.md)

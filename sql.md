@@ -1,7 +1,38 @@
 # SQL
 [✏️](https://github.com/meleu/my-notes/edit/master/sql.md)
 
-Some notes taken while studying the first lessons of "SQL Fundamentals" from datacamp.com
+## Source of Information
+
+Some notes here were taken while studying the first lessons of "SQL Fundamentals" from <datacamp.com>
+
+Others were taken by demand.
+
+
+## SELECT with Regular Expressions
+
+**NOTE**: I only tested this on MySQL.
+
+```sql
+SELECT 
+  column_list
+FROM
+  table_name
+WHERE
+  string_column REGEXP pattern;
+```
+
+example:
+```sql
+SELECT 
+  productname
+FROM
+  products
+WHERE
+  productname REGEXP '^(A|B|C)'
+ORDER BY productname;
+```
+
+
 
 ## SELECT DISTINCT
 

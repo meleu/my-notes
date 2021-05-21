@@ -32,6 +32,7 @@ Personal notes about things I've been learning (mostly programming).
 - [knowledge-gaps](https://meleu.github.io/my-notes/.git/../knowledge-gaps) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../knowledge-gaps.md)
 - [links](https://meleu.github.io/my-notes/.git/../links) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../links.md)
 - [linux-pc](https://meleu.github.io/my-notes/.git/../linux-pc) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../linux-pc.md)
+- [maven](https://meleu.github.io/my-notes/.git/../maven) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../maven.md)
 - [nextjs](https://meleu.github.io/my-notes/.git/../nextjs) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nextjs.md)
 - [nginx](https://meleu.github.io/my-notes/.git/../nginx) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nginx.md)
 - [nodejs](https://meleu.github.io/my-notes/.git/../nodejs) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nodejs.md)

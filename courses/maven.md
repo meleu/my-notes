@@ -6,14 +6,16 @@
 
 ## DevOps Notes
 
-Notes by me while taking this course.
+Some notes by me while taking this course.
 
 ### Things I want to be able to clarify
 
-- [ ] Why using `verify` to build the project
+- [x] Why using `verify` to build the project
+    - to run the tests
+- [x] Understand the `settings.xml`.
+    - documentation: <maven.apache.org/ref/current/maven-settings/settings.html>
 - [ ] Would it be possible to deploy to nexus via maven instead of curl?
 - [ ] Why use dependency check before Sonar?
-- [ ] Understand the `settings.xml`.
 
 
 ### First Maven Execution
@@ -23,6 +25,8 @@ Noticed that when running some maven tasks for the first time (like `clean` and 
 Doing this in a pipeline, where the runner is a "fresh" container, results in downloading artifacts allways.
 
 There must be a way to prevent this.
+
+UPDATE: yes, and it's by using the cache feature of the CI tool (like GitLab CI). Caching dependencies is the way to go.
 
 ---
 
