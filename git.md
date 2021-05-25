@@ -15,6 +15,10 @@
 - Good doc: <https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow>
 - cheatsheet: <https://danielkummer.github.io/git-flow-cheatsheet/index.html>
 
+### edit Pull Requests
+
+<https://ardupilot.org/dev/docs/editing-prs.html>
+
 
 ## copy of the remote repository
 
