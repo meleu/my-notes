@@ -1,5 +1,7 @@
 # Version Control with Git
 
+- video: <https://techworld-with-nana.teachable.com/courses/devops-bootcamp/lectures/29436454>
+
 ## 1. What is Version Control?
 
 - Developers working on the same code

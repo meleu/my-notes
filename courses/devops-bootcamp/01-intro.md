@@ -1,5 +1,8 @@
 # Introduction to DevOps
 
+- video: <https://techworld-with-nana.teachable.com/courses/devops-bootcamp/lectures/29537893>
+
+
 ## Bootcamp Overview
 
 ### Learn DevOps concepts:
