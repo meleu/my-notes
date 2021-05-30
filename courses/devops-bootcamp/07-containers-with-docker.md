@@ -306,6 +306,8 @@ docker-compose -f mongo.yml down
 
 (see also [the notes "Building Images: The Dockerfile Basics"](../docker-mastery#building-images-the-dockerfile-basics))
 
+Dockerfile is a blueprint for creating a Docker image.
+
 ```Dockerfile
 FROM node:13-alpine
 
