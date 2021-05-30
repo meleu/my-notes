@@ -336,3 +336,122 @@ docker image build -t my-app:1.0 .
 docker image ls
 
 ```
+
+
+## 11. Private Docker Repository
+
+The full image name is `registryDomain/imageName:tag`. When the `registryDomain` is omitted, the default is Docker Hub.
+
+Amazon ECR (Elastic Container Repository) is a service that provides private Docker repository.
+
+```sh
+# check which image you want to push to your repository
+docker image ls
+
+# docker login
+# NOTE: AWS has a specific CLI command for it.
+docker login ${registryDomain}
+
+# tag the image
+docker tag ${imageName}:${tag} ${registryDomain}/${imageName}:${tag}
+
+# upload (push) the image
+docker push ${registryDomain}/${imageName}:${tag}
+
+# UPDATING AND PUSHING A NEW VERSION
+####################################
+
+# make the change you needed to do in the Dockerfile,
+# and then build the new image:
+docker image build -t my-app:1.1
+
+# tag it
+docker image tag my-app:1.1 ${registryDomain}/my-app:1.1
+
+# push it
+docker image push ${registryDomain}/my-app:1.1
+```
+
+
+## 12. Deploy docker application on a server
+
+Docker compose yaml file:
+
+```yaml
+version: '3'
+services:
+  my-app:
+    image: MY-PRIVATE-REGISTRY-DOMAIN/my-app:1.0
+    ports:
+      - 3000:3000
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    mongo-express:
+      image: mongo-express
+      ports:
+        - 8080:8081
+      environment:
+        - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+        - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+        - ME_CONFIG_MONGODB_SERVER=mongodb
+```
+
+And then
+```sh
+docker-compose -f docker-compose.yaml
+```
+
+## 13. Docker Volumes - Persisting Data
+
+A directory in physical host file system is **mounted** into the virtual file system of Docker.
+
+### 3 Volumes Types:
+
+- Host Volume
+    - you define the directory from the host system and the path where it'll be mounted in the container
+    - e.g.: `docker container run -v /home/mount/data:/var/lib/mysql/data ...`
+
+- Anonymous Volume
+    - a persistent directory is automatically created by Docker and you define the path where it'll be mounted in the container
+    - e.g.: `docker container run -v /var/lib/mysql/data`
+
+- Named Volume
+    - similar to the "Anonymous Volume" (the directory is automatically created by Docker), but you can reference it by name
+    - e.g.: `docker container run -v name:/var/lib/mysql/data`
+    - **THIS IS THE ONE YOU SHOULD BE USING IN PRODUCTION**
+
+Example of Named Volume being used in a docker-compose file:
+```yaml
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - db-data:/var/lib/mysql/data
+
+  mongo-express:
+    image: mongo-express
+    # ...
+
+volumes:
+  db-data # now you can reference this name in more than one container
+```
+
+## 14. Docker Volumes Demo
+
+Using the project from this repo: <https://gitlab.com/nanuchi/developing-with-docker>
+
+Check the `docker-compose.yaml` file. There's a `volumes:` there, and it's being used in `volumes:` of `mongodb`.
+
+- Docker Volume Locations:
+    - Windows: `C:\ProgramData\docker\volumes`
+    - Linux/MacOS: `/var/lib/docker/volumes`
+
+**MacOS Tip**: Docker in MacOS is actually a Linux virtual machine and then it's the host of the containers. Here's how to access the shell of such Linux virtual machine `screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty`
