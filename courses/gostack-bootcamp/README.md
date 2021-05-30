@@ -8,7 +8,6 @@ To be honest these notes were not written in a way to be "consumed" by others, b
 
 
 ### level-01
-<details><summary>01-backend-with-nodejs.md</summary><br>
 
 - [Back-end With NodeJS](level-01/01-backend-with-nodejs.md)
     - [Node.js](level-01/01-backend-with-nodejs.md#nodejs)
@@ -26,10 +25,9 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [middleware](level-01/01-backend-with-nodejs.md#middleware)
     - [CORS](level-01/01-backend-with-nodejs.md#cors)
 
-</details>
 
 
-<details><summary>02-frontend-with-reactjs.md</summary><br>
+
 
 - [Front-end With ReactJS](level-01/02-frontend-with-reactjs.md)
     - [Concepts](level-01/02-frontend-with-reactjs.md#concepts)
@@ -44,10 +42,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Importing CSS and Images](level-01/02-frontend-with-reactjs.md#importing-css-and-images)
     - [`useEffect()`](level-01/02-frontend-with-reactjs.md#useeffect)
 
-</details>
 
 
-<details><summary>03-mobile-with-react-native.md</summary><br>
 
 - [Mobile With Reach Native](level-01/03-mobile-with-react-native.md)
     - [Concepts](level-01/03-mobile-with-react-native.md#concepts)
@@ -59,22 +55,18 @@ To be honest these notes were not written in a way to be "consumed" by others, b
         - [Hello World](level-01/03-mobile-with-react-native.md#hello-world)
         - [Example of `FlatList`](level-01/03-mobile-with-react-native.md#example-of-flatlist)
 
-</details>
 
-
-<details><summary>04-typescript.md</summary><br>
 
 - [TypeScript](level-01/04-typescript.md)
     - [Why TypeScript?](level-01/04-typescript.md#why-typescript)
     - [Starting a TypeScript project](level-01/04-typescript.md#starting-a-typescript-project)
     - [Interface Examples](level-01/04-typescript.md#interface-examples)
 
-</details>
 
 
 
 ### level-02
-<details><summary>01-starting-with-nodejs-and-typescript.md</summary><br>
+
 
 - [Starting With NodeJS and TypeScript](level-02/01-starting-with-nodejs-and-typescript.md)
     - [GoBarber layout](level-02/01-starting-with-nodejs-and-typescript.md#gobarber-layout)
@@ -99,10 +91,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [My GoBarber codebase up to this point](level-02/01-starting-with-nodejs-and-typescript.md#my-gobarber-codebase-up-to-this-point)
     - [Challenge 5](level-02/01-starting-with-nodejs-and-typescript.md#challenge-5)
 
-</details>
 
 
-<details><summary>02.1-backend-database.md</summary><br>
 
 - [Backend - Database](level-02/02.1-backend-database.md)
     - [DataBase Abstractions](level-02/02.1-backend-database.md#database-abstractions)
@@ -117,10 +107,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Summary](level-02/02.1-backend-database.md#summary)
     - [My GoBarber codebase up to this point](level-02/02.1-backend-database.md#my-gobarber-codebase-up-to-this-point)
 
-</details>
 
-
-<details><summary>02.2-backend-registering-users.md</summary><br>
 
 - [Backend - Registering Users](level-02/02.2-backend-registering-users.md)
     - [User's Model and Migration](level-02/02.2-backend-registering-users.md#users-model-and-migration)
@@ -131,10 +118,7 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Need More Understanding](level-02/02.2-backend-registering-users.md#need-more-understanding)
     - [My GoBarber codebase up to this point](level-02/02.2-backend-registering-users.md#my-gobarber-codebase-up-to-this-point)
 
-</details>
 
-
-<details><summary>02.3-backend-authentication.md</summary><br>
 
 - [Backend - Authentication](level-02/02.3-backend-authentication.md)
     - [JWT Concepts](level-02/02.3-backend-authentication.md#jwt-concepts)
@@ -144,10 +128,8 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Summary](level-02/02.3-backend-authentication.md#summary)
     - [My GoBarber codebase up to this point](level-02/02.3-backend-authentication.md#my-gobarber-codebase-up-to-this-point)
 
-</details>
 
 
-<details><summary>02.4-backend-images-upload.md</summary><br>
 
 - [Backend - Images Upload](level-02/02.4-backend-images-upload.md)
     - [File Upload](level-02/02.4-backend-images-upload.md#file-upload)
@@ -158,10 +140,6 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Summary](level-02/02.4-backend-images-upload.md#summary)
     - [My GoBarber codebase up to this point](level-02/02.4-backend-images-upload.md#my-gobarber-codebase-up-to-this-point)
 
-</details>
-
-
-<details><summary>02.5-backend-handling-exceptions.md</summary><br>
 
 - [Backend - Handling Exceptions](level-02/02.5-backend-handling-exceptions.md)
     - [Creating the AppError Class](level-02/02.5-backend-handling-exceptions.md#creating-the-apperror-class)
@@ -169,10 +147,6 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Summary](level-02/02.5-backend-handling-exceptions.md#summary)
     - [My GoBarber codebase up to this point](level-02/02.5-backend-handling-exceptions.md#my-gobarber-codebase-up-to-this-point)
 
-</details>
-
-
-<details><summary>02.99-gobarber-backend-summary.md</summary><br>
 
 - [GoBarber Backend Summary](level-02/02.99-gobarber-backend-summary.md)
     - [Development Environment](level-02/02.99-gobarber-backend-summary.md#development-environment)
@@ -203,20 +177,15 @@ To be honest these notes were not written in a way to be "consumed" by others, b
         - [Appointments Repository](level-02/02.99-gobarber-backend-summary.md#appointments-repository)
         - [CreateAppointmentService](level-02/02.99-gobarber-backend-summary.md#createappointmentservice)
 
-</details>
-
-
-<details><summary>03-backend-challenge.md</summary><br>
 
 - [Challenge 6](level-02/03-backend-challenge.md)
     - [Random Notes](level-02/03-backend-challenge.md#random-notes)
 
-</details>
 
 
 
 ### level-03
-<details><summary>01-react-first-project.md</summary><br>
+
 
 - [React - First Project](level-03/01-react-first-project.md)
     - [Starting the Project](level-03/01-react-first-project.md#starting-the-project)
@@ -234,10 +203,6 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Styling Details](level-03/01-react-first-project.md#styling-details)
     - [Listing Issues](level-03/01-react-first-project.md#listing-issues)
 
-</details>
-
-
-<details><summary>02.1-frontend-pages.md</summary><br>
 
 - [React - Pages Structure](level-03/02.1-frontend-pages.md)
     - [Starting the Project](level-03/02.1-frontend-pages.md#starting-the-project)
@@ -256,7 +221,5 @@ To be honest these notes were not written in a way to be "consumed" by others, b
     - [Showing the Validation Errors](level-03/02.1-frontend-pages.md#showing-the-validation-errors)
     - [Creating Errors' Tooltips](level-03/02.1-frontend-pages.md#creating-errors-tooltips)
     - [Validating Login](level-03/02.1-frontend-pages.md#validating-login)
-
-</details>
 
 
