@@ -176,9 +176,12 @@ Workflow with Docker
 
 ## 8. Developing with Docker
 
+- <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28662263>
+
 ```sh
-# get project's source file from...
-????
+# get project's source file from:
+# https://gitlab.com/nanuchi/developing-with-docker
+git clone git@gitlab.com:nanuchi/developing-with-docker.git
 
 # get MongoDB image
 docker pull mongo
@@ -301,7 +304,7 @@ docker-compose -f mongo.yml down
 
 ## 10. Dockerfile - Build your own Docker Image
 
-(see also: <../docker-mastery#building-images-the-dockerfile-basics>)
+(see also [the notes "Building Images: The Dockerfile Basics"](../docker-mastery#building-images-the-dockerfile-basics))
 
 ```Dockerfile
 FROM node:13-alpine

@@ -95,6 +95,13 @@ Type 1 vs Type 2 Hypervisor
     - OS is "portable" file that you can move around: Virtual Machine Image
 
 
+## Install Linux on Virtualbox
+
+Basic installation is pretty straightforward, but after installation there are some useful tweaks to do.
+
+- Share clipboard between host and guest machines:
+    - Virtualbox menu -> Machine -> Settings -> Advanced -> Shared Clipboard
+- Install Virtualbox extension pack: <https://www.virtualbox.org/wiki/Downloads>
 
 
 
