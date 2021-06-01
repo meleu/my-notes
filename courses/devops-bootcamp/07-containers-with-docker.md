@@ -455,3 +455,51 @@ Check the `docker-compose.yaml` file. There's a `volumes:` there, and it's being
     - Linux/MacOS: `/var/lib/docker/volumes`
 
 **MacOS Tip**: Docker in MacOS is actually a Linux virtual machine and then it's the host of the containers. Here's how to access the shell of such Linux virtual machine `screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty`
+
+
+
+## 15. Create Docker Hosted Repository on Nexus
+
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28662266>
+
+- In the Administration -> Repository -> Repositories, choose `docker-hosted`.
+    - Set a port as an HTTP connector
+    - reason: docker doesn't accept paths as repository (only `domain:port`)
+
+- 08:00 - allowing insecure registries.
+
+
+## 16. Deploy Nexus as Docker Container
+
+```sh
+# super user
+sudo su
+
+# install docker from snap
+apt update
+snap install docker
+
+# create a docker volume for persistent data
+docker volume create --name nexus-data
+docker container run \
+  --detach \
+  --publish 8081:8081 \
+  --name nexus \
+  --volume nexus-data:/nexus-data \
+  sonatype/nexus3
+
+# install net-tools for debugging
+apt install net-tools
+
+# check the open ports
+netstat -lnpt
+
+
+# misc...
+##########
+
+# check volumes
+docker volume ls
+
+```
+
