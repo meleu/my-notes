@@ -481,6 +481,11 @@ snap install docker
 
 # create a docker volume for persistent data
 docker volume create --name nexus-data
+
+# check volumes
+docker volume ls
+
+# create and run the nexus container
 docker container run \
   --detach \
   --publish 8081:8081 \
@@ -495,11 +500,6 @@ apt install net-tools
 netstat -lnpt
 
 
-# misc...
-##########
-
-# check volumes
-docker volume ls
 
 ```
 
