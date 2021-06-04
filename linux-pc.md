@@ -7,6 +7,13 @@
 vim vim-gtk htop tmux xclip jq wget curl
 ```
 
+
+## Which distribution am I in?
+
+```sh
+cat /etc/issue
+```
+
 ## Bootable USB Pendrive
 
 This works for Ubuntu-based distros:

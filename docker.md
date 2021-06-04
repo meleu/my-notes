@@ -6,6 +6,13 @@
 
 - <https://labs.play-with-docker.com/> - practice online, directly in your browser.
 
+## quick-tips
+
+Enter a container as root user:
+```
+# use the `-u 0` option. Exemple:
+docker container exec -u 0 -it container_name bash
+```
 
 ## installation
 
