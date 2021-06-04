@@ -128,3 +128,28 @@ apt install nodejs
 nodejs -v
 npm -v
 ```
+
+
+## 5. Jenkins Basics Demo - Freestyle Job
+
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28664055>
+
+1. New Item (left sidebar)
+2. Name it `my-job`, select `Freestyle project` and then click `[OK]` button.
+3. Leave everything as default, scroll down to the `Build` section, click `Add build step` and select `Execute shell`.
+    - In the text box, type `npm --version`
+5. `Add build step` again, and select `Invoke top-level Maven targets`.
+    - Select the Maven Version and for Goals, type `--version`.
+6. Click `[Save]` button.
+7. In the `my-job` project screen, click `Build Now` (left sidebar)
+8. Once the build is finished, you can check `Console Output`.
+
+**NOTES**:
+
+- Build tools installed directly on the server offers more flexibility.
+- Build tools installed via plugin are limited to provided input fields.
+
+
+### Add NodeJS Plugin
+
+Manage Plugins
