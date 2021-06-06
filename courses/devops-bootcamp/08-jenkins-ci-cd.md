@@ -152,4 +152,65 @@ npm -v
 
 ### Add NodeJS Plugin
 
-Manage Plugins
+1. Manage Jenkins
+2. Manage Plugins
+3. Search for `nodejs` and install it
+4. Manage Jenkins (left sidebar)
+5. Global Tool Configuration
+6. Add NodeJS...
+7. It's now available in the job's Build tab
+
+
+### Configure Git Repository
+
+1. Go to the project
+2. Tab `Source Code Management`
+3. Git
+4. Fill the form with your git repo info
+
+Test:
+
+1. Click in `Build Now`
+2. Check `Console Output` and you should see git commands there.
+
+**Note**:
+
+- job's infor is stored in `/var/jenkins_home/jobs/my-job/builds`
+- cloned repo is stored in `/var/jenkins_home/workspace/my-job`
+
+
+### Do something from git repo in Jenkins job
+
+Edit `my-job` project:
+
+Source Code Management:
+
+    - repo: <https://gitlab.com/nanuchi/java-maven-app.git>
+    - branch: `*/jenkins-jobs`
+
+Build:
+
+    - Execute shell -> Command
+
+```sh
+chmod a+x freestyle-build.sh
+./freestyle-build.sh
+```
+
+
+### Java/Maven
+
+checkout git repo -> run tests -> build jar file
+
+1. Create a new freestyle job named `java-maven-build`
+2. Configuration
+    - Source Code Management:
+        - repo: <https://gitlab.com/nanuchi/java-maven-app.git>
+        - credentials...
+        - branch: `jenkins-jobs`
+    - Build:
+        - Invoke top-level Maven targets
+        - Goals:
+            1. `test`
+            2. `package`
+
