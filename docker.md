@@ -6,13 +6,51 @@
 
 - <https://labs.play-with-docker.com/> - practice online, directly in your browser.
 
-## quick-tips
+## Tips & Tricks
 
-Enter a container as root user:
+### Enter a container as root user
+
 ```
 # use the `-u 0` option. Exemple:
 docker container exec -u 0 -it container_name bash
 ```
+
+### Host docker command available inside a container
+
+Making the docker command from the host available in a Jenkins container
+
+```sh
+# it needs to be a new container
+docker container run \
+  --name jenkins-docker \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  -d \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(which docker):/usr/bin/docker \
+  jenkins/jenkins:lts
+
+# enter the container as root user
+docker container exec -u 0 -it jenkins-docker bash
+
+# INSIDE THE CONTAINER:
+# grant RW permissions for everyone in /var/run/docker.sock
+chmod 666 /var/run/docker.sock
+
+# exit the container and enter again as 
+# the 'jenkins' (default) user
+exit
+docker container exec -it jenkins-docker bash
+
+# check if docker is available
+docker version
+```
+
+
+
+
+
 
 ## installation
 
