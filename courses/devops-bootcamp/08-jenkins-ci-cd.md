@@ -424,8 +424,7 @@ pipeline {
 
 ### Conditionals for each stage
 
-Example, execute `test` only when 
-
+Example, execute `test` only in specific branch name.
 ```groovy
 pipeline {
     agent any
@@ -433,10 +432,63 @@ pipeline {
     stages {
         // ...
         stage("test") {
+            when {
+                expression {
+                    BRANCH_NAME == 'dev'
+                }
+            }
             steps {
                 echo 'testing...'
             }
         }
     }
 }
-```    
+```
+
+
+### Environment variables
+
+The list of available environment variables can be seen at `http://${JENKINS_URL}/env-vars.html`
+
+And if you want to declare a new one:
+```groovy
+pipeline {
+    agent any
+    environment {
+        // variables declared here will be available to all stages
+        NEW_VERSION = '1.3.0'
+    }
+
+    // ...
+}
+```
+
+
+### Using credentials in Jenkinsfile
+
+0. Install the `Credentials Binding` plugin.
+1. Define credentials in Jenkins GUI.
+2. `credentials("credentialId")` binds the credentals to your env variable.
+3. another option is getting via `usernamePassword()`
+
+```groovy
+pipeline {
+    agent any
+    environment {
+        // getting credentials and storing in an env-var
+        SERVER_CREDENTIALS = credentials('gitlab-credentials')
+    }
+
+    // ...
+    stage("deploy") {
+        steps {
+            echo 'deploying...'
+            withCredentials([
+                // note: usernamePassword() requires the credentials to be
+                //       of the kind "username with password".
+                usernamePassword()
+            ])
+        }
+    }
+}
+```
