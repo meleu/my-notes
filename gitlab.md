@@ -41,3 +41,8 @@ services:
     command: ["--insecure-registry=registry-domain-name-1", "--insecure-registry=registry-domain-name-2"]
 ```
 
+## Questions?
+
+- How to get (via API requests) the repositories where a pipeline finished successfully in the master branch?
+
+
