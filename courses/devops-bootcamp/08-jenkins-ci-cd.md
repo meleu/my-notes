@@ -214,3 +214,229 @@ checkout git repo -> run tests -> build jar file
             1. `test`
             2. `package`
 
+
+## 6. Docker in Jenkins
+
+Making the docker command from the host available in a Jenkins container
+
+```sh
+# it needs to be a new container
+docker container run \
+  --name jenkins-docker \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  -d \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v $(which docker):/usr/bin/docker \
+  jenkins/jenkins:lts
+
+# enter the container as root user
+docker container exec -u 0 -it jenkins-docker bash
+
+# INSIDE THE CONTAINER:
+# grant RW permissions for everyone in /var/run/docker.sock
+chmod 666 /var/run/docker.sock
+
+# exit the container and enter again as the 'jenkins' user
+exit
+docker container exec -it jenkins-docker bash
+
+# check if docker is available
+docker version
+```
+
+Now `docker` command is available in the Jenkins container.
+
+
+
+### Build a Docker Image and Push to Docker Hub
+
+0. Create a repo for your Image on Docker Hub.
+1. Dashboard -> Manage Jenkins -> Manage Credentials -> Jenkins -> Global credentials -> Add Credentials (left sidebar)
+2. Create credentials to access your Docker Hub account.
+3. Back to Jenkins, go to the `java-maven-build` project.
+4. `Buil Environment` tab:
+    - [x] Use secret text(s) or file(s)
+    - In `Bindings`, choose `Username and password (separate)`, name the variables and choose the credentials.
+4. `Build` tab.
+    - Remove `maven test`
+    - Add `Execute shell`:
+```sh
+docker build -t meleuzord/demo-app:jma-1.0 .
+echo "${PASSWORD}" | docker login -u $USERNAME --password-stdin
+docker push meleuzord/demo-app:jma-1.0
+```
+
+### Push Docker Image to Nexus Repository
+
+**NOTE**: it's assumed you already have a Nexus instance up and running, and a [Docker hosted repository properly configured](07-containers-with-docker#15-create-docker-hosted-repository-on-nexus)
+
+In the host OS, create the file: `/etc/docker/daemon.json`
+```json
+{
+  "insecure-registries": ["167.99.248.163:8083"]
+}
+```
+
+Restart the docker service:
+```sh
+systemctl restart docker
+
+# restart your jenkins container
+docker container start jenkins-docker
+
+# reconfigure the `docker.sock` file
+docker container exec -u 0 -it jenkins-docker bash
+chmod 666 /var/run/docker.sock
+```
+
+Create credentials to access your Docker Repository on Nexus:
+
+- Dashboard -> Manage Jenkins -> Manage Credentials -> Jenkins -> Global credentials -> Add Credentials (left sidebar)
+
+Open your project again, `Configure` -> `Build` tab -> `Execute shell`:
+```sh
+docker build -t ${NEXUS_IP}:${NEXUS_CONNECTOR_PORT}/java-maven-app:1.0 .
+echo "${PASSWORD}" | docker login -u $USERNAME --password-stdin ${NEXUS_IP}:${NEXUS_CONNECTOR_PORT}
+docker push ${NEXUS_IP}:${NEXUS_CONNECTOR_PORT}/java-maven-app:1.0
+```
+
+And save it.
+
+Go to the project again, `Build Now` and then check the `Console output` to see if it pushed the image successfully.
+
+Check in your Nexus server if the image was successfully uploaded.
+
+
+## 7. Freestyle to Pipeline Job
+
+Chain multiple Freestyle projects:
+
+In the project's `Configure` screen, `Add post-build action` -> `Build other projects`
+
+Cons:
+
+- limitations
+- hugely UI based :(
+- doesn't allow scriptting
+- Limited to Input Fields of Plugin
+- not suitable for complex workflows
+
+**Use `Pipeline Jobs` instead!!**
+
+
+
+## 8. Introduction to Pipeline Job
+
+Create a new pipeline:
+
+1. New Item (left sidebar)
+2. Name it `my-pipeline`, select `Pipeline project` and then click `[OK]` button.
+
+
+**First thing: connect your pipeline to a git repository.**
+
+Go to `Pipeline` tab.
+
+In the `Definition` you can see `Pipeline script` and `Pipeline script from SCM` options. **Best practice** is to use the pipeline script in your git repository. So, choose `Pipeline script from SCM`.
+
+Configure the repo, the credentials and the branch.
+
+`Script Path` is usually left as the default: `Jenkinsfile`
+
+If the repo doesn't have the `Jenkinsfile`, create this basic one:
+```groovy
+// this is a declarative groovy script
+pipeline {      // `pipeline` must be top-level
+
+    agent any   // `agent` - where to execute (relevant for Jenkins cluster)
+
+    stages {    // `stages` - where the work happens
+        stage("build") {
+            steps {
+                echo 'building...'
+            }
+
+        stage("test") {
+            steps {
+                echo 'testing...'
+            }
+
+        stage("deploy") {
+            steps {
+                echo 'deploying...'
+            }
+        }
+    }
+}
+```
+
+
+Jenkinsfile can be **scripted** or **declarative**
+
+- Scripted:
+    - first syntax
+    - Groovy engine
+    - advanced scripting capabilities, high flexibility
+    - difficult to start
+
+- Declarative
+    - more recent addition
+    - easier to get started, but not that powerful
+    - pre-defined structure
+
+
+
+## 9. Jenkinsfile Syntax
+
+### `post` attribute in Jenkinsfile
+
+With `post` you can execute some logic **after** all stages are done.
+
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        // ...
+    }
+
+    post {      // execute after all stages are done
+
+        always {
+            // code here will be executed no matter if the
+            // stages succeeded or failed.
+        }
+
+        success {
+            // executed if build succeeds
+        }
+
+        failure {
+            // executed if build fails
+        }
+
+    }
+}
+```
+
+
+### Conditionals for each stage
+
+Example, execute `test` only when 
+
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        // ...
+        stage("test") {
+            steps {
+                echo 'testing...'
+            }
+        }
+    }
+}
+```    
