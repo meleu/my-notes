@@ -498,8 +498,5 @@ apt install net-tools
 
 # check the open ports
 netstat -lnpt
-
-
-
 ```
 
