@@ -35,3 +35,15 @@
 - <https://www.pulumi.com/> - Modern Infrastructure as Code tool.
 - <https://docs.aws.amazon.com/cdk/latest/guide/home.html> - AWS Cloud Development Kit (AWS CDK).
 
+
+## General Notes
+
+- A git repository is where "all" starts.
+
+- CI/CD build tool.
+
+- Nexus is a repository for build artifacts (including Docker images).
+
+- Harbor: ???
+
+- Rancher: ???
