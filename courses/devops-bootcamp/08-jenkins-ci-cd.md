@@ -526,10 +526,110 @@ pipeline {
     }
 
     stage("deploy") {
-
         steps {
             echo "deploying version ${params.VERSION}"
         }
     }
+}
+```
+
+### Calling external groovy scripts
+
+```groovy
+def gv
+
+pipeline {
+    agent any
+    tools {
+        maven 'Maven' // use the same name you see in the web UI
+    }
+
+    parameters {
+        //string(name: 'VERSION', defaultValue: '', description 'version to deploy on prod')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    }
+
+    // ...
+    stage("init") {
+        steps {
+            script {
+                gv = load "script.groovy"   // file `script.groovy` must exist
+            }
+        }
+    }
+
+    stage("build") {
+        steps {
+            script {
+                gv.buildApp()
+            }
+        }
+    }
+    // ...
+}
+```
+
+And this is the `script.groovy`:
+```groovy
+def buildApp() {
+    echo 'building the application...'
+}
+
+// ...
+
+def deployApp() {
+    echo "deploying version ${params.VERSION}"
+    // environment params are accessible in the groovy script
+}
+
+return this
+```
+
+
+### Input Parameters
+
+One way of getting input:
+```groovy
+def gv
+
+pipeline {
+    // ...
+    stage("deploy") {
+        input {
+            message "Select the environment to deploy to"
+            ok "Done"
+            parameters {
+                choice(name: 'ENV', choices: ['dev', 'staging', 'prod'], description: '')
+            }
+        }
+        steps {
+            script {
+                gv.buildApp()
+                echo "deploying to ${ENV}"
+            }
+        }
+    }
+    // ...
+}
+```
+
+
+Another common way of getting input:
+```groovy
+def gv
+
+pipeline {
+    // ...
+    stage("deploy") {
+        steps {
+            script {
+                env.ENV = input message: "Select the environment to deploy to", ok: "Done", parameters: [choice(name: 'ONE', choices: ['dev', 'staging', 'prod'], description: '')]
+                gv.buildApp()
+                echo "deploying to ${ENV}"
+            }
+        }
+    }
+    // ...
 }
 ```
