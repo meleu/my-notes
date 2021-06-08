@@ -466,7 +466,9 @@ pipeline {
 
 ### Using credentials in Jenkinsfile
 
-0. Install the `Credentials Binding` plugin.
+0. Install the plugins:
+    - `Credentials Plugin`
+    - `Credentials Binding Plugin`
 1. Define credentials in Jenkins GUI.
 2. `credentials("credentialId")` binds the credentals to your env variable.
 3. another option is getting via `usernamePassword()`
@@ -486,8 +488,47 @@ pipeline {
             withCredentials([
                 // note: usernamePassword() requires the credentials to be
                 //       of the kind "username with password".
-                usernamePassword()
-            ])
+                usernamePassword(credentials: 'gitlab-credentials', usernameVariable: USER, passwordVariable: PWD)
+            ]) {
+                sh "some script ${USER} ${PWD}"
+            }
+        }
+    }
+}
+```
+
+
+### Access build tools & Parameters
+
+```groovy
+pipeline {
+    agent any
+    tools {
+        maven 'Maven' // use the same name you see in the web UI
+    }
+
+    parameters {
+        //string(name: 'VERSION', defaultValue: '', description 'version to deploy on prod')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
+        booleanParam(name: 'executeTests', defaultValue: true, description: '')
+    }
+
+    // ...
+    stage("tests") {
+        when {
+            expression {
+                params.executeTests
+            }
+        }
+        steps {
+            echo 'testing...'
+        }
+    }
+
+    stage("deploy") {
+
+        steps {
+            echo "deploying version ${params.VERSION}"
         }
     }
 }
