@@ -633,3 +633,59 @@ pipeline {
     // ...
 }
 ```
+
+
+## 10. Create complete pipeline
+
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28665212>
+
+Replicating the previously done freestyle job in a `Jenkinsfile`:
+```groovy
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven'   // the value must be the same as in the Web UI
+    }
+
+    stages {
+        stage("build jar") {
+            steps {
+                echo "building the application..."
+                sh 'mvn package'
+            }
+        }
+
+        stage("build image") {
+            steps {
+                echo "building the docker image..."
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'docker-hub-credentials',
+                        usernamepasswordVariable: 'USER',
+                        passwordVariable: 'PASS'
+                    )
+                ]) {
+                     sh 'docker build -t meleuzord/demo-app:jma-2.0 .'
+                     sh "echo ${PASS} | docker login -u ${USER} --password-stdin"
+                     sh 'docker push meleuzord/demo-app:jma-2.0'
+                }
+            }
+        }
+
+        stage("deploy") {
+            steps {
+                script {
+                    echo "deploying the application..."
+                }
+            }
+        }
+
+    }
+}
+```
+
+Separating some logic in a different groovy script file: 08:10 of the video.
+
+
+## 11. Intro to Multibranch Pipeline
