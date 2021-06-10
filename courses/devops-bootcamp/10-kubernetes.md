@@ -206,7 +206,7 @@ kubectl get pod
 kubectl get services
 ```
 
-### Create and Edit a Pod
+### Creating a Pod (actually a deployment)
 
 Pod is the smallest unit of a cluster, **but** we're not going to create pods directly. As mentioned earlier, "Deployment" is an abstraction layer over Pods. And with `kubectl` we're going to create "Deployments".
 
@@ -251,3 +251,226 @@ nginx-depl-5c8bf76b5b   1         1         1       2m3s
 ![](img/k8s-abstraction-layers.png)
 
 **Everything below "Deployment" is handled by Kubernetes**
+
+
+### Editing a Pod / Deployment
+
+When you edit a deployment, kubernetes automatically create a new pod, and once it's up and running it kills the old pod.
+
+```sh
+# edit the deployment
+# change spec.template.spec.containers.image from 'nginx' to 'nginx:1.16'
+$ kubectl edit deployment nginx-depl
+deployment.apps/nginx-depl edited
+
+# checking the deployment status after edition
+$ kubectl get deployment
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-depl   1/1     1            1           20m
+
+# checking pods status
+# here, the old version is running and the new one is being created
+$ kubectl get pod
+NAME                          READY   STATUS              RESTARTS   AGE
+nginx-depl-5c8bf76b5b-nq8dj   1/1     Running             0          20m
+nginx-depl-7fc44fc5d4-fbtt5   0/1     ContainerCreating   0          9s
+
+# new pod is running, old one is terminating
+$ kubectl get pod
+NAME                          READY   STATUS        RESTARTS   AGE
+nginx-depl-5c8bf76b5b-nq8dj   0/1     Terminating   0          21m
+nginx-depl-7fc44fc5d4-fbtt5   1/1     Running       0          30s
+
+# only the new pod is running
+$ kubectl get pod
+NAME                          READY   STATUS    RESTARTS   AGE
+nginx-depl-7fc44fc5d4-fbtt5   1/1     Running   0          37s
+
+# the old replicaset has no pods
+$ kubectl get replicaset
+NAME                    DESIRED   CURRENT   READY   AGE
+nginx-depl-5c8bf76b5b   0         0         0       42m
+nginx-depl-7fc44fc5d4   1         1         1       21m
+```
+
+
+### Debugging pods
+
+- `kubectl logs ${POD_NAME}`
+- `kubectl describe pod ${POD_NAME}`
+
+```sh
+# let's create another deployment with a mongodb image
+# (which creates a more verbose log)
+kubectl create deployment mongo-depl --image=mongo
+
+# the pod is not running yet
+$ kubectl logs mongo-depl-5fd6b7d4b4-rpqhg
+Error from server (BadRequest): container "mongo" in pod "mongo-depl-5fd6b7d4b4-rpqhg" is waiting to start: ContainerCreating     
+
+# checking the detailed status
+$ kubectl describe pod mongo-depl-5fd6b7d4b4-rpqhg
+Name:           mongo-depl-5fd6b7d4b4-rpqhg
+Namespace:      default
+Priority:       0
+Node:           minikube/192.168.99.100
+Start Time:     Thu, 10 Jun 2021 10:24:08 -0300
+Labels:         app=mongo-depl
+                pod-template-hash=5fd6b7d4b4
+# ...
+# more info
+# ...
+Events:
+Type    Reason     Age   From               Message
+----    ------     ----  ----               -------
+  Normal  Scheduled  4m6s  default-scheduler  Successfully assigned default/mongo-depl-5fd6b7d4b4-rpqhg to minikube
+  Normal  Pulling    4m5s  kubelet            Pulling image "mongo"
+  Normal  Pulled     106s  kubelet            Successfully pulled image "mongo" in 2m18.898375616s
+  Normal  Created    105s  kubelet            Created container mongo
+  Normal  Started    105s  kubelet            Started container mongo
+
+# the pod is now up and running, let's check the logs
+$ kubectl logs mongo-depl-5fd6b7d4b4-rpqhg
+# ... a lot of mongodb logs...
+```
+
+- Starting an interactive shell session inside the pod:
+```sh
+kubectl exec -it ${POD_NAME} -- /bin/bash
+```
+
+
+### Delete Deployment
+
+```sh
+# deleting the mongodb deployment
+$ kubectl delete deployment mongo-depl
+deployment.apps "mongo-depl" deleted
+
+# after deleting a deployment, its pods are going to terminate
+$ kubectl get pods
+NAME                          READY   STATUS        RESTARTS   AGE
+mongo-depl-5fd6b7d4b4-rpqhg   0/1     Terminating   0          18m
+nginx-depl-7fc44fc5d4-fbtt5   1/1     Running       0          71m
+
+# the replicaset is already gone
+$ kubectl get replicaset
+NAME                    DESIRED   CURRENT   READY   AGE
+nginx-depl-5c8bf76b5b   0         0         0       92m
+nginx-depl-7fc44fc5d4   1         1         1       71m
+
+# deleting the nginx deployment too
+$ kubectl delete deployment nginx-depl
+deployment.apps "nginx-depl" deleted
+
+$ kubectl get pods
+NAME                          READY   STATUS        RESTARTS   AGE
+nginx-depl-7fc44fc5d4-fbtt5   0/1     Terminating   0          72m
+
+$ kubectl get replicaset
+No resources found in default namespace.
+```
+
+### Apply Configuration File
+
+`kubectl apply -f config-file.yaml`
+
+An example for `nginx-deployment.yaml`:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:       # deployment specs
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:   # pod specs
+      containers:
+      - name: nginx
+        image: nginx:1.16
+        ports:
+        - containerPort: 80
+```
+
+```sh
+# type the file above
+$ vim nginx-deployment.yaml
+
+# applying that config file
+# note that the output says "... created"
+$ kubectl apply -f nginx-deployment.yaml 
+deployment.apps/nginx-deployment created
+
+$ kubectl get pod
+NAME                                READY   STATUS    RESTARTS   AGE
+nginx-deployment-644599b9c9-qp8lb   1/1     Running   0          7s
+
+$ kubectl get deployment
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   1/1     1            1           17s
+
+$ kubectl get replicaset
+NAME                          DESIRED   CURRENT   READY   AGE
+nginx-deployment-644599b9c9   1         1         1       28s
+
+# edit the file and increase the `spec.replicas` from 1 to 2
+$ vim nginx-deployment.yaml 
+
+# note that the output says "... configured"
+# kubernetes know when to create/update a deployment
+$ kubectl apply -f nginx-deployment.yaml 
+deployment.apps/nginx-deployment configured
+
+$ kubectl get deployment
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-deployment   2/2     2            2           65s
+
+$ kubectl get replicaset
+NAME                          DESIRED   CURRENT   READY   AGE
+nginx-deployment-644599b9c9   2         2         2       68s
+
+$ kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+nginx-deployment-644599b9c9-c9nc2   1/1     Running   0          16s
+nginx-deployment-644599b9c9-qp8lb   1/1     Running   0          76s
+```
+
+### Summarizing
+
+```sh
+# CRUD commands
+########################################
+kubectl create deployment ${NAME}
+kubectl edit deployment ${NAME}
+kubectl delete deployment ${NAME}
+# using files
+kubectl apply -f ${YAML_FILE}
+kubectl delete -f ${YAML_FILE}
+
+# Status of different k8s components
+########################################
+kubectl get nodes | services | deployment | replicaset | pod
+
+# Debugging
+########################################
+
+# get logs
+kubectl logs ${POD_NAME}
+
+# detailed info about the pod
+kubectl describe pod ${POD_NAME}
+
+# interactive shell session inside a pod
+kubectl exec -it ${POD_NAME} -- /bin/bash
+```
+
+
+
