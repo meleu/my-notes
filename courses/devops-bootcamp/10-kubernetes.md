@@ -473,4 +473,87 @@ kubectl exec -it ${POD_NAME} -- /bin/bash
 ```
 
 
+## 6. YAML Configuration File
 
+### 3 Parts of a k8s Configuration File
+
+1. metadata
+2. specifications
+    - the first two lines (`apiVersion` and `kind`)
+    - and the `spec` part
+    - attributes of `spec` are specific to the `kind`.
+3. status
+    - automatically generated/added by kubernetes
+    - created by comparing the desired state (from the `spec` part of the yaml) and the actual state
+    - if the states don't match, kubernetes knows that there's something to be fixed
+    - status data comes from `etcd` Master process
+        - `etcd` holds the current status of any k8s component
+
+
+### Format of k8s Configuration File
+
+- YAML file
+- "human friendly data serialization standard for all programming languages
+- syntax: strict indentation
+- store the config file with your code or own git repository
+
+
+### Blueprint for Pods (Templates)
+
+The `template`:
+
+- has its own `metadata` and `spec` sections (it's like a config file inside a config file).
+- applies to a Pod
+- it's the blueprint for a Pod
+
+
+### Connecting components (Labels & Selectors & Ports)
+
+Connection is stablished using labels and selectors.
+
+- `metadata` part contains the `labels`
+- `spec` part contains `selector`
+
+- Pods get the label through the template blueprint
+    - example:
+```yaml
+spec:
+  template:
+    metadata:
+    labels:
+        app: nginx
+```
+
+- we tell the Deployment to create the connection only for the pods where labels match with the one defined in `selector`
+```yaml
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+```
+
+- this way the Deployment knows which Pod belongs to it.
+
+- deployment has it's own label, used by the `Service`.
+
+- the `selector` in the `Service` yaml file identifies to which Deployment it's connected to.
+
+**Ports**
+
+![](img/k8s-ports-in-service-and-pod.png)
+
+
+```sh
+# creating deployment and service
+kubectl apply -f nginx-deployment.yaml
+kubectl apply -f nginx-service.yaml
+
+# let's check them
+kubectl get pod
+kubectl get service
+
+# get more details about the service
+kubectl describe service nginx-service
+# check the Selector, TargetPort and Endpoints
+
+```
