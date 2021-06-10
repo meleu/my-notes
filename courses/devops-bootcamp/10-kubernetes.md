@@ -633,8 +633,8 @@ metadata:
   name: mongodb-secret
 type: Opaque
 data:
-  mongo-root-username: # paste here the output of `base64 <<<'username'
-  mongo-root-password: # paste here the output of `base64 <<<'password'
+  mongo-root-username: # paste here the output of `echo -n username | base64`
+  mongo-root-password: # paste here the output of `echo -n password | base64`
 ```
 
 **Note**: the Secret file must be created before the Deployment.
