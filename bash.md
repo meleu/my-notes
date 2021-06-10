@@ -5,16 +5,17 @@
 ## ideas
 
 - gitignore - a function that gets a `.gitignore` file from <https://gitignore.io/>. Command: `curl -L https://gitignore.io/api/linux,windows`
+- <https://github.com/alexanderepstein/Bash-Snippets> - **THIS IS AN EXTREMELY VALUABLE RESOURCE**
 
 ## links
 
 - <https://github.com/jlevy/the-art-of-command-line> - The Art of Command Line - good source of inspiration for articles
-- <https://github.com/alexanderepstein/Bash-Snippets> - **THIS IS AN EXTREMELY VALUABLE RESOURCE**
 - <https://github.com/dylanaraps/pure-bash-bible> - pure bash bible
 - <https://github.com/alebcay/awesome-shell> - Awesome Shell resources
 - <https://ebook.bobby.sh/> - inspiration for an interactive bash book/website.
 - <https://cheat.sh> - the only cheat sheet you need :)
 - <https://explainshell.com/> - write down a command-line to see the help text that matches each argument.
+- <http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html>
 
 ### egghead.io
 

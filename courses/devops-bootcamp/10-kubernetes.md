@@ -88,7 +88,7 @@
     - you create Deployments
     - abstraction layer over pods
         - in practice you mostly work with deployments and not with pods
-    - !!! ** DB can't be replicated via Deployment
+    - !!! **DB can't be replicated via Deployment**
     - for stateless apps
 
 - Statefulset
@@ -98,7 +98,52 @@
     - DB are often hosted outside of k8s cluster
 
 
-### Wrap Up
+## 3. Kubernetes Architecture
+
+- Types of clusters:
+    - Master
+    - Slave
+
+- Each Node has multiple Pods on it
+- Worker Nodes do the actual work
+- 3 processes must be running on every Node
+    1. container runtime
+    2. kubelet:
+        - interacts with Container and Node
+        - starts the Pod with a Container inside
+    3. kube proxy - forwards the requests
 
 
+### Master Nodes
+
+- 4 processes on every master node
+    1. API server
+        - the cluster gateway
+    2. Scheduler
+        - **note**: Scheduler just decids **on which Node** nwe pod should be scheduled
+        - the process who actually starts the scheduling in the Node's kubelet
+    3. Controller Manager:
+        - detects cluster state changes
+    4. etcd
+        - consider it as "the cluster's brain"
+        - key value store
+        - examples of info in etcd:
+            - is the cluster healthy?
+            - what resources are available?
+            - did the cluster state change?
+        - **note**: app data is NOT stored in etcd
+
+
+### Example Cluster Set-Up
+
+A very small cluster you're probably have
+
+- 2 master nodes
+- 3 worker nodes
+
+To add new Master/Worker server
+
+1. get new bare server
+2. install all the master/worker node processes
+3. add it to the cluster
 
