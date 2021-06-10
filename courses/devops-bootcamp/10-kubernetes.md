@@ -339,6 +339,10 @@ $ kubectl logs mongo-depl-5fd6b7d4b4-rpqhg
 kubectl exec -it ${POD_NAME} -- /bin/bash
 ```
 
+- getting the current status of a deployment:
+```sh
+kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
+```
 
 ### Delete Deployment
 
@@ -556,4 +560,17 @@ kubectl get service
 kubectl describe service nginx-service
 # check the Selector, TargetPort and Endpoints
 
+# you can get more pod information with -o wide
+kubectl get pod -o wide
+
+# the automatically generated status
+kubectl get deployment nginx-deployment -o yaml
+
+# save it in a file and compare with the original one
+# the `status` part of the file can help with debugging
+kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
+
+
 ```
+
+
