@@ -600,27 +600,27 @@ spec:
   selector:
     matchLabels:
       app: mongodb
-    template:
-      metadata:
-        labels:
-          app: mongodb
-      spec:
-        containers:
-        - name: mongodb
-          image: mongo
-          ports:
-          - containerPort: 27017
-          env:
-          - name: MONGO_INITIDB_ROOT_USERNAME
-            valueFrom: # remember to create the Secret before creating the Deployment
-              secretKeyRef:
-                name: mongodb-secret
-                key: mongo-root-username
-          - name: MONGO_INITIDB_ROOT_PASSWORD
-            valueFrom: # remember to create the Secret before creating the Deployment
-              secretKeyRef:
-                name: mongodb-secret
-                key: mongo-root-password
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITIDB_ROOT_USERNAME
+          valueFrom: # remember to create the Secret before creating the Deployment
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongo-root-username
+        - name: MONGO_INITIDB_ROOT_PASSWORD
+          valueFrom: # remember to create the Secret before creating the Deployment
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongo-root-password
 ```
 
 ### 2nd step - Create the Secret
