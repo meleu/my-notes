@@ -147,3 +147,107 @@ To add new Master/Worker server
 2. install all the master/worker node processes
 3. add it to the cluster
 
+
+## 4. Minikube and kubectl - Local Kubernetes Cluster
+
+### Minikube
+
+Having a real cluster setup to practice would require a lot of resources, not usually available in personal computers.
+
+Minikube is a way to test local cluster setup. You have Master and Worker Nodes processes running on **ONE machine**.
+
+- minikube:
+    - creates a virtual box on your computer
+    - Node runs in that virtual box
+    - 1 node k8s cluster
+    - for testing purposes
+
+
+### kubectl
+
+`kubectl` is a command line tool for k8s cluster.
+
+One of the master processes mentioned earlier is the `API Server`. Clients communicate with the `API Server` through a web UI, API calls, or a CLI. And `kubectl` is that CLI (and the most powerful one).
+
+
+### Installing & Creating a minikube cluster
+
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28679481>
+
+- installation instructions
+    - minikube: <https://kubernetes.io/docs/tasks/tools/install-minikube/>
+    - kubectl: <https://kubernetes.io/docs/tasks/tools/install-kubectl/>
+
+```sh
+# define the virtual machine driver with `--driver`
+# default is 'autodetect'
+minikube start --driver=hyperkit
+
+# check minikube status
+minikube status
+
+# check the kubectl version
+kubectl version
+```
+
+- **kubectl CLI**: for configuring the minikube cluster.
+- **minikube CLI**: for start up/deleting the cluster.
+
+
+## 5. Main kubectl commands
+
+### Get status of components
+
+```sh
+kubectl get nodes
+
+kubectl get pod
+
+kubectl get services
+```
+
+### Create and Edit a Pod
+
+Pod is the smallest unit of a cluster, **but** we're not going to create pods directly. As mentioned earlier, "Deployment" is an abstraction layer over Pods. And with `kubectl` we're going to create "Deployments".
+
+```sh
+# get help about ~~pod~~ deployment creation
+kubectl create -h
+
+# usage:
+# kubectl create deployment NAME --image=image [--dry-run] [options]
+# example creating an nginx deployment (nginx image will
+# be donwloaded from Docker Hub):
+$ kubectl create deployment nginx-depl --image=nginx
+deployment.apps/nginx-depl created
+
+# get deployment status
+$ kubectl get deployment
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+nginx-depl   0/1     1            0           9s
+
+# get pod status
+$ kubectl get pod
+NAME                          READY   STATUS              RESTARTS   AGE
+nginx-depl-5c8bf76b5b-nq8dj   0/1     ContainerCreating   0          17s
+# STATUS above is still 'ContainerCreating'...
+# after a couple of minutes, it's 'Running'
+$ kubectl get pod
+NAME                          READY   STATUS    RESTARTS   AGE
+nginx-depl-5c8bf76b5b-nq8dj   1/1     Running   0          2m12s
+
+# get replicaset status
+# note: replicaset is managing the replicas of a pod
+# note 2: the pod name is
+# ${DEPLOYMENT_NAME}-${REPLICASET_HASH}-${POD_HASH}
+$ kubectl get replicaset
+NAME                    DESIRED   CURRENT   READY   AGE
+nginx-depl-5c8bf76b5b   1         1         1       2m3s
+```
+
+
+### Layers of Abstraction
+
+![](img/k8s-abstraction-layers.png)
+
+**Everything below "Deployment" is handled by Kubernetes**
