@@ -296,6 +296,7 @@ nginx-depl-7fc44fc5d4   1         1         1       21m
 
 ### Debugging pods
 
+- `kubectl get pod --watch`
 - `kubectl logs ${POD_NAME}`
 - `kubectl describe pod ${POD_NAME}`
 
@@ -569,8 +570,253 @@ kubectl get deployment nginx-deployment -o yaml
 # save it in a file and compare with the original one
 # the `status` part of the file can help with debugging
 kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
-
-
 ```
 
 
+## 7. Complete Demo Project - Deploying Application in Kubernetes Cluster
+
+### Overview
+
+![](img/k8s-demo-project-overview.png)
+
+
+### Request Flow
+
+browser -> Mongo Express External Service -> Mongo Express Pod -> MongoDB Internal Service -> MongoDB Pod
+
+
+### 1st step - MongoDB Deployment
+
+`mongo.yaml`
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deployment
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+    template:
+      metadata:
+        labels:
+          app: mongodb
+      spec:
+        containers:
+        - name: mongodb
+          image: mongo
+          ports:
+          - containerPort: 27017
+          env:
+          - name: MONGO_INITIDB_ROOT_USERNAME
+            valueFrom: # remember to create the Secret before creating the Deployment
+              secretKeyRef:
+                name: mongodb-secret
+                key: mongo-root-username
+          - name: MONGO_INITIDB_ROOT_PASSWORD
+            valueFrom: # remember to create the Secret before creating the Deployment
+              secretKeyRef:
+                name: mongodb-secret
+                key: mongo-root-password
+```
+
+### 2nd step - Create the Secret
+
+`mongo-secret.yaml`
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongodb-secret
+type: Opaque
+data:
+  mongo-root-username: # paste here the output of `base64 <<<'username'
+  mongo-root-password: # paste here the output of `base64 <<<'password'
+```
+
+**Note**: the Secret file must be created before the Deployment.
+```sh
+# creating the Secret
+kubectl apply -f mongo-secret.yaml
+
+# check if it was actually created:
+kubectl get secret
+
+# now let's create the Deployment
+kubectl apply -f mongo.yaml
+
+# get setup info
+kubectl get all
+```
+
+### 3rd step - Create a Service
+
+Let's create a service so other pods can access the MongoDB.
+
+Deployment and Service usually belong together, so let's put their configs in the same file. In order to achieve that you just need to separate the configs with `---` in a line.
+
+`mongo.yaml`
+```yaml
+# ...
+# Deployment configs
+# ...
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - protocols: TCP
+      port: 27017
+      targetPort: 27017
+```
+
+Creating the Service:
+
+```sh
+# this will keep mongodb-deployment unchanged and create mongodb-service
+kubectl apply -f mongo.yaml
+
+# check the service status
+kubectl get service
+
+# check if the service is connected to the right pod
+kubectl describe service mongodb-service
+# check the 'Endpoints' IP:port address
+
+# compare with the pod's IP
+kubectl get pod -o wide
+
+# check them all
+kubectl get all
+kubectl get all | grep mongodb
+```
+
+
+### 4th step - Create Mongo Express Deployment and Service
+
+`mongo-express.yaml`
+```yaml
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: mong-express
+  labels:
+    app: mongo-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-express
+  template:
+    metadata:
+      labels:
+        app: mongo-express
+    spec:
+      containers:
+      - name: mongo-express
+        image: mongo-express
+        ports:
+        - containerPort: 8081
+        env: # 3 variables needed by mongo-express to connect to mongodb
+        - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongo-root-username
+        - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongo-root-password
+        - name: ME_CONFIG_MONGODB_SERVER
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb-configmap
+              key: database_url
+```
+
+Database URL goes in the ConfigMap:
+
+`mongo-configmap.yaml`
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongodb-configmap
+data:
+  database_url: mongodb-service
+```
+
+ConfigMap must already be in the k8s cluster when referencing it.
+
+```sh
+# first the configmap...
+kubectl apply -f mongo-configmap.yaml
+
+# ... and then the deployment referencing the configmap
+kubectl apply -f mongo-express.yaml
+
+# check the pod
+kubectl get pod
+
+# check the logs
+kubectl logs ${POD_NAME}
+```
+
+### 5th step - Create an External Service
+
+We need an external service to allow browsers to access Mongo Express.
+
+Again, let's keep the Service configs in the same file as the Deployment.
+
+`mongo-express.yaml`:
+```yaml
+# ... Mongo Express Deployment configs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express-service
+spec:
+  selector:
+    app: mongo-express
+
+  # The 'type: LoadBalancer' is what make it an External Service.
+  # It assigns an external IP address to this Service, making it
+  # accept external requests.
+  type: LoadBalancer
+
+
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+      # with 'nodeport:' you define the external listening port
+      nodePort: 30000
+```
+
+Create the service:
+```sh
+kubectl apply -f mongo-express.yaml
+
+# check the services
+kubectl get service
+
+# note in the output above that the TYPE means
+# - LoadBalancer: external service
+# - ClusterIP: internal service (default)
+
+```
+
+Specific to a minikube setup:
+```sh
+# assign a public IP address to a service
+minikube service mongo-express-service
+```
