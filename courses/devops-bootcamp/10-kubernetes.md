@@ -699,14 +699,14 @@ kubectl get all | grep mongodb
 ```
 
 
-### 4th step - Create Mongo Express Deployment and Service
+### 4th step - Create Mongo Express Deployment and ConfigMap
 
 `mongo-express.yaml`
 ```yaml
 apiVersion: app/v1
 kind: Deployment
 metadata:
-  name: mong-express
+  name: mongo-express
   labels:
     app: mongo-express
 spec:
@@ -820,3 +820,165 @@ Specific to a minikube setup:
 # assign a public IP address to a service
 minikube service mongo-express-service
 ```
+
+
+## 8. Namespaces - Organizing Components
+
+### What is a Namespace?
+
+- a way to organize resources 
+- it's like a virtual cluster inside a cluster
+
+- 4 Namespaces are created by default:
+    1. `kube-system`
+      - not for your use
+    2. `kube-public`
+      - publicly accessible data
+      - a ConfigMap which contains cluster information
+      - access that info using `kubectl cluster-info`
+    3. `kube-node-lease`
+      - heartbeats of nodes
+      - each node has associated lease object in namespace
+      - determines the availability of a node
+    4. `default`
+      - resources you create are located here
+
+### Create a Namespace
+
+Command line:
+```sh
+kubectl create namespace my-namespace
+
+# see it in your list of namespaces
+kubectl get namespaces
+```
+
+You can also create a namespace using a configuration file.
+
+
+### Why use Namespaces?
+
+1. Resources grouped in Namespaces
+2. Conflicts: Many teams, same application
+3. Resource sharing:
+    - staging and Development
+    - Blue/Green Deployment
+4. Access and Resource Limits on Namespaces
+
+
+### Characteristics of Namespaces
+
+- You can't access most resources from another Namespace
+    - example: each namespace must define its own ConfigMap
+- You can access a Service in another Namespace
+- Some components can't be created within a Namespace
+    - they live globally in a cluster
+    - you can't isolate them
+    - examples: volume and node
+    - `kubectl api-resources --namespaced=false`
+    - `kubectl api-resources --namespaced=true`
+
+
+### Create Components in Namespaces
+
+Assuming you already created a namespace with `kubectl create namespace my-namespace`.
+
+If no Namespace is provided, the component is created in the `default` Namespace. You can check it with `kubectl get ${COMPONENT_KIND} -o yaml` and checking the `metadata.namespace`.
+
+One way is to provide the namespace in the command line:
+```sh
+# assuming the file doesn't have a namespace
+kubectl apply -f mysql-configmap.yaml --namespace=my-namespace
+```
+
+Another way is just to put it in the yaml file:
+```yaml
+metadata:
+  # ...
+  namespace: my-namespace
+```
+
+
+### Change Active Namespace
+
+Change the active namespaces with `kubens`. You have to install the tool: <https://github.com/ahmetb/kubectx>.
+
+
+
+## 9. Services - Connecting to Applications Inside Cluster
+
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28706433>
+
+### What is a Service and why do we need it?
+
+"The Service component is an abstraction layer that basically represents an IP address"
+
+- Each Pod has its own IP address
+    - Pods are ephemeral - destroyed frequently
+- Service:
+    - has a stable IP address
+    - does load balancing
+    - loose coupling
+    - able to communicate within & outside the cluster
+
+
+### ClusterIP Services    
+
+- aka Internal Service
+- default type
+
+- How the Service knows to which Pod it needs to forward the request to?
+    - Pods are identified via `selector`s
+    - key value pairs
+    - `labels` of pods
+    - you can give any name you want
+
+![](img/k8s-service-selector.png)
+
+- If a Pod has several ports open, how the service knows to which port to forward the request to?
+    - `targetPort` Service attribute
+
+**Service Endpoints**
+
+Kubernetes creates `Endpoint` objects. They have the same name as the Service and keep track of which Pods are the members/endpoints of the Service.
+
+```sh
+kubectl get endpoints
+```
+
+**Service Communication: `port` vs `targetPort`**
+
+- The service `port` is arbitrary (choose anything you want)
+- The `targetPort` must match the port the Pod is listening at.
+
+### Multi-Port Services
+
+![](img/k8s-multi-port-services.png)
+
+
+### Headless Services
+
+13min
+
+### NodePort Services
+ 
+17:35
+
+- a `NodePort` service is able to receive connections from outside the cluster.
+- `nodePort` attribute must be between 30000 - 32767
+- when you create a `NodePort` service, a `ClusterIP` service is automatically created.
+- **NOT SECURE!!**
+
+![](img/k8s-nodeport-services.png)
+
+
+### LoadBalancer Services
+
+- `LoadBalancer` makes the Service become accessible externally.
+- it's an extension of `NodePort` (and `NodePort` is an extension of `ClusterIP`)
+
+
+### Wrap-Up
+
+- `NodePort` service is **NOT** for external connection.
+- configure Ingress or LoadBalancer for production environments
