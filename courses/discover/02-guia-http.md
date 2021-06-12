@@ -25,3 +25,35 @@ para google.com, conforme no exemplo abaixo:
 echo "${request}" | nc google.com 80
 # veja a resposta do servidor, incluindo os cabeçalhos (Headers)
 ```
+
+## DevTools & cURL
+
+- <https://app.rocketseat.com.br/node/guia-estelar-de-http/group/entendendo/lesson/visualizando-com-dev-tools>
+- <https://app.rocketseat.com.br/node/guia-estelar-de-http/group/entendendo/lesson/visualizando-com-c-url>
+
+```sh
+# a opção -i mostra os cabeçalhos
+curl -i https://google.com/
+
+# a opção -v (verbose) mostra inclusive informações
+# sobre a request que está sendo enviada
+curl -v https://google.com/
+```
+
+## URI
+
+- <https://app.rocketseat.com.br/node/guia-estelar-de-http/group/uri/lesson/url>
+
+Toda URL é uma URI, mas nem toda URI é uma URL.
+
+Uma URL possui vários componentes.
+
+- Componentes obrigatórios:
+    - protocolo
+    - domínio
+- Componentes opcionais:
+    - subdomínio
+    - path
+    - parâmetros
+    - porta
+    - âncora
