@@ -42,7 +42,23 @@ From "Cloud Native DevOps with Kubernetes" book.
 
 ~ Matt Klein
 
+
+
 ### Chapter 2
+
+#### the `demo` app
+
+**Running the `demo` container**
+```sh
+docker container run \
+  -p 9999:8888 \
+  --name hello \
+  cloudnatived/demo:hello
+```
+
+And then access <http://localhost:9999/>
+
+**Building the `demo` image**
 
 The provided `Dockerfile` for the [demo](https://github.com/cloudnativedevops/demo) app (written in go) is interesting:
 ```Dockerfile
@@ -58,3 +74,13 @@ ENTRYPOINT ["/bin/demo"]
 ```
 
 It generates an image `FROM scratch` with only the `demo` binary. It is possible because "Go is a compiled language that can produce self-contained executables, it's ideal for writing minimal (_scratch_) containers."
+
+```sh
+git clone https://github.com/cloudnativedevops/demo
+cd demo/hello
+docker image build -t myhello .
+
+# try to launch the image you've just created
+docker container run -p 9999:8888 myhello
+# test connection in localhost:9999
+```
