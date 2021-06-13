@@ -32,3 +32,11 @@ From "Cloud Native DevOps with Kubernetes" book.
 
 > (...) some things just aren't a good fit for Kubernetes (databases, for example).
 > While it's perfectly possible to run stateful workloads like databases in Kubernetes with enterprise-grade reliability, it requires a large investment of time and engineering that it may not make sense for your compatny to make. It's usually more cost-effective to use managed services instead.
+
+
+### Developer Productivity Engineering
+
+> By the time an engineering organization reaches ~75 people, there is almost certainly a central infrastructure team in place starting to build common substrate features required by product teams building microservices. But there comes a point at which the central infrastrucutre team can no longer both continue to build and operate the infrastructure critical to business success, while also maintaining the support burden of helping product teams with operational tasks.
+
+~ Matt Klein
+
