@@ -1,7 +1,9 @@
 # Kubernetes
 [✏️](https://github.com/meleu/my-notes/edit/master/kubernetes.md)
 
-## History
+## reading: Cloud Native DevOps with Kubernetes
+
+### Chapter 1
 
 Kubernetes was based on **Borg**, a container orchestrator used internally by Google.
 
@@ -16,7 +18,7 @@ This paper about Borg seems to be a valuable reading: <https://research.google/p
 ~ Kelsey Hightower
 
 
-### Will Kubernetes Disappear?
+#### Will Kubernetes Disappear?
 
 > Oddly enough, despite the current excitement around Kubernetes, we may not be talking much about it in years to come. Many things that once were new and revolutionary are now so much part of the fabric of computing that we don't really think about them: microprocessors, the mouse, the internet.
 > 
@@ -28,15 +30,31 @@ This paper about Borg seems to be a valuable reading: <https://research.google/p
 
 From "Cloud Native DevOps with Kubernetes" book.
 
-### Kubernetes Doesn't Do It All
+#### Kubernetes Doesn't Do It All
 
 > (...) some things just aren't a good fit for Kubernetes (databases, for example).
 > While it's perfectly possible to run stateful workloads like databases in Kubernetes with enterprise-grade reliability, it requires a large investment of time and engineering that it may not make sense for your compatny to make. It's usually more cost-effective to use managed services instead.
 
 
-### Developer Productivity Engineering
+#### Developer Productivity Engineering
 
 > By the time an engineering organization reaches ~75 people, there is almost certainly a central infrastructure team in place starting to build common substrate features required by product teams building microservices. But there comes a point at which the central infrastrucutre team can no longer both continue to build and operate the infrastructure critical to business success, while also maintaining the support burden of helping product teams with operational tasks.
 
 ~ Matt Klein
 
+### Chapter 2
+
+The provided `Dockerfile` for the [demo](https://github.com/cloudnativedevops/demo) app (written in go) is interesting:
+```Dockerfile
+FROM golang:1.14-alpine AS build
+
+WORKDIR /src/
+COPY main.go go.* /src/
+RUN CGO_ENABLED=0 go build -o /bin/demo
+
+FROM scratch
+COPY --from=build /bin/demo /bin/demo
+ENTRYPOINT ["/bin/demo"]
+```
+
+It generates an image `FROM scratch` with only the `demo` binary. It is possible because "Go is a compiled language that can produce self-contained executables, it's ideal for writing minimal (_scratch_) containers."
