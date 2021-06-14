@@ -8,6 +8,7 @@ Notes about interesting videos I've been watching.
 
 - [3-practices-for-effective-devops-adoption](https://meleu.github.io/my-notes/videos/3-practices-for-effective-devops-adoption) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/3-practices-for-effective-devops-adoption.md)
 - [agile-is-dead](https://meleu.github.io/my-notes/videos/agile-is-dead) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/agile-is-dead.md)
+- [building-a-second-brain](https://meleu.github.io/my-notes/videos/building-a-second-brain) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/building-a-second-brain.md)
 - [como-ser-devops-engineer-em-2021](https://meleu.github.io/my-notes/videos/como-ser-devops-engineer-em-2021) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/como-ser-devops-engineer-em-2021.md)
 - [five-things-every-developer-should-know-about-software-architecture](https://meleu.github.io/my-notes/videos/five-things-every-developer-should-know-about-software-architecture) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/five-things-every-developer-should-know-about-software-architecture.md)
 - [git-conceitos-basicos](https://meleu.github.io/my-notes/videos/git-conceitos-basicos) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/git-conceitos-basicos.md)
