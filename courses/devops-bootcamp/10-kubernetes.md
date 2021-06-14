@@ -20,6 +20,9 @@
     - **scalability** or hight performance
     - **disaster recovery** - backup and restore
 
+Quote from Kelsey Hightower (found in "Cloud Native DevOps with Kubernetes" book):
+
+> Kubernetes do the things that the very best system administrator would do: automation, failover, centralized logging, monitoring. It takes what we've learned in the DevOps community and makes it the default, out of the box.
 
 ## 2. Main Kubernetes Components
 

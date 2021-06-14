@@ -11,9 +11,7 @@ This paper about Borg seems to be a valuable reading: <https://research.google/p
 
 **What makes Kubernetes so valuable?**
 
-> Kubernetes dos the things that the bery best system administrator would do: automation,
-> failover, centralized logging, monitoring. It takes what we've learned in the DevOps community
-> and makes it the default, out of the box.
+> Kubernetes do the things that the very best system administrator would do: automation, failover, centralized logging, monitoring. It takes what we've learned in the DevOps community and makes it the default, out of the box.
 
 ~ Kelsey Hightower
 
