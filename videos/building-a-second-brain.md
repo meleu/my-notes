@@ -5,6 +5,7 @@
 
 - links:
     - <https://slidesmania.com/> - great slides templates
+    - <https://marketingexamples.com/> - marketing examples/ideas
 
 
 - 7:34 - Everytime you do something you should tell people you've done it.
@@ -36,5 +37,17 @@
 4. Basic frontend skills
 5. Increase my communication skills
 6. Talk while coding
+7. Differentiate noise vs. signal
 
-continue at 26min.
+- Code: the creative process is timeless (therefore, more important than the contents)
+    - capture: write things down
+    - organize: sort the material
+    - distill: break down the ideas
+    - express: synthesize and share
+
+- What to capture? (some filters)
+    - inspiring - is this something that could inspire me in the future?
+    - useful - could this be useful for future projects?
+    - personal - is this hard-won knowlede gained through personal experience?
+    - surprising - does this violates my expectations or go against my mental models?
+
