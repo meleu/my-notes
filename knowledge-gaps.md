@@ -42,3 +42,9 @@ How TLS/SSL certificates work?
 
 possibly useful reading: <https://www.digitalocean.com/community/tutorials/a-comparison-of-let-s-encrypt-commercial-and-private-certificate-authorities-and-self-signed-ssl-certificates>
 
+
+## Blue/Green Deployment
+
+I'd like to understand how Blue/Green Development/Deployment works. What are the advantages.
+
+
