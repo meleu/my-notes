@@ -26,6 +26,7 @@ Personal notes about things I've been learning (mostly programming).
 - [gitlab](https://meleu.github.io/my-notes/.git/../gitlab) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../gitlab.md)
 - [git](https://meleu.github.io/my-notes/.git/../git) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../git.md)
 - [http](https://meleu.github.io/my-notes/.git/../http) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../http.md)
+- [javascript](https://meleu.github.io/my-notes/.git/../javascript) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../javascript.md)
 - [jekyll](https://meleu.github.io/my-notes/.git/../jekyll) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../jekyll.md)
 - [jenkins-vs-gitlab](https://meleu.github.io/my-notes/.git/../jenkins-vs-gitlab) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../jenkins-vs-gitlab.md)
 - [jq](https://meleu.github.io/my-notes/.git/../jq) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../jq.md)
