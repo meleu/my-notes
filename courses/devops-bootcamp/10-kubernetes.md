@@ -923,6 +923,13 @@ Change the active namespaces with `kubens`. You have to install the tool: <https
     - does load balancing
     - loose coupling
     - able to communicate within & outside the cluster
+- 4 (or 3) types of Services:
+    - `ClusterIP` (default)
+    - `Headless` (actually a subtype of `ClusterIP`)
+    - `NodePort`
+    - `LoadBalancer`
+
+![](img/k8s-3-service-type-attributes.png)
 
 
 ### ClusterIP Services    
@@ -954,7 +961,7 @@ kubectl get endpoints
 - The service `port` is arbitrary (choose anything you want)
 - The `targetPort` must match the port the Pod is listening at.
 
-### Multi-Port Services
+**Multi-Port Services**
 
 ![](img/k8s-multi-port-services.png)
 
@@ -963,14 +970,36 @@ kubectl get endpoints
 
 13min
 
+- It's a way to allow pods to be accessed directly.
+- Useful for pods running stateful applications (like databases)
+- Apparently it's a subtype of the `ClusterIP` service.
+
+It's declared like this:
+```yaml
+# ...
+kind: Service
+# ...
+spec:
+  clusterIP: None
+# ...
+```
+
+And you can see it in the output of `kubectl get services`, in the line where the column `CLUSTER-IP` says `None`.
+
+
 ### NodePort Services
  
 17:35
 
-- a `NodePort` service is able to receive connections from outside the cluster.
+- creates a service that is accessible on a static port on each worker node in the cluster
+- a `NodePort` service is able to receive connections from outside the cluster
 - `nodePort` attribute must be between 30000 - 32767
-- when you create a `NodePort` service, a `ClusterIP` service is automatically created.
-- **NOT SECURE!!**
+- when you create a `NodePort` service, a `ClusterIP` service is automatically created
+- **NOT SECURE!!** It exposes the Nodes to the "external world"
+
+- **??? DOUBT ???:**
+    - what's the difference between `NodePort` and `LoadBalancer`?
+    - what's the usecase for `NodePort`?
 
 ![](img/k8s-nodeport-services.png)
 
@@ -978,10 +1007,66 @@ kubectl get endpoints
 ### LoadBalancer Services
 
 - `LoadBalancer` makes the Service become accessible externally.
-- it's an extension of `NodePort` (and `NodePort` is an extension of `ClusterIP`)
+- automatically creates a `NodePort` and a `ClusterIP` services.
+- it's an extension of `NodePort` (and `NodePort` is an extension of `ClusterIP`).
 
 
 ### Wrap-Up
 
 - `NodePort` service is **NOT** for external connection.
 - configure Ingress or LoadBalancer for production environments
+
+
+## 10. Ingress - Connecting to Applications Outside Cluster
+
+- Ingress allows the application to have a simple and secure endpoint, like `https://my-app.com/`.
+- Ingress needs an **implementation**, which is called **Ingress Controller**.
+
+Installing Ingress Controller in minikube:
+```sh
+# automatically starts k8s nginx implementation of Ingress Controller
+minikube addons enable ingress
+
+# check if it's running fine:
+kubectl get pod -n kube-system
+```
+
+- In minikube cluster kubernetes-dashboard already exists out-of-the-box, but not accessible externally. Let's configure it to be accessible.
+```sh
+# check if it's running
+kubectl get all -n kubernetes-dashboard
+```
+
+create `dashboard-ingress.yaml`:
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  namespace: kubernetes-dashboard
+spec:
+  rules:
+  - host: dashboard.com
+    http:
+      paths:
+      - backend:
+        serviceName: kubernetes-dashboard
+        servicePort: 80
+```
+
+back to terminal:
+```sh
+kubectl apply -f dashboard-ingress.yaml
+
+# check if it's running
+kubectl get ingress -n kubernetes-dashboard
+
+# if the ADDRESS is not visible yet, use the --watch option
+kubectl get ingress -n kubernetes-dashboard --watch
+
+# get the ADDRESS and edit your /etc/hosts
+echo "${IP_ADDRESS}  dashboard.com" | sudo tee /etc/hosts
+
+# open "http://dashboard.com/" in your browser
+```
+
