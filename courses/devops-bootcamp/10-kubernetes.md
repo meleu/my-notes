@@ -1070,3 +1070,80 @@ echo "${IP_ADDRESS}  dashboard.com" | sudo tee /etc/hosts
 # open "http://dashboard.com/" in your browser
 ```
 
+### Multiple paths for the same host
+
+18:25
+
+```yaml
+apiVersion: networking;k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-fanout-example
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: myapp.com
+    http:
+      paths:
+      - path: /analytics
+        backend:
+          serviceName: analytics-service
+          servicePort: 3000
+      - path: /shopping
+        backend:
+          serviceName: shopping-service
+          servicePort: 8080
+```
+ 
+### Multiple sub-domains or domains
+
+19:45
+
+Multiple hosts with 1 path. Each host represents a subdomain.
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: name-virtual-host-ingress
+spec:
+  rules:
+  - host: analytics.myapp.com
+    http:
+      paths:
+        backend:
+          serviceName: analytics-service
+          servicePort: 3000
+  - host: shopping.myapp.com
+    http:
+      paths:
+        backend:
+          serviceName: shopping-service
+          servicePort: 8080
+```
+
+
+
+### Configuring TLS Certificate
+
+20:45
+
+You only need this in your ingress yaml file:
+```yaml
+# ...
+spec:
+  tls:
+  - hosts:
+    - myapp.com
+    secretName: myapp-secret-tls
+    # and, of course, have a Secret with
+    # that name in the same namespace
+```
+
+![](img/k8s-tls-certificate.png)
+
+**NOTES**:
+
+1. data keys need to be `tls.crt` and `tls.key`
+2. values of those keys are **actual file contents**, not file paths
+3. Secret component must be in the same namespace as the Ingress component
