@@ -1017,7 +1017,10 @@ And you can see it in the output of `kubectl get services`, in the line where th
 - configure Ingress or LoadBalancer for production environments
 
 
+
 ## 10. Ingress - Connecting to Applications Outside Cluster
+
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28706439>
 
 - Ingress allows the application to have a simple and secure endpoint, like `https://my-app.com/`.
 - Ingress needs an **implementation**, which is called **Ingress Controller**.
@@ -1072,7 +1075,7 @@ echo "${IP_ADDRESS}  dashboard.com" | sudo tee /etc/hosts
 
 ### Multiple paths for the same host
 
-18:25
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28706439> - 18:25
 
 ```yaml
 apiVersion: networking;k8s.io/v1
@@ -1098,7 +1101,7 @@ spec:
  
 ### Multiple sub-domains or domains
 
-19:45
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28706439> - 19:45
 
 Multiple hosts with 1 path. Each host represents a subdomain.
 ```yaml
@@ -1126,7 +1129,7 @@ spec:
 
 ### Configuring TLS Certificate
 
-20:45
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28706439> - 20:45
 
 You only need this in your ingress yaml file:
 ```yaml
@@ -1147,3 +1150,7 @@ spec:
 1. data keys need to be `tls.crt` and `tls.key`
 2. values of those keys are **actual file contents**, not file paths
 3. Secret component must be in the same namespace as the Ingress component
+
+
+## 11. Volumes - Persisting Application Data
+

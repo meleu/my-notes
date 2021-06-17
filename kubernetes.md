@@ -82,3 +82,44 @@ docker image build -t myhello .
 docker container run -p 9999:8888 myhello
 # test connection in localhost:9999
 ```
+
+#### Hello Kubernetes!
+
+```sh
+# creating a pod with the demo app
+kubectl run demo \
+  --image=cloudnatived/demo:hello \
+  --labels app=demo
+
+# get info about the pod
+kubectl get all
+kubectl describe pod/demo
+
+# the demo by defaul is listening on port 8888
+# let's make our machine listen on port 9999 and
+# forward it to 8888
+kubectl port-forward pod/demo 9999:8888
+```
+
+### Chapter 3
+
+The cluster's brain is called the **control plane**.
+
+**Kubernetes Architecture**
+
+Components of a **Master Node**:
+
+- `kube-apiserver`: frontend server for the control plane, handling API requests.
+- `etcd`: database where k8s stores all its information: what nodes exist, what resources exist on the cluster and so on.
+- `kube-scheduler`: decides where to run newly created Pods.
+- `kube-controller-manager`: responsible for running resource controllers, such as Deployments.
+
+The members of the cluster which run the control plane components are called **master nodes**.
+
+Cluster members that run user workloads are called **worker nodes**.
+
+Components of a **Worker Node**:
+
+- `kubelet`: responsible for driving the container runtime to start workloads that are scheduled on the node, and monitoring their status.
+- `kube-proxy`: does the networking magic that routes request between Pods on differente nodes, and between Pods and the internet.
+- _Container runtime_: starts and stops containers and handles their communications.
