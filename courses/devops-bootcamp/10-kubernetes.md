@@ -1034,6 +1034,10 @@ minikube addons enable ingress
 kubectl get pod -n kube-system
 ```
 
+### kubernetes-dashboard
+
+**UPDATE**: apparently the example below doesn't work anymore. The kubernetes-dashboard can be accessed via `minikube dashboard` (which is not really a good Ingress config exercise).
+
 - In minikube cluster kubernetes-dashboard already exists out-of-the-box, but not accessible externally. Let's configure it to be accessible.
 ```sh
 # check if it's running
