@@ -1,6 +1,6 @@
 # bash
 
-[:pencil2:](https://github.com/meleu/my-notes/edit/master/bash.md)
+[✏️](https://github.com/meleu/my-notes/edit/master/bash.md)
 
 ## ideas
 
@@ -20,7 +20,6 @@
 ### egghead.io
 
 - <https://egghead.io/q/bash>
-
 - <https://egghead.io/courses/upgrade-your-terminal-and-make-it-a-joy-to-work-with-13f1>
 - <https://egghead.io/courses/automate-daily-development-tasks-with-bash>
 - <https://egghead.io/courses/advanced-bash-automation-for-web-developers>
