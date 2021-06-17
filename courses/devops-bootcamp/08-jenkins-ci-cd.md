@@ -689,3 +689,81 @@ Separating some logic in a different groovy script file: 08:10 of the video.
 
 
 ## 11. Intro to Multibranch Pipeline
+
+- Create a new job
+- name it `my-multibranch-pipeline`
+- choose `Multibranch Pipeline`
+- press OK button
+
+
+### Branch-based logic for Multibranch Pipeline
+
+```Jenkinsfile
+pipeline {
+    agent none
+    stages {
+        stage('test') {
+            steps {
+                script {
+                    echo "Testing the application..."
+                    echo "Executing pipeline for branch $BRANCH_NAME"
+                }
+            }
+        }
+
+        stage('build') {
+            when {
+                expression {
+                    BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                script {
+                    echo "Building the application..."
+                }
+            }
+        }
+
+        stage('deploy') {
+            when {
+                expression {
+                    BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                script {
+                    echo "Deploying the application..."
+                }
+            }
+        }
+    }
+}
+```
+
+
+## 12. Jenkins Jobs Overview
+
+3 types of Jenkins jobs:
+
+- Freestyle: single task, standalone job
+- Pipeline: better solution for CI/CD, with several jobs/stages
+- Multibranch pipeline: run pipeline for multiple branches
+
+
+## 13. Credentials in Jenkins
+
+`Manage Jenkins` page -> Security -> Manage Credentials
+
+- Credentials Scopes
+    - System - only available on Jenkins Server (NOT for Jenkins jobs)
+    - Global - Everywhere accross Jenkins
+    - [Project] - limited to project, only available/accessible in the multibranch pipeline view
+- Credentials Types
+    - Username & Password
+    - Certificate
+    - Secret File
+    - etc.
+    - (new types based on plugins)
+- ID - that's how you reference your credentials in scripts
+
+If you go to a Multibranch 
