@@ -1161,7 +1161,7 @@ spec:
 - storage class
 
 
-### The Need fo Volumes
+### The Need of Volumes
 
 - kubernetes doesn't provide data persistence out-of-the-box, you need to configure it
 
