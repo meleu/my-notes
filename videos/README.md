@@ -20,4 +20,5 @@ Notes about interesting videos I've been watching.
 - [sonarqube](https://meleu.github.io/my-notes/videos/sonarqube) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/sonarqube.md)
 - [the-many-flavors-of-agile](https://meleu.github.io/my-notes/videos/the-many-flavors-of-agile) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/the-many-flavors-of-agile.md)
 - [thinking-fast-and-slow](https://meleu.github.io/my-notes/videos/thinking-fast-and-slow) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/thinking-fast-and-slow.md)
+- [todo](https://meleu.github.io/my-notes/videos/todo) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/todo.md)
 - [whimsical-flowcharts-tutorial](https://meleu.github.io/my-notes/videos/whimsical-flowcharts-tutorial) - [✏️](https://github.com/meleu/my-notes/edit/master/videos/whimsical-flowcharts-tutorial.md)

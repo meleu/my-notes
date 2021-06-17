@@ -1,0 +1,102 @@
+# Videos I Should Make
+
+- [ ] bash - o que o shebang faz
+- [ ] bash - joinBy() - juntar elementos de um array
+- [ ] bash - checar se um array contém determinado elemento
+- [ ] bash - urlencode/urldecode
+- [ ] bash - dica pra debugar `alias result='echo sim || echo nao'`
+- [ ] bash - explainshell
+- [ ] bash - cheat.sh
+- [ ] bash - here string: evitando uso desnecessário do `echo`
+- [ ] bash - como ler o conteúdo de um arquivo linha por linha
+- [ ] bash - como converter maiúsculas/minúsculas
+- [ ] bash - use "aspas" SEMPRE
+- [ ] bash - como lidar com parâmetros passados na linha de comando
+- [ ] bash - url shortener com bitly
+- [ ] bash - consultar número de casos/mortes de coronavirus
+- [ ] bash - grafico de barras com países com mais ocorrências de COVID
+- [ ] bash - gitignore.io `curl -L https://gitignore.io/api/linux`
+- [ ] bash - youtube viewer: <https://github.com/alexanderepstein/Bash-Snippets/tree/master/ytview>
+- [ ] 
+- [ ] web - dev-landing-page <https://github.com/flexdinesh/dev-landing-page>
+- [ ] 
+- [ ] devops - gitlab-ci
+- [ ] devops - kubernetes the hard way <https://github.com/kelseyhightower/kubernetes-the-hard-way>
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
