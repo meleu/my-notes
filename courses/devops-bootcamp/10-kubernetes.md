@@ -1082,7 +1082,7 @@ echo "${IP_ADDRESS}  dashboard.com" | sudo tee /etc/hosts
 - video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28706439> - 18:25
 
 ```yaml
-apiVersion: networking;k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: simple-fanout-example
