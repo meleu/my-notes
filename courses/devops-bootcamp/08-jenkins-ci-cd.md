@@ -822,3 +822,29 @@ library identifier: 'jenkins-shared-library@master', retriever: modernSCM([
 
 ## 15. Webhooks - Trigger Pipeline Jobs automatically
 
+How to trigger Jenkins Build Jobs?
+
+- manually
+- automatically (whenever a change is commited in the code repository)
+- scheduled times
+
+### Configure automatic triggering of Jenkins Job - single-branch pipeline
+
+04:00
+
+Manage Jenkins -> Manage Plugins -> Gitlab
+
+Manage Jenkins -> Configure System -> Gitlab
+
+Configure your repo to talk to jenkins - 12:00
+
+
+### Configure automatic triggering of Jenkins Job - multi-branch pipeline
+
+16:15
+
+Manage Jenkins -> Manage Plugins -> Multibranch scan webhook trigger
+
+
+
+
