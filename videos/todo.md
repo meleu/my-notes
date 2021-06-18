@@ -19,6 +19,8 @@
 - [ ] bash - youtube viewer: <https://github.com/alexanderepstein/Bash-Snippets/tree/master/ytview>
 - [ ] bash - gitignore.io with dialog
 - [ ] 
+- [ ] vim - <https://thoughtbot.com/upcase/onramp-to-vim>
+- [ ] 
 - [ ] web - dev-landing-page <https://github.com/flexdinesh/dev-landing-page>
 - [ ] 
 - [ ] devops - gitlab-ci
