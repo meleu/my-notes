@@ -17,16 +17,12 @@
 - [ ] bash - grafico de barras com países com mais ocorrências de COVID
 - [ ] bash - gitignore.io `curl -L https://gitignore.io/api/linux`
 - [ ] bash - youtube viewer: <https://github.com/alexanderepstein/Bash-Snippets/tree/master/ytview>
+- [ ] bash - gitignore.io with dialog
 - [ ] 
 - [ ] web - dev-landing-page <https://github.com/flexdinesh/dev-landing-page>
 - [ ] 
 - [ ] devops - gitlab-ci
 - [ ] devops - kubernetes the hard way <https://github.com/kelseyhightower/kubernetes-the-hard-way>
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
 - [ ] 
 - [ ] 
 - [ ] 
