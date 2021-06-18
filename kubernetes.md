@@ -1,6 +1,12 @@
 # Kubernetes
 [✏️](https://github.com/meleu/my-notes/edit/master/kubernetes.md)
 
+## Videos
+
+- [The Illustrated Children's Guide to Kubernetes](https://www.youtube.com/watch?v=4ht22ReBjno)
+
+
+
 ## reading: Cloud Native DevOps with Kubernetes
 
 ### Chapter 1
