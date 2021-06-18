@@ -766,4 +766,59 @@ pipeline {
     - (new types based on plugins)
 - ID - that's how you reference your credentials in scripts
 
-If you go to a Multibranch 
+
+
+## 14. Jenkins Shared Library
+
+- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28665220>
+
+- used to share pipeline logic between multiple projects.
+
+- extension to the pipeline
+- has own repository
+- written in Groovy
+- reference shared logic in Jenkinsfile
+
+
+### Make Shared Library globally available
+
+13:43
+
+Configure the Share Library repo in the Jenkins Web UI.
+
+
+### Use Share Library in Jenkinsfile
+
+16:50
+
+```groovy
+@Library('jenkins-shared-library')
+```
+
+### Using Parameters in Shared Library
+
+22:30
+
+
+### Extract logic into Groovy Classes
+
+26:53
+
+
+### Project Scoped Shared Library
+
+38:38
+
+Configuring a Shared Library directly in the `Jenkinsfile` - without configuring the shared library in Jenkins Web UI.
+
+```groovy
+library identifier: 'jenkins-shared-library@master', retriever: modernSCM([
+    $class: 'GitSCMSource',
+    remote: 'https://gitlab.com/nanuchi/jenkins-shared-library.git',
+    credentialsId: 'gitlab-credentials'
+])
+```
+
+
+## 15. Webhooks - Trigger Pipeline Jobs automatically
+
