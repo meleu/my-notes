@@ -18,7 +18,7 @@
 
 - <https://www.youtube.com/watch?v=dbkj0qXQ22A> - Keys to DevOps Success with Gene Kim
 
-- <https://youtu.be/hQcFE0RD0cQ> - DevOps Tutorial for Beginners | Learn DevOps in 7 Hours - Full Course [**Note**: indian accent]. Talks about git, jenkins, docker, kubernetes, ansible, puppet, and nagios.
+- <https://youtu.be/hQcFE0RD0cQ> - DevOps Tutorial for Beginners \| Learn DevOps in 7 Hours - Full Course [**Note**: indian accent]. Talks about git, jenkins, docker, kubernetes, ansible, puppet, and nagios.
 
 ## Books
 
