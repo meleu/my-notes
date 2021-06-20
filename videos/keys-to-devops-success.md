@@ -55,14 +55,14 @@ High performers exist in both **non-regulated** and **highly regulated industrie
 
 
 
-## Don't Forget the Datab ase
+## Don't Forget the Database
 
 Integrating database work into software delivery **positively contributes to SDO peformance**.
 
 
 ## An Evolution in Testing
 
-Continuous tsting **extends automated testing** practices and **positively contributes to SDO performance**.
+Continuous testing **extends automated testing** practices and **positively contributes to SDO performance**.
 
 
 ## Looking Into Our Systems
