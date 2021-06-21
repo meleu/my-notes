@@ -1,5 +1,7 @@
 # NLW #6 - Aula 1
 
+- <https://nextlevelweek.com/episodios/node/aula-1/edicao/6>
+
 ## Descrição do Projeto - 11:50
 
 **NLW Valoriza**
