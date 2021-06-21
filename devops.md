@@ -7,6 +7,8 @@
 
 - <https://www.youtube.com/watch?v=LdOe18KhtT4> - 10+ Deploys Per Day: Dev and Ops Cooperation at Flickr
 - <https://www.youtube.com/watch?v=CZ3wIuvmHeM> - Mastering Chaos - A Netflix Guide to Microservices
+- <https://www.youtube.com/watch?v=mBU3AJ3j1rg> - DevOps Culture at Amazon
+- 
 
 ### GOTO talks about DevOps
 
@@ -14,10 +16,6 @@
 
 - <https://www.youtube.com/watch?v=MCPrtYxuVPU> - 3 Practices for Effective DevOps Adoption - good insights for cultural changes advocates. [My notes about this video](videos/3-practices-for-effective-devops-adoption.md)
 - <https://www.youtube.com/watch?v=mFv5dcv7UzE> - GOTO 2014 • Five Years of DevOps: Where are we Now? - [my-notes](videos/five-years-of-devops.md)
-
-### probably useful
-
-- <https://www.youtube.com/watch?v=dbkj0qXQ22A> - Keys to DevOps Success with Gene Kim
 
 
 ## Books
