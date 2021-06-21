@@ -100,6 +100,57 @@ A big risk in a growing and complex organization is **local optimization**.
 
 Leverage Points in a System - Donella Meadows
 
-parei em 24:30...
+#### Positive vs Negative feedback loops
 
+> Positive feedback loops always win over negative feedback loops. If you're trying to drive a behavior out of a system, you can create a negative feedback loop, but you're a way better off creating a positive feedback loop to drive a more desirable behavior. The undesirable behavior will just fade out of existence when the desirable one takes over.
+
+
+#### Structure of information flows
+
+> If you don't believe me, put a monitor outside your CIOs office. I bet you that the number of the failed build goes down. Now maybe the number of builds total goes down, and size of the changes go up. So you have to be a little bit careful about what you reveal.
+
+> Simply making information visible anywhere will cause people to try to change that information.
+
+> If you make info visible, teach people how to react to it. Get away from notions of incentives or questions like that, just teach people "this is what normal looks like", "this is what bad looks like", "this is what better looks like". So everybody is moving in the same direction.
+
+**If something hurts, you should do it more often.** (...) You'll get better at it, you'll find ways to make it not hurt, you'll find ways to automate it, rather than shying away from the pain.
+
+
+### Human Factors and System Safety
+
+- people are part of the system
+- beware failure-inducing systems, unruly technology
+- blameless post-mortems
+
+
+## 33:45 - Where are we now?
+
+Area | Grade
+-|-
+Deployment | A-
+Provisioning | B
+Logging | A+
+Monitoring | A+
+Anomaly Detection | C
+System Comprehension | D+
+
+
+### Antifragility - Systems That Improve From Randomness
+
+- Deployments == downtime
+- more deployments -> resilience to partial failure
+
+reading suggested: effective web experimentation as a Homo Narrens - by Dan McKinley
+
+https://mcfunley.com/effective-web-experimentation-as-a-homo-narrans
+
+> I expect to see stories about how DevOps is failing, how companies are wasting money, how they had to roll it back. Because, if you're a journalist, that's the more interesting narrative now. It's not interesting to have another place that succeeds in doing something that other people have already done.
+
+
+### Paradox of Automation
+
+The more you automate something, the less prepared you are when it breaks.
+
+
+### 50:05 - What's next?
 
