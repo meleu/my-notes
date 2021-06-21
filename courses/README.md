@@ -7,7 +7,10 @@ Notes about several courses I've been taking.
 ### 📂 Folders
 
 - [courses/devops-bootcamp/](https://meleu.github.io/my-notes/courses/devops-bootcamp)
+- [courses/how-to-teach-online/](https://meleu.github.io/my-notes/courses/how-to-teach-online)
+- [courses/nlw-06/](https://meleu.github.io/my-notes/courses/nlw-06)
 - [courses/rocketseat-discover/](https://meleu.github.io/my-notes/courses/rocketseat-discover)
+- [courses/testing-javascript/](https://meleu.github.io/my-notes/courses/testing-javascript)
 
 ### 📝 Notes
 

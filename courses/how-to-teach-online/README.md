@@ -5,3 +5,6 @@
 <https://my.generalassemb.ly/>
 
 ## 🗃️ Table of Contents
+
+### 📝 Notes
+

@@ -78,4 +78,3 @@ adicionar ao `package.json`:
 
 - 1:10:20 - Hello World do Express (NOTA: lembrar de colocar o `return response.send()`
 - 1:12:50 - Básico de utilização do insomnia
-
