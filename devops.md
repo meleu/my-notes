@@ -13,12 +13,12 @@
 <https://www.youtube.com/playlist?list=PLEx5khR4g7PLCoWS5k9u2WQ8RdKqhKEKn> - GOTO talks about DevOps. Below I'm listing the ones I watched and liked the most.
 
 - <https://www.youtube.com/watch?v=MCPrtYxuVPU> - 3 Practices for Effective DevOps Adoption - good insights for cultural changes advocates. [My notes about this video](videos/3-practices-for-effective-devops-adoption.md)
+- <https://www.youtube.com/watch?v=mFv5dcv7UzE> - GOTO 2014 • Five Years of DevOps: Where are we Now? - [my-notes](videos/five-years-of-devops.md)
 
 ### probably useful
 
 - <https://www.youtube.com/watch?v=dbkj0qXQ22A> - Keys to DevOps Success with Gene Kim
 
-- <https://youtu.be/hQcFE0RD0cQ> - DevOps Tutorial for Beginners \| Learn DevOps in 7 Hours - Full Course [**Note**: indian accent]. Talks about git, jenkins, docker, kubernetes, ansible, puppet, and nagios.
 
 ## Books
 
