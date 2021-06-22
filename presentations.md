@@ -5,6 +5,7 @@
 
 - marp: https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode
 
+---
 
 ## Basic Guidelines
 
@@ -41,4 +42,14 @@
 - What is your key message?
 - What is the number one thing you want the audience to walk away with?
 - Create your outline
+
+--- 
+
+## Basic guidelines for professional slides
+
+1. Limit the amount of text on each slide
+2. Check spelling mistakes
+3. Use visuals (graphics, pictures and videos)
+4. Use animations selectively - use for empasis only
+5. Use colors with high contrast
 
