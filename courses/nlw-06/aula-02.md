@@ -58,7 +58,7 @@ utilizaremos 3 tipos:
 ```sh
 yarn add typeorm reflect-metadata sqlite3 uuid
 yarn add @types/uuid -D
-mkdir database
+mkdir src/database
 ```
 
 `ormconfig.json`:
@@ -104,10 +104,53 @@ yarn typeorm migration:create -n CreateUsers
 
 `src/database/migrations/*CreateUsers*.ts`:
 ```ts
-// 44:45
-// 45:30
-// 46:40
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
+export class CreateUsers1624473991243 implements MigrationInterface {
+
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
+      new Table({
+        name: "users",
+        columns: [
+          {
+            name: "id",
+            type: "uuid",
+            isPrimary: true
+          },
+          {
+            name: "name",
+            type: "varchar"
+          },
+          {
+            name: "email",
+            type: "varchar"
+          },
+          {
+            name: "admin",
+            type: "boolean",
+            default: "false"
+          },
+          {
+            name: "created_at",
+            type: "timestamp",
+            default: "now()"
+          },
+          {
+            name: "updated_at",
+            type: "timestamp",
+            default: "now()"
+          }
+        ]
+      })
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("users");
+  }
+
+}
 ```
 
 Executando a migration:
@@ -139,7 +182,37 @@ yarn typeorm entity:create -n User
 
 Criará o arquivo `src/entities/User.ts`:
 ```ts
-// 1:02:15
+import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { v4 as uuid } from "uuid";
+
+@Entity("users")
+export class User {
+
+  @PrimaryColumn()
+  readonly id: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  admin: boolean;
+
+  @CreateDateColumn()
+  created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuid();
+    }
+  }
+
+}
 ```
 
 ## Repositório - 1:02:40
@@ -148,7 +221,7 @@ Criará o arquivo `src/entities/User.ts`:
 
 ```sh
 mkdir -p src/repositories
-touch UserRepositories.ts
+touch src/repositories/UserRepositories.ts
 ```
 
 `src/repositories/UserRepositories.ts`:
@@ -193,9 +266,44 @@ mkdir -p src/services
 
 `src/services/CreateUserService.ts`:
 ```ts
-// 1:22:55
-// 1:23:50
-// 1:35:35 - correção para usar getCustomRepository()
+import { getCustomRepository } from "typeorm";
+import { UserRepositories } from "../repositories/UserRepositories";
+
+interface IUserRequest {
+  name: string;
+  email: string;
+  admin?: boolean;
+}
+
+class CreateUserService {
+  async execute({ name, email, admin }: IUserRequest) {
+    const usersRepository = getCustomRepository(UserRepositories);
+
+    if (!email) {
+      throw new Error("Email incorrect");
+    }
+
+    const userAlreadyExists = await usersRepository.findOne({
+      email
+    });
+
+    if (userAlreadyExists) {
+      throw new Error("User already exists");
+    }
+
+    const user = usersRepository.create({
+      name,
+      email,
+      admin
+    });
+
+    await usersRepository.save(user);
+
+    return user;
+  }
+}
+
+export { CreateUserService };
 ```
 
 ## Controllers - 1:24:30
@@ -224,7 +332,22 @@ Fazendo requisição com insomnia: 1:27:00
 
 `src/controllers/CreateUserController.ts`:
 ```ts
-// 1:28:50
+import { Request, Response } from "express";
+import { CreateUserService } from "../services/CreateUserService";
+
+class CreateUserController {
+  async handle(request: Request, response: Response) {
+    const { name, email, admin } = request.body;
+
+    const createUserService = new CreateUserService();
+
+    const user = await createUserService.execute({ name, email, admin });
+
+    return response.json(user);
+  }
+}
+
+export { CreateUserController };
 ```
 
 
@@ -232,7 +355,16 @@ Fazendo requisição com insomnia: 1:27:00
 
 `src/routes.ts`:
 ```ts
-// 1:31:10
+import { Router } from "express";
+import { CreateUserController } from "./controllers/CreateUserController";
+
+const router = Router();
+
+const createUserController = new CreateUserController();
+
+router.post("/users", createUserController.handle);
+
+export { router };
 ```
 
 `src/server.ts`:
@@ -254,3 +386,20 @@ app.listen(3000, () => console.log("Server is running"));
 ```
 
 
+## Testando - 1:32:20
+
+Rodando o app:
+```sh
+yarn dev
+```
+
+Envia requisição com insomnia com o seguinte body:
+```json
+{
+  "name": "Meu Nome",
+  "email": "algumacoisa@exemplo.com",
+  "admin": true
+ }
+```
+
+Verifica no beekeeper se realmente criou o usuário.
