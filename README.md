@@ -39,6 +39,7 @@ Personal notes about things I've been learning (mostly programming).
 - [nextjs](https://meleu.github.io/my-notes/.git/../nextjs) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nextjs.md)
 - [nginx](https://meleu.github.io/my-notes/.git/../nginx) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nginx.md)
 - [nodejs](https://meleu.github.io/my-notes/.git/../nodejs) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nodejs.md)
+- [note-taking](https://meleu.github.io/my-notes/.git/../note-taking) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../note-taking.md)
 - [postgresql](https://meleu.github.io/my-notes/.git/../postgresql) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../postgresql.md)
 - [presentations](https://meleu.github.io/my-notes/.git/../presentations) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../presentations.md)
 - [react](https://meleu.github.io/my-notes/.git/../react) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../react.md)
