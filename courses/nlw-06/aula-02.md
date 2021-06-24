@@ -313,7 +313,7 @@ Explicação interessante sobre "Controllers" em 1:25:00
 fluxo de requisição
 ===================
 
-client -> server -> controllers -> services -> repositories -> DB
+client -> server -> controllers -> services -> repositories -> entities -> DB
                          ^
                          |
                 classe que tem acesso ao
