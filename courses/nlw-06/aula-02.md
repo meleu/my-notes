@@ -7,7 +7,6 @@
 
 ```md
 # users
-
 - id: uuid (pk)
 - name: varchar
 - email: varchar
@@ -16,9 +15,7 @@
 - created_at: Date
 - updated_at: Date
 
-
 # tags
-
 - id: uuid (pk)
 - name: varchar
 - created_at: Date
@@ -26,7 +23,6 @@
 
 
 # compliments
-
 - id: uuid (pk)
 - user_sender: uuid (fk)
 - user_receiver: uuid (fk)
