@@ -1,6 +1,7 @@
 # NLW #6 - Aula 2
 
 - <https://nextlevelweek.com/episodios/node/aula-2/edicao/6>
+- <https://github.com/meleu/nlw-06/commit/a369ca5c22472296d6f1b89e210c6af021f4fdcf>
 
 
 ## Tabelas - 3:55

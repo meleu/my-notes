@@ -1,7 +1,7 @@
 # NLW #6 - Aula 3
 
 - <https://nextlevelweek.com/episodios/node/aula-3/edicao/6>
-
+- <https://github.com/meleu/nlw-06/commit/177db34156390c319c0aedfb60631dcbb1222a6c>
 
 
 ## Tratamento de Exceções - 5:10
