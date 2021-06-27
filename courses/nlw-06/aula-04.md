@@ -1,6 +1,7 @@
 # NLW #6 - Aula 4
 
 - <https://nextlevelweek.com/episodios/node/aula-4/edicao/6>
+- https://github.com/meleu/nlw-06/commit/b421899894133b4a384431e63f7cef4537b69de5
 
 
 ## JWT - 4:30
