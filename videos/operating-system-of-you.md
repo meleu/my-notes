@@ -20,7 +20,7 @@ Deconstructing top performers.
 
 Developer Career Variation:
 
-![](img/dev-career-variation.png)
+![image](img/dev-career-variation.png)
 
 
 ## Part 1: Firmware

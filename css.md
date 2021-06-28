@@ -63,8 +63,8 @@ html {
 }
 ```
 
-## transition e transform
 
+## transition e transform
 
 Isso é um resumo do que eu aprendi lendo esse artigo: [https://thoughtbot.com/blog/transitions-and-transforms#transition-timing-optional](https://thoughtbot.com/blog/transitions-and-transforms#transition-timing-optional)
 
