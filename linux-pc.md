@@ -4,7 +4,7 @@
 ## Mandatory Packages
 
 ```
-vim vim-gtk htop tmux xclip jq wget curl
+vim vim-gtk htop tmux xclip jq wget curl git
 ```
 
 
