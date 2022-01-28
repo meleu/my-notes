@@ -85,7 +85,7 @@ git checkout pr-1234
 ```
 
 
-## have multiple gitconfigs for different directories/clients (`includeIf`)
+## gitconfigs to be applied to specific directories
 
 If you work for multiple clients - or if you work for a company and contribute to open source projects - you probably already faced the situation where you made a git commit with the wrong account. Now the github commit history has your real name and your work email... :/
 
@@ -127,6 +127,4 @@ Once each directory has its own gitconfig, now we must setup the global `.gitcon
 ```
 
 Once it's done, your configuration in `~/src/client1/gitconfig` will be applied to all cloned repositories inside that directory (same for `client2`).
-
-
 
