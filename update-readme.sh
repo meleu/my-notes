@@ -53,6 +53,7 @@ hasToCHeading() {
   grep -iq "${REGEX_TOC_HEADING}" "${file}"
 }
 
+
 # readmeList(): print only README files with the $REGEX_TOC_HEADING
 # arg1: directory
 # arg2: 'true' to check only one sublevel
@@ -69,6 +70,7 @@ readmeList() {
   done
 }
 
+
 # subDirList(): print only subdirectories with a valid README
 # arg1: directory
 subDirList() {
@@ -79,12 +81,12 @@ subDirList() {
   done
 }
 
+
 # createToCFolders(): create links for subdirectories
 # arg1: readme file
 createToCFolders() {
   local readmeFile="${1}"
   local directory
-  local link
   local iteratorDir
   local directories=()
 
@@ -98,17 +100,11 @@ createToCFolders() {
   echo -e '\n### 📂 Folders\n' >> "${readmeFile}"
 
   for iteratorDir in "${directories[@]}"; do
-#    directory="${iteratorDir/$REPO_DIR\//}"
-#
-#    [[ "${directory}" == */* ]] \
-#      && link="../${directory}/README.md" \
-#      || link="${directory}/README.md"
-
     directory="${iteratorDir##*/}"
-
     echo "- [${directory}/](${directory}/README.md)" >> "${readmeFile}"
   done
 }
+
 
 # createToCNotes(): create links for notes in the same dir as the readme file
 # arg1: readme file
@@ -138,6 +134,7 @@ createToCNotes() {
   done
 }
 
+
 # updateReadme(): update all readme files in the repository
 updateReadme() {
   local readmeFile
@@ -149,6 +146,7 @@ updateReadme() {
     git add "${readmeFile}"
   done
 }
+
 
 updateReadme "$@"
 

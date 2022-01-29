@@ -10,8 +10,8 @@ Personal notes about things I've been learning (mostly programming).
 
 ### 📂 Folders
 
-- [courses/](../courses/README.md)
-- [videos/](../videos/README.md)
+- [courses/](courses/README.md)
+- [videos/](videos/README.md)
 
 ### 📝 Notes
 

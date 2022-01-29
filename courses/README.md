@@ -6,11 +6,11 @@ Notes about several courses I've been taking.
 
 ### 📂 Folders
 
-- [devops-bootcamp/](../courses/devops-bootcamp/README.md)
-- [how-to-teach-online/](../courses/how-to-teach-online/README.md)
-- [nlw-06/](../courses/nlw-06/README.md)
-- [rocketseat-discover/](../courses/rocketseat-discover/README.md)
-- [testing-javascript/](../courses/testing-javascript/README.md)
+- [devops-bootcamp/](devops-bootcamp/README.md)
+- [how-to-teach-online/](how-to-teach-online/README.md)
+- [nlw-06/](nlw-06/README.md)
+- [rocketseat-discover/](rocketseat-discover/README.md)
+- [testing-javascript/](testing-javascript/README.md)
 
 ### 📝 Notes
 
