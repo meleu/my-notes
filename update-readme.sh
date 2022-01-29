@@ -98,7 +98,7 @@ createToCFolders() {
 
   for iteratorDir in "${directories[@]}"; do
     directory="${iteratorDir/$REPO_DIR\//}"
-    echo "- [${directory}/](../${directory}/README.md)" >> "${readmeFile}"
+    echo "- [${directory##*/}/](../${directory}/README.md)" >> "${readmeFile}"
   done
 }
 
