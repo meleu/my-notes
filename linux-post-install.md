@@ -54,7 +54,7 @@ xclip
 - network stuff
   - wireshark
 
-- "modern unix" - https://github.com/ibraheemdev/modern-unix
+- "modern unix" - <https://github.com/ibraheemdev/modern-unix>
   - bat (cat)
   - exa (ls)
   - lsd (ls)
@@ -62,4 +62,4 @@ xclip
   - duf (df)
   - broot (tree)
   - fd (find)
-  - more: https://mobile.twitter.com/amilajack/status/1479328649820000256
+  - more: <https://mobile.twitter.com/amilajack/status/1479328649820000256>
