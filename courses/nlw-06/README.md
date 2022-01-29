@@ -6,8 +6,8 @@
 
 ### 📝 Notes
 
-- [aula-01](https://meleu.github.io/my-notes/courses/nlw-06/aula-01) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-01.md)
-- [aula-02](https://meleu.github.io/my-notes/courses/nlw-06/aula-02) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-02.md)
-- [aula-03](https://meleu.github.io/my-notes/courses/nlw-06/aula-03) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-03.md)
-- [aula-04](https://meleu.github.io/my-notes/courses/nlw-06/aula-04) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-04.md)
-- [aula-05](https://meleu.github.io/my-notes/courses/nlw-06/aula-05) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-05.md)
+- [aula-01](aula-01.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-01.md)
+- [aula-02](aula-02.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-02.md)
+- [aula-03](aula-03.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-03.md)
+- [aula-04](aula-04.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-04.md)
+- [aula-05](aula-05.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/nlw-06/aula-05.md)

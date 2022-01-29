@@ -98,7 +98,7 @@ createToCFolders() {
 
   for iteratorDir in "${directories[@]}"; do
     directory="${iteratorDir/$REPO_DIR\//}"
-    echo "- [${directory}/](${BASE_URL}/${directory})" >> "${readmeFile}"
+    echo "- [${directory}/](${directory}/README.md)" >> "${readmeFile}"
   done
 }
 
@@ -124,7 +124,8 @@ createToCNotes() {
 
     fileNoExtension="${fileBase%.*}"
 
-    echo -n "- [${fileNoExtension}](${BASE_URL}/${directory}/${fileNoExtension})" >> "${readmeFile}"
+    # echo -n "- [${fileNoExtension}](${BASE_URL}/${directory}/${fileNoExtension})" >> "${readmeFile}"
+    echo -n "- [${fileNoExtension}](${fileBase})" >> "${readmeFile}"
     echo " - [✏️](${EDIT_URL}/${directory}/${fileBase})" >> "${readmeFile}"
   done
 }

@@ -7,13 +7,13 @@ My notes about the DevOps Bootcamp by Nana: <https://www.techworld-with-nana.com
 
 ### 📝 Notes
 
-- [01-intro](https://meleu.github.io/my-notes/courses/devops-bootcamp/01-intro) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/01-intro.md)
-- [02-linux-basics](https://meleu.github.io/my-notes/courses/devops-bootcamp/02-linux-basics) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/02-linux-basics.md)
-- [03.1-bonus-databases](https://meleu.github.io/my-notes/courses/devops-bootcamp/03.1-bonus-databases) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/03.1-bonus-databases.md)
-- [03-version-control-git](https://meleu.github.io/my-notes/courses/devops-bootcamp/03-version-control-git) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/03-version-control-git.md)
-- [04-build-and-package-manager-tools](https://meleu.github.io/my-notes/courses/devops-bootcamp/04-build-and-package-manager-tools) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/04-build-and-package-manager-tools.md)
-- [05-cloud-and-infrastructure-as-a-service-with-digitalocean](https://meleu.github.io/my-notes/courses/devops-bootcamp/05-cloud-and-infrastructure-as-a-service-with-digitalocean) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/05-cloud-and-infrastructure-as-a-service-with-digitalocean.md)
-- [06-artifact-repository-manager-with-nexus](https://meleu.github.io/my-notes/courses/devops-bootcamp/06-artifact-repository-manager-with-nexus) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/06-artifact-repository-manager-with-nexus.md)
-- [07-containers-with-docker](https://meleu.github.io/my-notes/courses/devops-bootcamp/07-containers-with-docker) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/07-containers-with-docker.md)
-- [08-jenkins-ci-cd](https://meleu.github.io/my-notes/courses/devops-bootcamp/08-jenkins-ci-cd) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/08-jenkins-ci-cd.md)
-- [10-kubernetes](https://meleu.github.io/my-notes/courses/devops-bootcamp/10-kubernetes) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/10-kubernetes.md)
+- [01-intro](01-intro.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/01-intro.md)
+- [02-linux-basics](02-linux-basics.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/02-linux-basics.md)
+- [03.1-bonus-databases](03.1-bonus-databases.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/03.1-bonus-databases.md)
+- [03-version-control-git](03-version-control-git.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/03-version-control-git.md)
+- [04-build-and-package-manager-tools](04-build-and-package-manager-tools.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/04-build-and-package-manager-tools.md)
+- [05-cloud-and-infrastructure-as-a-service-with-digitalocean](05-cloud-and-infrastructure-as-a-service-with-digitalocean.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/05-cloud-and-infrastructure-as-a-service-with-digitalocean.md)
+- [06-artifact-repository-manager-with-nexus](06-artifact-repository-manager-with-nexus.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/06-artifact-repository-manager-with-nexus.md)
+- [07-containers-with-docker](07-containers-with-docker.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/07-containers-with-docker.md)
+- [08-jenkins-ci-cd](08-jenkins-ci-cd.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/08-jenkins-ci-cd.md)
+- [10-kubernetes](10-kubernetes.md) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/10-kubernetes.md)
