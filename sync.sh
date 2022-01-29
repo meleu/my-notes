@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# BUG: se por um acaso o script não concluir o push com sucesso, a próxima
-# execução não fará o push (git status não vai pegar mudança alguma).
+# BUG: if the script doesn't finish successfully, the next run will not
+# push the changes ('git status' won't get the new changes)
+
+readonly SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" && pwd )"
 
 main() {
+  cd "${SCRIPT_DIR}"
+
   gitStatus="$(git status --porcelain)"
 
   [[ -z "${gitStatus}" ]] && return 0
