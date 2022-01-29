@@ -84,6 +84,7 @@ subDirList() {
 createToCFolders() {
   local readmeFile="${1}"
   local directory
+  local link
   local iteratorDir
   local directories=()
 
@@ -97,8 +98,15 @@ createToCFolders() {
   echo -e '\n### 📂 Folders\n' >> "${readmeFile}"
 
   for iteratorDir in "${directories[@]}"; do
-    directory="${iteratorDir/$REPO_DIR\//}"
-    echo "- [${directory##*/}/](../${directory}/README.md)" >> "${readmeFile}"
+#    directory="${iteratorDir/$REPO_DIR\//}"
+#
+#    [[ "${directory}" == */* ]] \
+#      && link="../${directory}/README.md" \
+#      || link="${directory}/README.md"
+
+    directory="${iteratorDir##*/}"
+
+    echo "- [${directory}/](${directory}/README.md)" >> "${readmeFile}"
   done
 }
 

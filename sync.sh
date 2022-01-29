@@ -7,9 +7,9 @@ main() {
 
   [[ -z "${gitStatus}" ]] && return 0
 
-  git pull --rebase \
-  && git add --all \
+  git add --all \
   && git commit -m "Automated sync: ${gitStatus}" \
+  && git pull --rebase \
   && git push
 }
 
