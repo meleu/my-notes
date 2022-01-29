@@ -2,7 +2,7 @@
 
 ## Debian/Ubuntu packages
 
-### minimum
+### bare minimum
 
 ```
 vim
@@ -23,13 +23,6 @@ xclip
 
 ## Not in official repositories
 
-### CLI tools
-
-From <https://github.com/ibraheemdev/modern-unix>.
-
-- <https://github.com/dandavison/delta> - git diff viewer
-- <https://github.com/cheat/cheat> - cheatsheet viewer
-
 ### GUI tools
 
 - <https://obsidian.md/> - note taking
@@ -37,6 +30,36 @@ From <https://github.com/ibraheemdev/modern-unix>.
 - <https://insomnia.rest/> - test APIs
 
 
-## Visual Studio Code Plugins
 
-- vscode 
+## Things to do later (draft)
+
+- create ssh keys (to be used in github/gitlab/etc)
+
+- docker
+
+- install vscode
+  - vim keybindings
+  - shellcheck
+
+- node stuff
+  - nvm (node version manager)
+  - pnpm
+  - yarn
+
+- kubernetes stuff
+  - minikube (maybe kind)
+  - kubectl
+  - kubelens
+
+- network stuff
+  - wireshark
+
+- "modern unix" - https://github.com/ibraheemdev/modern-unix
+  - bat (cat)
+  - exa (ls)
+  - lsd (ls)
+  - delta (git/diff)
+  - duf (df)
+  - broot (tree)
+  - fd (find)
+  - more: https://mobile.twitter.com/amilajack/status/1479328649820000256
