@@ -4,7 +4,7 @@
 
 ## TL;DR
 
-```
+```bash
 # 1. supporting Nunjucks in .eleventy.js:
 markdownTemplateEngine: 'njk',
 dataTemplateEngine: 'njk',
@@ -64,7 +64,7 @@ htmlTemplateEngine: 'njk',
 We're telling Eleventy that markdown files, data files and HTML files should be processed by Nunjucks.
 
 Now let's create a folder for the templates:
-```sh
+```bash
 mkdir -p src/_includes/layouts
 ```
 
@@ -91,15 +91,15 @@ There are two areas of interest in that snippet:
 1. The `{{ title }}` part prints the yet to be defined `title` variable on the page.
 2. The `{% block content %}{% endblock %}` area lets us create a named placeholder. If a template that extends `base.html` also puts content inside a `{% block content %}{% endblock %}`, it will render inside that block on `base.html`. This is handy for complex templates, because you can set as many `{% block %}` elements as you like.
 
-> One handy thing we can do with a [Nunjucks block](https://mozilla.github.io/nunjucks/templating.html#block) is to populate with a placeholder content:
-> ```html
-> {% block content %}
-> <p>
->  Placeholder that will render if a template doesn't define a block.
-> </p>
-> {% endblock %}
-> ```
-> Usefor for generating `<title>` elements - or anything else - while we're still figuring out the content but we want to make sure there's something in place in the meantime.
+One handy thing we can do with a [Nunjucks block](https://mozilla.github.io/nunjucks/templating.html#block) is to populate with a placeholder content:
+```html
+{% block content %}
+<p>
+ Placeholder that will render if a template doesn't define a block.
+</p>
+{% endblock %}
+```
+Useful for generating `<title>` elements - or anything else - while we're still figuring out the content but we want to make sure there's something in place in the meantime.
 
 `src/_includes/layouts/home.html`:
 ```html
@@ -136,7 +136,7 @@ This is pretty _rad_, isn't it?
 
 
 Test it:
-```sh
+```bash
 npm start
 ```
 
