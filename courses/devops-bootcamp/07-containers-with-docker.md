@@ -171,7 +171,7 @@ docker container exec -it containerName /bin/bash
 
 Workflow with Docker
 
-![workflow with docker](img/workflow-with-docker.png)
+![workflow with docker](workflow-with-docker.png)
 
 
 ## 8. Developing with Docker
@@ -304,7 +304,7 @@ docker-compose -f mongo.yml down
 
 ## 10. Dockerfile - Build your own Docker Image
 
-(see also [the notes "Building Images: The Dockerfile Basics"](../docker-mastery#building-images-the-dockerfile-basics))
+(see also [the notes "Building Images: The Dockerfile Basics"](00-docker-mastery.md#building-images-the-dockerfile-basics))
 
 Dockerfile is a blueprint for creating a Docker image.
 

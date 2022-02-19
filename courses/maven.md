@@ -2,7 +2,7 @@
 
 - <https://www.udemy.com/course/apache-maven-beginner-to-guru/>
 
-- [Maven-cheat-sheet.pdf](files/Maven-cheat-sheet.pdf)
+- [Maven-cheat-sheet.pdf](Maven-cheat-sheet.pdf)
 
 ## DevOps Notes
 
@@ -281,7 +281,7 @@ Basically: `src/main/java`.
 
 **Maven Clean Lifecycle**
 
-![Maven Clean Lifecycle](img/maven-clean-lifecycle.png)
+![Maven Clean Lifecycle](maven-clean-lifecycle%201.png)
 
 
 **Default Lifecycle - High Level**

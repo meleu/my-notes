@@ -270,7 +270,7 @@ docker push meleuzord/demo-app:jma-1.0
 
 ### Push Docker Image to Nexus Repository
 
-**NOTE**: it's assumed you already have a Nexus instance up and running, and a [Docker hosted repository properly configured](07-containers-with-docker#15-create-docker-hosted-repository-on-nexus)
+**NOTE**: it's assumed you already have a Nexus instance up and running, and a [Docker hosted repository properly configured](07-containers-with-docker.md#15-create-docker-hosted-repository-on-nexus)
 
 In the host OS, create the file: `/etc/docker/daemon.json`
 ```json
@@ -822,8 +822,6 @@ library identifier: 'jenkins-shared-library@master', retriever: modernSCM([
 
 ## 15. Webhooks - Trigger Pipeline Jobs automatically
 
-- video: <https://techworld-with-nana.teachable.com/courses/devops-bootcamp/lectures/28665218>
-
 How to trigger Jenkins Build Jobs?
 
 - manually
@@ -848,37 +846,5 @@ Configure your repo to talk to jenkins - 12:00
 Manage Jenkins -> Manage Plugins -> Multibranch scan webhook trigger
 
 
-## 16. Dynamically Increment Application version in Jenkins Pipeline - Part 1
-
-- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28665219>
-
-There's a Maven plugin to automatically increase the project's version
-```sh
-mvn \
-  build-helper:parse-version \
-  versions:set \
-  -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} \
-  versions:commit
-```
-
-Groovy code to do this task - 32 min
-
-??? DOUBT ???: [Docker] What's the differency between `ENTRYPOINT` and `CMD`?
 
 
-### Review our changes - Commit - Run Jenkins Pipeline
-
-37:53
-
-
-## 17. Dynamically Increment Application version in Jenkins Pipeline - Part 2
-
-- video: <https://techworld-with-nana.teachable.com/courses/1108792/lectures/28665216>
-
-
-
-### Ignore Jenkins Commit for Jenkins Pipeline Trigger
-
-20:05
-
-Plugin: Ignore Comitter Strategy

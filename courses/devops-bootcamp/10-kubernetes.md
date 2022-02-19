@@ -57,8 +57,7 @@ Quote from Kelsey Hightower (found in "Cloud Native DevOps with Kubernetes" book
             - managed by **Ingress**
     - service is also a load balancer, so it can forward requests to several nodes
 
-![](img/basic-k8s-components.png)
-
+![[basic-k8s-components.png]]
 
 ### ConfigMap and Secrets
 
@@ -251,7 +250,7 @@ nginx-depl-5c8bf76b5b   1         1         1       2m3s
 
 ### Layers of Abstraction
 
-![](img/k8s-abstraction-layers.png)
+![[k8s-abstraction-layers.png]]
 
 **Everything below "Deployment" is handled by Kubernetes**
 
@@ -548,7 +547,7 @@ spec:
 
 **Ports**
 
-![](img/k8s-ports-in-service-and-pod.png)
+![[k8s-ports-in-service-and-pod.png]]
 
 
 ```sh
@@ -580,8 +579,7 @@ kubectl get deployment nginx-deployment -o yaml > nginx-deployment-result.yaml
 
 ### Overview
 
-![](img/k8s-demo-project-overview.png)
-
+![[k8s-demo-project-overview.png]]
 
 ### Request Flow
 
@@ -929,7 +927,7 @@ Change the active namespaces with `kubens`. You have to install the tool: <https
     - `NodePort`
     - `LoadBalancer`
 
-![](img/k8s-3-service-type-attributes.png)
+![[k8s-3-service-type-attributes.png]]
 
 
 ### ClusterIP Services    
@@ -943,7 +941,7 @@ Change the active namespaces with `kubens`. You have to install the tool: <https
     - `labels` of pods
     - you can give any name you want
 
-![](img/k8s-service-selector.png)
+![[k8s-service-selector.png]]
 
 - If a Pod has several ports open, how the service knows to which port to forward the request to?
     - `targetPort` Service attribute
@@ -963,7 +961,7 @@ kubectl get endpoints
 
 **Multi-Port Services**
 
-![](img/k8s-multi-port-services.png)
+![[k8s-multi-port-services.png]]
 
 
 ### Headless Services
@@ -1001,7 +999,7 @@ And you can see it in the output of `kubectl get services`, in the line where th
     - what's the difference between `NodePort` and `LoadBalancer`?
     - what's the usecase for `NodePort`?
 
-![](img/k8s-nodeport-services.png)
+![[k8s-nodeport-services.png]]
 
 
 ### LoadBalancer Services
@@ -1147,7 +1145,7 @@ spec:
     # that name in the same namespace
 ```
 
-![](img/k8s-tls-certificate.png)
+![[k8s-tls-certificate.png]]
 
 **NOTES**:
 
@@ -1178,6 +1176,8 @@ Requirements:
 
 ### Persistent Volume
 
+Think in a Persistent Volume as a cluster resource just like RAM and CPU.
+
 - created via yaml:
     - `kind: PersistentVolume`
 - needs actual physical storage
@@ -1206,13 +1206,14 @@ There are two roles:
 
 Storage resource is provisioned by the admin. And the user makes their application claim the Persistent Volume.
 
-Persistent Volume Claim is also a component `kind: PsersistentVolumeClaim`.
+Persistent Volume Claim is also a component `kind: PersistentVolumeClaim`.
 
 Summing up:
 
 1. admins configure storage
 2. admins create Persistent Volumes
 3. users claim Persistent Volumes through `PersistentVolumeClaim`
+4. users make their pod's use the PVC in the Pod's spec (note: the Pod and the PVC must be in the same namespace)
 
 
 ### Level of Volume Abstractions
@@ -1230,6 +1231,8 @@ ConfigMap and Secret are local volumes, managed by kubernetes. They can be mount
 
 ### Storage Class
 
+Storage Class is used when there are hundreds of pods requesting hundreds of Persistent Volumes.
+
 StorageClass provisions Persistent Volumes dynamically, when `PersistentVolumeClaim` claims it.
 
 - Another abstraction level, abstracting:
@@ -1242,6 +1245,48 @@ StorageClass provisions Persistent Volumes dynamically, when `PersistentVolumeCl
 
 **Usage**:
 
-1. pod claims via PVC
+1. pod claims a volume via PVC
 2. PVC requests storage from StorageClass
 3. StorageClass creates a PersistentVolume that meets the needs of the claim (using the defined provisioner)
+
+**My words**: basically Storage Class is a way to automatically create Persistent Volumes when a Pod claims one.
+
+
+## 12. ConfigMap & Secret Volume Types
+
+Using ConfigMap and Secret as volumes makes it easier to access customization data.
+
+> TODO: put some examples here...
+ 
+ 
+ **Note:** ConfigMap and Secret are Local Volume Types.
+ 
+ 
+ ## 13. StatefulSet - Deploying Stateful Applications
+ 
+ <https://techworld-with-nana.teachable.com/courses/devops-bootcamp/lectures/28706438>
+ 
+- Stateful applications:
+    - keep record of its state
+    - example: databases
+    - deployed using `kind: StatefulSet`
+- Stateless applications:
+    - don't keep record of state
+    - each request is completely new, doesn't depend on previous data
+    - deployed using `kind: Deployment`
+
+
+## 14. Managed Kubernetes Services Explained
+
+<https://techworld-with-nana.teachable.com/courses/devops-bootcamp/lectures/28706442>
+
+
+## 15. Helm - Package Manager for Kubernetes
+
+### What is Helm?
+
+Package Manager for Kubernetes
+
+It's useful when complex application setup needs a lot of k8s components. Then rather than creating all of them manually, you can use a "Helm chart" most of the files ready, with just some space for customization.
+
+

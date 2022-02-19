@@ -159,9 +159,8 @@ then add to your `package.json`:
 
 now, just execute `yarn dev` (ou `npm run dev`).
 
+
 ## CRUD
-
-
 
 Dumb backend example using an array named `projects` to store data:
 ```js

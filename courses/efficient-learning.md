@@ -1,6 +1,7 @@
 # Efficient Learning
 
 - <https://www.udemy.com/course/learning-to-learn-efficient-learning-zero-to-mastery>
+- See also [[aprendendo a aprender]].
 
 Really interesting article by Anders Ericsson detailing his researches about deliberate practice (in the text he calls it purposeful practice).
 
@@ -52,3 +53,57 @@ Purposeful practice...
     - it means tryint to do something that you couldn't do before.
     - sometimes you may find it relatively easy, but sometimes you run into something that stops you cold. Finding ways around these barriers is one of the hidden keys.
     - try harder != try differently
+
+---
+
+## continuing with the course
+
+### Parkinson's law
+
+Parkinson's law:
+> work expands so as to fill the time available for its completion.
+
+Given the Parkinson's law, use the Pomodoro technique in your favor.
+
+Instead of yearly big ambitious goals, set weekly (smaller, achievable) goals.
+
+### Deep Work
+
+- Skill I want
+    - GitLab-CI Specialist
+- Strategies to achieve that (unordered):
+    - finish the udemy course
+    - finish the gitlab course
+    - deploy my digital garden using gitlab-ci
+    - watch some youtube videos
+
+- achievement: finish my DevOps books
+    - Manual de DevOps
+    - Jornada DevOps
+    - Continuous Delivery
+    - Microsserviços Prontos Para Produção
+
+
+### Concepts vs Facts
+
+Facts are googable, concepts are hard google.
+
+Focus on grasping concepts.
+
+
+### Test Yourself
+
+Deliberate practice.
+
+Write down what you're learning/listening/reading. Use your own words.
+
+
+### The First 20 Hours
+
+- Books:
+    - Ultralearning
+    - The First 20 Hours
+
+### einstellung
+
+rigid mind

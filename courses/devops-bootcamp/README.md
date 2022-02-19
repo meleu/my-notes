@@ -16,4 +16,5 @@ My notes about the DevOps Bootcamp by Nana: <https://www.techworld-with-nana.com
 - [06-artifact-repository-manager-with-nexus](https://meleu.github.io/my-notes/courses/devops-bootcamp/06-artifact-repository-manager-with-nexus) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/06-artifact-repository-manager-with-nexus.md)
 - [07-containers-with-docker](https://meleu.github.io/my-notes/courses/devops-bootcamp/07-containers-with-docker) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/07-containers-with-docker.md)
 - [08-jenkins-ci-cd](https://meleu.github.io/my-notes/courses/devops-bootcamp/08-jenkins-ci-cd) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/08-jenkins-ci-cd.md)
+- [09-aws-services](https://meleu.github.io/my-notes/courses/devops-bootcamp/09-aws-services) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/09-aws-services.md)
 - [10-kubernetes](https://meleu.github.io/my-notes/courses/devops-bootcamp/10-kubernetes) - [✏️](https://github.com/meleu/my-notes/edit/master/courses/devops-bootcamp/10-kubernetes.md)

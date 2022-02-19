@@ -1,8 +1,6 @@
 # NLW #6 - Aula 1
 
 - <https://nextlevelweek.com/episodios/node/aula-1/edicao/6>
-- <https://github.com/meleu/nlw-06/commit/94fe5a57a064c24d8f70b0c4d693905c8d2e5054>
-
 
 ## Descrição do Projeto - 11:50
 

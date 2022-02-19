@@ -1,13 +1,13 @@
 # NLW #6 - Aula 2
 
 - <https://nextlevelweek.com/episodios/node/aula-2/edicao/6>
-- <https://github.com/meleu/nlw-06/commit/a369ca5c22472296d6f1b89e210c6af021f4fdcf>
 
 
 ## Tabelas - 3:55
 
 ```md
 # users
+
 - id: uuid (pk)
 - name: varchar
 - email: varchar
@@ -16,7 +16,9 @@
 - created_at: Date
 - updated_at: Date
 
+
 # tags
+
 - id: uuid (pk)
 - name: varchar
 - created_at: Date
@@ -24,6 +26,7 @@
 
 
 # compliments
+
 - id: uuid (pk)
 - user_sender: uuid (fk)
 - user_receiver: uuid (fk)
@@ -55,7 +58,7 @@ utilizaremos 3 tipos:
 ```sh
 yarn add typeorm reflect-metadata sqlite3 uuid
 yarn add @types/uuid -D
-mkdir src/database
+mkdir database
 ```
 
 `ormconfig.json`:
@@ -101,53 +104,10 @@ yarn typeorm migration:create -n CreateUsers
 
 `src/database/migrations/*CreateUsers*.ts`:
 ```ts
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+// 44:45
+// 45:30
+// 46:40
 
-export class CreateUsers1624473991243 implements MigrationInterface {
-
-  public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.createTable(
-      new Table({
-        name: "users",
-        columns: [
-          {
-            name: "id",
-            type: "uuid",
-            isPrimary: true
-          },
-          {
-            name: "name",
-            type: "varchar"
-          },
-          {
-            name: "email",
-            type: "varchar"
-          },
-          {
-            name: "admin",
-            type: "boolean",
-            default: "false"
-          },
-          {
-            name: "created_at",
-            type: "timestamp",
-            default: "now()"
-          },
-          {
-            name: "updated_at",
-            type: "timestamp",
-            default: "now()"
-          }
-        ]
-      })
-    );
-  }
-
-  public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("users");
-  }
-
-}
 ```
 
 Executando a migration:
@@ -179,37 +139,7 @@ yarn typeorm entity:create -n User
 
 Criará o arquivo `src/entities/User.ts`:
 ```ts
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
-
-@Entity("users")
-export class User {
-
-  @PrimaryColumn()
-  readonly id: string;
-
-  @Column()
-  name: string;
-
-  @Column()
-  email: string;
-
-  @Column()
-  admin: boolean;
-
-  @CreateDateColumn()
-  created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
-
-}
+// 1:02:15
 ```
 
 ## Repositório - 1:02:40
@@ -218,7 +148,7 @@ export class User {
 
 ```sh
 mkdir -p src/repositories
-touch src/repositories/UserRepositories.ts
+touch UserRepositories.ts
 ```
 
 `src/repositories/UserRepositories.ts`:
@@ -263,44 +193,9 @@ mkdir -p src/services
 
 `src/services/CreateUserService.ts`:
 ```ts
-import { getCustomRepository } from "typeorm";
-import { UserRepositories } from "../repositories/UserRepositories";
-
-interface IUserRequest {
-  name: string;
-  email: string;
-  admin?: boolean;
-}
-
-class CreateUserService {
-  async execute({ name, email, admin }: IUserRequest) {
-    const usersRepository = getCustomRepository(UserRepositories);
-
-    if (!email) {
-      throw new Error("Email incorrect");
-    }
-
-    const userAlreadyExists = await usersRepository.findOne({
-      email
-    });
-
-    if (userAlreadyExists) {
-      throw new Error("User already exists");
-    }
-
-    const user = usersRepository.create({
-      name,
-      email,
-      admin
-    });
-
-    await usersRepository.save(user);
-
-    return user;
-  }
-}
-
-export { CreateUserService };
+// 1:22:55
+// 1:23:50
+// 1:35:35 - correção para usar getCustomRepository()
 ```
 
 ## Controllers - 1:24:30
@@ -314,7 +209,7 @@ Explicação interessante sobre "Controllers" em 1:25:00
 fluxo de requisição
 ===================
 
-client -> server -> controllers -> services -> repositories -> entities -> DB
+client -> server -> controllers -> services -> repositories -> DB
                          ^
                          |
                 classe que tem acesso ao
@@ -329,22 +224,7 @@ Fazendo requisição com insomnia: 1:27:00
 
 `src/controllers/CreateUserController.ts`:
 ```ts
-import { Request, Response } from "express";
-import { CreateUserService } from "../services/CreateUserService";
-
-class CreateUserController {
-  async handle(request: Request, response: Response) {
-    const { name, email, admin } = request.body;
-
-    const createUserService = new CreateUserService();
-
-    const user = await createUserService.execute({ name, email, admin });
-
-    return response.json(user);
-  }
-}
-
-export { CreateUserController };
+// 1:28:50
 ```
 
 
@@ -352,16 +232,7 @@ export { CreateUserController };
 
 `src/routes.ts`:
 ```ts
-import { Router } from "express";
-import { CreateUserController } from "./controllers/CreateUserController";
-
-const router = Router();
-
-const createUserController = new CreateUserController();
-
-router.post("/users", createUserController.handle);
-
-export { router };
+// 1:31:10
 ```
 
 `src/server.ts`:
@@ -382,21 +253,3 @@ app.use(router);
 app.listen(3000, () => console.log("Server is running"));
 ```
 
-
-## Testando - 1:32:20
-
-Rodando o app:
-```sh
-yarn dev
-```
-
-Envia requisição com insomnia com o seguinte body:
-```json
-{
-  "name": "Meu Nome",
-  "email": "algumacoisa@exemplo.com",
-  "admin": true
- }
-```
-
-Verifica no beekeeper se realmente criou o usuário.
