@@ -1,9 +1,26 @@
 # CSS
-[✏️](https://github.com/meleu/my-notes/edit/master/css.md)
 
-## course
+## courses
 
-- <https://css-for-js.dev/> - this seems to be an awesome course (CSS aimed to JS developers).
+- <https://web.dev/learn/css/> - Learning CSS with the best guys.
+- <https://css-for-js.dev/> - [paid] this seems to be an awesome course (CSS aimed to JS developers).
+- <https://cssgrid.io/> - CSS grid layout.
+- <https://flexbox.io/> - Flexbox layout.
+
+
+
+## CSS games
+
+- selectors: <https://https://flukeout.github.io/>
+- flexbox: <https://flexboxfroggy.com>
+- grid: <https://cssgridgarden.com>
+
+## how to organize your CSS code
+
+- <https://cube.fyi/> - CUBE CSS (inspired by BEM)
+- <https://getbem.com> - BEM
+
+
 
 ## smooth scrolling
 
@@ -63,8 +80,8 @@ html {
 }
 ```
 
-
 ## transition e transform
+
 
 Isso é um resumo do que eu aprendi lendo esse artigo: [https://thoughtbot.com/blog/transitions-and-transforms#transition-timing-optional](https://thoughtbot.com/blog/transitions-and-transforms#transition-timing-optional)
 
@@ -311,4 +328,5 @@ Também existe um método chamado de _matrix method_, mas não cheguei e verific
 Básico de animações com CSS: [https://thoughtbot.com/blog/css-animation-for-beginners](https://thoughtbot.com/blog/css-animation-for-beginners)
 
 [http://codepen.io/](http://codepen.io/) - um _CSS sandbox_ para testar o código e ver os resultados na hora.
+
 

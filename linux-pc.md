@@ -4,14 +4,14 @@
 ## Mandatory Packages
 
 ```
-vim vim-gtk htop tmux xclip jq wget curl
+vim vim-gtk htop tmux xclip jq wget curl git
 ```
 
 
 ## Which distribution am I in?
 
 ```sh
-cat /etc/issue
+cat /etc/os-release
 ```
 
 ## Bootable USB Pendrive

@@ -84,3 +84,47 @@ git checkout pr-1234
 # git checkout <local-branchname>
 ```
 
+
+## gitconfigs to be applied to specific directories
+
+If you work for multiple clients - or if you work for a company and contribute to open source projects - you probably already faced the situation where you made a git commit with the wrong account. Now the github commit history has your real name and your work email... :/
+
+A good solution for this is to:
+
+1. have a specific dir for a specific customer's source code and
+2. have a specific gitconfig to be applied to all git repositories inside that directory.
+
+Let's just do that:
+
+```bash
+# creating specific dirs
+mkdir -p ~/src/client1
+mkdir -p ~/src/client2
+
+# gitconfig for client1
+echo "
+[user]
+  email = meleu.dev@client1.com
+  name = meleu" > ~/src/client1/gitconfig
+
+# gitconfig for client2
+echo "
+[user]
+  email = meleu.dev@client2.com
+  name = meleu" > ~/src/client2/gitconfig
+```
+
+Once each directory has its own gitconfig, now we must setup the global `.gitconfig` to apply them at specific situations using `includeIf`:
+
+```
+# add this to your ~/.gitconfig
+
+[includeIf "gitdir:~/src/client1/**"]
+  path = ~/src/client1/gitconfig
+
+[includeIf "gitdir:~/src/client2/**"]
+  path = ~/src/client2/gitconfig
+```
+
+Once it's done, your configuration in `~/src/client1/gitconfig` will be applied to all cloned repositories inside that directory (same for `client2`).
+
