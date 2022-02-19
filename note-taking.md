@@ -5,6 +5,11 @@
 
 #notetaking
 
+## Zettelkasten Method
+
+<https://zettelkasten.de/introduction/>
+
+
 ## app
 
 - [Obsidian](https://obsidian.md/)
@@ -40,3 +45,11 @@ Settings > Core Plugins > Starred
 - Back - `alt-left`
 - Forward - `alt-right`
 - New note - `ctrl-n`
+
+
+### Building a Second Brain with Obsidian
+
+- <https://youtu.be/jASsctBxZk4>
+
+- 1:18:50 - Calendar plugin
+- 1:21:40 - Templates

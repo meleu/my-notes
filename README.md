@@ -15,6 +15,7 @@ Personal notes about things I've been learning (mostly programming).
 
 ### 📝 Notes
 
+- [11ty](https://meleu.github.io/my-notes/.git/../11ty) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../11ty.md)
 - [apache](https://meleu.github.io/my-notes/.git/../apache) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../apache.md)
 - [bash](https://meleu.github.io/my-notes/.git/../bash) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../bash.md)
 - [css](https://meleu.github.io/my-notes/.git/../css) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../css.md)
@@ -30,7 +31,6 @@ Personal notes about things I've been learning (mostly programming).
 - [jekyll](https://meleu.github.io/my-notes/.git/../jekyll) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../jekyll.md)
 - [jenkins-vs-gitlab](https://meleu.github.io/my-notes/.git/../jenkins-vs-gitlab) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../jenkins-vs-gitlab.md)
 - [jq](https://meleu.github.io/my-notes/.git/../jq) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../jq.md)
-- [jwt](https://meleu.github.io/my-notes/.git/../jwt) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../jwt.md)
 - [knowledge-gaps](https://meleu.github.io/my-notes/.git/../knowledge-gaps) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../knowledge-gaps.md)
 - [kubernetes](https://meleu.github.io/my-notes/.git/../kubernetes) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../kubernetes.md)
 - [leadership](https://meleu.github.io/my-notes/.git/../leadership) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../leadership.md)
@@ -41,7 +41,6 @@ Personal notes about things I've been learning (mostly programming).
 - [nginx](https://meleu.github.io/my-notes/.git/../nginx) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nginx.md)
 - [nodejs](https://meleu.github.io/my-notes/.git/../nodejs) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../nodejs.md)
 - [note-taking](https://meleu.github.io/my-notes/.git/../note-taking) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../note-taking.md)
-- [obsidian](https://meleu.github.io/my-notes/.git/../obsidian) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../obsidian.md)
 - [postgresql](https://meleu.github.io/my-notes/.git/../postgresql) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../postgresql.md)
 - [presentations](https://meleu.github.io/my-notes/.git/../presentations) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../presentations.md)
 - [react](https://meleu.github.io/my-notes/.git/../react) - [✏️](https://github.com/meleu/my-notes/edit/master/.git/../react.md)
