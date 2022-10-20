@@ -1,3 +1,12 @@
+# ⚠️ This repo is not maintained anymore, but...
+
+Now I have a 🌱 digital garden.
+
+I host my notes in [this repo](https://github.com/meleu/meleudotdev), and publish them in <https://meleu.netlify.app>.
+
+Since I knew <https://obsidian.md> I completely changed my note-taking workflow.
+
+
 # 📓 my-notes
 Personal notes about things I've been learning (mostly programming).
 
