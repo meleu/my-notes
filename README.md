@@ -2,7 +2,7 @@
 
 Now I have a 🌱 digital garden.
 
-I host my notes in [this repo](https://github.com/meleu/meleudotdev), and publish them in <https://meleu.netlify.app>.
+I host my notes in [this repo](https://github.com/meleu/meleudotdev), and publish them in <https://meleu.dev>.
 
 Since I knew <https://obsidian.md> I completely changed my note-taking workflow.
 
